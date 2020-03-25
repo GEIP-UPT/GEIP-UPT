@@ -7,12 +7,14 @@ header{
 	align-items: center;
 	overflow: hidden;
 
+
 }
 header nav {
  	width: 100%;
+
  	background-color: rgba(21,32,95,10);
 	z-index:200;
-
+	height: 100px;
  }
 header nav ul{
 list-style: none;
@@ -31,11 +33,12 @@ header nav ul li a{
 	transition: all .6s;
 
 }
-header nav ul li a:hover{
+header nav ul:hover{
 
 	background-color: rgb(117,17,83);
 		
 }
+
 
 .main {
 background:#f2f2f2 ;
@@ -46,25 +49,30 @@ background:#f2f2f2 ;
 }
 
 aside{
-	background: #c0392b;
+	
 	color: #fff;
 }
 .footer{
 	background-color: rgb(117,17,83);
-	width: 100%;
-	height: 110px;
+	width: auto;
+	height: 30px;
 	bottom: 0;
-	margin-left: -20px;
-	position: fixed;
+
 	text-align: center;
 	color: #fff; 
 	text-rendering: optimizeLegibility;
 	text-rendering: optimizeSpeed;
 }
+.footer2{
+  padding-bottom: 2px;
+
+}
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
-	background: #fff;
+	padding-top: 150px;
+	padding-right: 90px;
+	background: rgb(245,245,245);
 	background-size: cover;
 	background-attachment: fixed; 
 }
@@ -84,7 +92,8 @@ padding: 3px;
 h1{
 	text-align: center;
 	color: #1a2537;
-	font-size: 80px;
+	font-size: 60px;
+	margin-top: -5px;
 }
 input[type="text"],
 input[type="password"]{
@@ -142,3 +151,5 @@ th,td{
 	border: none;
 	padding:0;
 }
+
+
