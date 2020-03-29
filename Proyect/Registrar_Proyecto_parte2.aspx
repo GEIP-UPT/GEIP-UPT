@@ -38,7 +38,7 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_alumnos.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>
@@ -203,11 +203,11 @@
                 <div class="row pt-60" style="margin-bottom: 21px">
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
             
-        <a href="Registrar_Proyecto_Parte_1.html"> <button class="btn btn-info"  >Regresar</button></a>   
+        <a href="Registrar_Proyecto_Parte_1.aspx"> <button class="btn btn-info"  >Regresar</button></a>   
         </div>
          <div class="col-xs-6 col-sm-6 col-md-3 "  align="right">
             
-           <a href="Registrar_Proyecto_Parte3.html"><button class="btn btn-info">Guardar</button></a> 
+           <a href="Registrar_Proyecto_Parte3.aspx"><button class="btn btn-info">Guardar</button></a> 
         </div>
 
     </div>   

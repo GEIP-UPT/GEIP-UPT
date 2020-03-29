@@ -39,7 +39,7 @@
 						  Usuario
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>
@@ -130,7 +130,7 @@
 	<div class="row pt-60">
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			
-			<a href="Proyectos_inactivos.html"><button class="btn btn-info pt-8" >Regresar</button></a>
+			<a href="Proyectos_inactivos.aspx"><button class="btn btn-info pt-8" >Regresar</button></a>
 		</div>
 
 	</div>                         

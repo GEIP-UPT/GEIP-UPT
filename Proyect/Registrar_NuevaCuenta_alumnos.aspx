@@ -34,7 +34,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
         
-                    <li class="active"><a href="index.html" target="_self">Inicio</a></li>
+                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
                 </ul>
             </div>
 
@@ -123,7 +123,7 @@
         
          <div class="col-xs-12 col-sm-12 col-md-12 "  align="right">
             
-            <a href="Login_alumnos.html"><button class="btn btn-info ">Guardar</button></a>
+            <a href="Login_alumnos.aspx"><button class="btn btn-info ">Guardar</button></a>
         </div>
 
     </div> 

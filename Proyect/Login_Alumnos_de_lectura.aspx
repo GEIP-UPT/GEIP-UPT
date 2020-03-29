@@ -33,17 +33,17 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="active"><a href="Login_administrar.html" target="_self">Administrativo</a></li>
+                    <li class="active"><a href="Login_administrar.aspx" target="_self">Administrativo</a></li>
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Alumnos
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                             <a class="dropdown-item" href="Login_alumnos.html">Alumnos proyectos</a>
-                            <a class="dropdown-item" href="Login_Alumnos_de_lectura.html">Solo lectura</a>
+                             <a class="dropdown-item" href="Login_alumnos.aspx">Alumnos proyectos</a>
+                            <a class="dropdown-item" href="Login_Alumnos_de_lectura.aspx">Solo lectura</a>
                         </div>
                     </li>
-                    <li class="active"><a href="index.html" target="_self">Inicio</a></li>
+                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
 
 
                 </ul>
@@ -68,7 +68,7 @@
 									</div>
                             </div>
                             <div class="col-12 col-lg-12">
-                               <center><a href="Lectura_datos_alumnos_soloLectura.html"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
+                               <center><a href="Lectura_datos_alumnos_soloLectura.aspx"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,7 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_alumnos.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
                             
                            
                         </div>
@@ -62,7 +62,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.html" target="_self">Registrar proyecto</a></li>
+                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto</a></li>
                    
 
                 </ul>
@@ -78,7 +78,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active"><a href="Datos_del_Proyecto_Alum.html" target="_self">Visualizar proyecto</a></li>
+                    <li class="active"><a href="Datos_del_Proyecto_Alum.aspx" target="_self">Visualizar proyecto</a></li>
                    
 
                 </ul>

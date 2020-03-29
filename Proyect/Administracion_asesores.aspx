@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_asesores.aspx.cs" Inherits="GEIP_UPT.Administracion_asesores" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_asesores.aspx.cs" Inherits="GEIP_UPT.Administracion_asesores" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -38,7 +39,7 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
                             
                            
                         </div>
@@ -62,7 +63,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Proyectos_disponibles.html" target="_self">Proyectos Activos</a></li>
+                    <li class="active" ><a href="Proyectos_disponibles.aspx" target="_self">Proyectos Activos</a></li>
                    
 
                 </ul>
@@ -78,7 +79,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active"><a href="Proyectos_inactivos_asesor.html" target="_self">Proyectos Inactivos</a></li>
+                    <li class="active"><a href="Proyectos_inactivos_asesor.aspx" target="_self">Proyectos Inactivos</a></li>
                    
 
                 </ul>

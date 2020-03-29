@@ -33,10 +33,10 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="active"><a href="index.html" target="_self">Inicio</a></li>
-                     <li class="active"><a href="Login_administrar.html" target="_self">Administración</a></li>
+                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
+                     <li class="active"><a href="Login_administrar.aspx" target="_self">Administración</a></li>
 
-                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.html" target="_self">Registrarse</a></li>
+                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.aspx" target="_self">Registrarse</a></li>
 
 
                 </ul>
@@ -64,7 +64,7 @@
 								<center><input class="shadow-lg form-control" type="password" placeholder="&#128273 Contraseña"></center>
                            			 </div>
                             <div class="col-12 mb-38">
-                               <center><a href="Administracion_alumnos.html"><input  type="submit" value="INGRESAR" class="button shadow-lg "></a></center>
+                               <center><a href="Administracion_alumnos.aspx"><input  type="submit" value="INGRESAR" class="button shadow-lg "></a></center>
                             </div>
                         </div>
                     </div>
