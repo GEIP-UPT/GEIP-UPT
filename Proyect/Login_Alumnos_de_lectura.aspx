@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_Alumnos_de_lectura.aspx.cs" Inherits="GEIP_UPT.Login_Alumnos_de_lectura" %>
+﻿<%@ Page Title="Iniciar Sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_Alumnos_de_lectura.aspx.cs" Inherits="GEIP_UPT.Login_Alumnos_de_lectura" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>

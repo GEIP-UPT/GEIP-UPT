@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_alumnos.aspx.cs" Inherits="GEIP_UPT.Administracion_alumnos" %>
+﻿<%@ Page Title="Administracion de Proyectos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_alumnos.aspx.cs" Inherits="GEIP_UPT.Administracion_alumnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!DOCTYPE html>
+
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +39,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
-                            
+                            <a class="dropdown-item" href="Editar_Cuenta_alumnos.aspx">&#9881Perfil</a>
                            
                         </div>
                     </li>
@@ -94,5 +94,5 @@
     </main>
 
 </body>
-
+    </html>
 </asp:Content>

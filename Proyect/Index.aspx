@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="GEIP_UPT._Default" %>
+﻿<%@ Page Title="GEIP-UPT" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="GEIP_UPT._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
  
@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>GEIP</title>
+    <title>GEIP-UPT</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->

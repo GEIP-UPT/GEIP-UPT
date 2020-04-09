@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Proyectos_inactivos.aspx.cs" Inherits="GEIP_UPT.Proyectos_inactivos" %>
+﻿<%@ Page Title="Datos de Proyecto inactivo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Proyectos_inactivos.aspx.cs" Inherits="GEIP_UPT.Proyectos_inactivos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <!DOCTYPE html>

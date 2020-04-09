@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_Proyecto_Parte_1.aspx.cs" Inherits="GEIP_UPT.Registrar_Proyecto_Parte_1" %>
+﻿<%@ Page Title="Registro de proyectos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_Proyecto_Parte_1.aspx.cs" Inherits="GEIP_UPT.Registrar_Proyecto_Parte_1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <!DOCTYPE html>

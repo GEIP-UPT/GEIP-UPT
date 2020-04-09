@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion.aspx.cs" Inherits="GEIP_UPT.Administracion" %>
+﻿<%@ Page Title="Administración" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion.aspx.cs" Inherits="GEIP_UPT.Administracion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
   <!DOCTYPE html>
@@ -78,4 +78,5 @@
         </div>
     </main>
 </body>
+    </html>
 </asp:Content>

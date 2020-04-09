@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_Proyecto_Parte3.aspx.cs" Inherits="GEIP_UPT.Registrar_Proyecto_Parte3" %>
+﻿<%@ Page Title="Registrar proyecto" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_Proyecto_Parte3.aspx.cs" Inherits="GEIP_UPT.Registrar_Proyecto_Parte3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -79,7 +79,8 @@
                                 </select>
                                 <!-- Prueba -->
                            <!--  <div class="container">-->
-                            <button type="button" id="botModal" class="btn btn-primary">Calendario</button>
+                            <asp:button type="button" runat="server" id="botModal" class="btn btn-primary" Text="Calendario"></asp:button>
+                                           
                             <!-- </div>fin de Prueba -->
                             <!-- fin de Prueba -->
 <!-- inicio modal-content -->

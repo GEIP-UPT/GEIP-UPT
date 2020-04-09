@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Registro" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_NuevaCuenta_alumnos.aspx.cs" Inherits="GEIP_UPT.Registrar_NuevaCuenta_alumnos" %>
+﻿<%@ Page Title="Perfil" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrar_NuevaCuenta_alumnos.aspx.cs" Inherits="GEIP_UPT.Registrar_NuevaCuenta_alumnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Registro</title>
+    <title>Perfil</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
@@ -33,8 +33,17 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-        
-                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
+                             <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Usuario
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Administracion_alumnos.aspx">Regresar</a>
+                           
+                        </div>
+                    </li>
+                    
                 </ul>
             </div>
 
@@ -42,7 +51,7 @@
     </header>
 
     <main>
-        <h3 class="pt-8" align="center">Registro de Alumno</h3>
+        <h3 class="pt-8" align="center">Perfil</h3>
 
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
             <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
@@ -146,5 +155,5 @@
         </div>
     </main>
 </body>
-
+    </html>
 </asp:Content>
