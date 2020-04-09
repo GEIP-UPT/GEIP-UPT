@@ -62,7 +62,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto</a></li>
+                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto </a></li>
                    
 
                 </ul>

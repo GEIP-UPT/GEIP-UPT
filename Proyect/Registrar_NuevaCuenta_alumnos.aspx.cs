@@ -45,84 +45,38 @@ namespace GEIP_UPT
         {
             bool registro = true;
 
-              //ApellidoM
-              //ApellidoM
-              Tb_apellidoM.BackColor = Tb_apellidoM.Text.Equals("")? Color.PaleVioletRed: Color.White;
-              registro = Tb_apellidoM.Text.Equals("")?false:true;
-            
-            
 
-            if (Tb_apellidoP.Text.Equals(""))
-            {
-                Tb_apellidoP.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Tb_apellidoP.BackColor = Color.White;
+            //ApellidoM
+            Tb_apellidoM.BackColor = Tb_apellidoM.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_apellidoM.Text.Equals("") ? false : registro;
 
-            }
+            //ApellidoP
+            Tb_apellidoP.BackColor = Tb_apellidoP.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_apellidoP.Text.Equals("") ? false : registro;
 
-            if (Tb_contraseña.Text.Equals(""))
-            {
-                Tb_contraseña.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Tb_contraseña.BackColor = Color.White;
-            }
+            //Contraseña
+            Tb_contraseña.BackColor = Tb_contraseña.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_contraseña.Text.Equals("") ? false : registro;
 
-            if (Tb_correo.Text.Equals(""))
-            {
-                Tb_correo.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
+            //Correo
+            Tb_correo.BackColor = Tb_correo.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_correo.Text.Equals("") ? false : registro;
 
-                Tb_correo.BackColor = Color.White;
-            }
+            //Matricula
+            Tb_matricula.BackColor = Tb_matricula.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_matricula.Text.Equals("") ? false : registro;
 
-            if (Tb_matricula.Text.Equals(""))
-            {
-                Tb_matricula.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Tb_matricula.BackColor = Color.White;
-            }
+            //Nombre
+            Tb_Nombre.BackColor = Tb_Nombre.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            registro = Tb_Nombre.Text.Equals("") ? false : registro;
 
-            if (Tb_Nombre.Text.Equals(""))
-            {
-                Tb_Nombre.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Tb_Nombre.BackColor = Color.White;
-            }
+            //Carrera
+            Dl_Carrera.BackColor = Dl_Carrera.SelectedValue.Equals("Carrera") ? Color.PaleVioletRed : Color.White;
+            registro = Dl_Carrera.SelectedValue.Equals("Carrera") ? false : registro;
 
-            if (Dl_Carrera.SelectedValue.Equals("Carrera"))
-            {
-                Dl_Carrera.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Dl_Carrera.BackColor = Color.White;
-            }
-
-            if (Dl_Edad.SelectedValue.Equals("Edad"))
-            {
-                Dl_Edad.BackColor = Color.PaleVioletRed;
-                registro = false;
-            }
-            else
-            {
-                Dl_Edad.BackColor = Color.White;
-            }
+            //Edad
+            Dl_Edad.BackColor = Dl_Edad.SelectedValue.Equals("Edad") ? Color.PaleVioletRed : Color.White;
+            registro = Dl_Edad.SelectedValue.Equals("Edad") ? false : registro;
 
             try
             {
