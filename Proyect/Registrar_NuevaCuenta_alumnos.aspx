@@ -43,6 +43,12 @@
 
     <main>
         <h3 class="pt-8" align="center">Registro de Alumno</h3>
+
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
+
         <div class="container-fluid p-15">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -51,66 +57,74 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                
                                    
-                    <center><input type="text" placeholder="Ingrese su Nombre" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select>
+                    <center>
+                             <asp:TextBox ID="Tb_Nombre" runat="server" type="text" placeholder="Ingrese su Nombre" class="shadow-lg" > </asp:TextBox>
+                                 <asp:DropDownList ID="Dl_Edad" runat="server" class="brad-5">
+                                    <asp:ListItem value="Edad">Edad</asp:ListItem>
+                                    <asp:ListItem value="18">18</asp:ListItem>
+                                    <asp:ListItem value="19">19</asp:ListItem>
+                                    <asp:ListItem value="20">20</asp:ListItem>
+                                    <asp:ListItem value="21">21</asp:ListItem>
+                                    <asp:ListItem value="22">22</asp:ListItem>
+                                    <asp:ListItem value="23">23</asp:ListItem>
+                                    <asp:ListItem value="24">24</asp:ListItem>
+                                    <asp:ListItem value="25">25</asp:ListItem>
+                                    <asp:ListItem value="26">26</asp:ListItem>
+                                    <asp:ListItem value="27">27</asp:ListItem>
+                                    <asp:ListItem value="28">28</asp:ListItem>
+                                    <asp:ListItem value="29">29</asp:ListItem>
+                                    <asp:ListItem value="30">30</asp:ListItem>
+                                    <asp:ListItem value="31">31</asp:ListItem>
+                                    <asp:ListItem value="32">32</asp:ListItem>
+                                    <asp:ListItem value="33">33</asp:ListItem>
+                                    <asp:ListItem value="34">34</asp:ListItem>
+                                    <asp:ListItem value="35">35</asp:ListItem>
+                                    <asp:ListItem value="36">36</asp:ListItem>
+                                    <asp:ListItem value="37">37</asp:ListItem>
+                                    <asp:ListItem value="38">38</asp:ListItem>
+                                    <asp:ListItem value="39">39</asp:ListItem>
+                                    <asp:ListItem value="40">40</asp:ListItem>
+                                </asp:DropDownList>
                                         </center>
                         
                                     
-                                    
-            <center><input type="text" placeholder="Ingrese apellido materno" class="shadow-lg"> <input type="text" placeholder="Ingrese correo electronico" class="shadow-lg">
+            <center>
+                <asp:TextBox ID="Tb_apellidoM" runat="server" type="text" placeholder="Ingrese apellido materno" class="shadow-lg"> </asp:TextBox>
+                <asp:TextBox ID="Tb_correo" runat="server" type="text" placeholder="Ingrese correo electronico" class="shadow-lg"> </asp:TextBox>
                                     </center>
 
                             
                                     
-                         <center><input type="text" placeholder="Ingrese apellido paterno" class="shadow-lg"><input type="text" placeholder="Ingrese contraseña" class="shadow-lg">
+                         <center>
+                             <asp:TextBox ID="Tb_apellidoP" runat="server" type="text" placeholder="Ingrese apellido paterno" class="shadow-lg"></asp:TextBox>
+                             <asp:TextBox ID="Tb_contraseña" runat="server" type="text" placeholder="Ingrese contraseña" class="shadow-lg"></asp:TextBox>
                          </center>
                                     
                                       <div class="input-contenedor">
                                     
-                         <center><input type="text" placeholder="Ingrese Matricula" class="shadow-lg">  </center> 
+                         <center>
+                             <asp:TextBox ID="Tb_matricula" runat="server" type="text" placeholder="Ingrese Matricula" class="shadow-lg"></asp:TextBox>
+                                 </center> 
                          <center class="pt-15">
-                          <select name="Programa_educativo" class="brad-5 " >
-                                    <option value="Opcion">Carrera</option>
-                                    <option value="Robotica">Ingenieria en Robotica</option>
-                                    <option value="Civil">Ingenieria Civil</option>
-                                    <option value="Industrial">Ingenieria Industrial</option>
-                                    <option value="Sistemas_Computacionales">Ingenieria en Sistemas Computacionales</option>
-                                    <option value="Tecnologias de Manufactura">Ingenieria en Tecnologias de Manufactura</option>
-                                    <option value="Electronica y Telecomunicaciones">Ingenieria en Electronica y Telecomunicaciones</option>
-                                    <option value="PYMES">Licenciatura en Gestion de PYMES</option>
-                                    <option value="Negocios_Internacionales">Licenciatura en Negocios Internacionales</option>
-                                    <option value="Energias_renovables">Maestria en energias renovables</option>
-                                    <option value="Optica">Maestría en Computación Óptica</option>
-                                    <option value="Organizaciones">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Desarrollo_Software">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Automatizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Optimizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Contribuciones">Maestría en Dirección de Organizaciones </option>
-                                </select>
+
+                          <asp:DropDownList ID="Dl_Carrera" runat="server" class="brad-5 " >
+                                    <asp:ListItem value="Carrera">Carrera</asp:ListItem>
+                                    <asp:ListItem value="Robotica">Ingenieria en Robotica</asp:ListItem>
+                                    <asp:ListItem value="Civil">Ingenieria Civil</asp:ListItem>
+                                    <asp:ListItem value="Industrial">Ingenieria Industrial</asp:ListItem>
+                                    <asp:ListItem value="Sistemas_Computacionales">Ingenieria en Sistemas Computacionales</asp:ListItem>
+                                    <asp:ListItem value="Tecnologias de Manufactura">Ingenieria en Tecnologias de Manufactura</asp:ListItem>
+                                    <asp:ListItem value="Electronica y Telecomunicaciones">Ingenieria en Electronica y Telecomunicaciones</asp:ListItem>
+                                    <asp:ListItem value="PYMES">Licenciatura en Gestion de PYMES</asp:ListItem>
+                                    <asp:ListItem value="Negocios_Internacionales">Licenciatura en Negocios Internacionales</asp:ListItem>
+                                    <asp:ListItem value="Energias_renovables">Maestria en energias renovables</asp:ListItem>
+                                    <asp:ListItem value="Optica">Maestría en Computación Óptica</asp:ListItem>
+                                    <asp:ListItem value="Organizaciones">Maestría en Dirección de Organizaciones </asp:ListItem>
+                                    <asp:ListItem value="Desarrollo_Software">Maestría en Dirección de Organizaciones </asp:ListItem>
+                                    <asp:ListItem value="Automatizacion">Maestría en Dirección de Organizaciones </asp:ListItem>
+                                    <asp:ListItem value="Optimizacion">Maestría en Dirección de Organizaciones </asp:ListItem>
+                                    <asp:ListItem value="Contribuciones">Maestría en Dirección de Organizaciones </asp:ListItem>
+                                </asp:DropDownList>
                          </center>
                                     </div>
                             </div>
@@ -123,7 +137,7 @@
         
          <div class="col-xs-12 col-sm-12 col-md-12 "  align="right">
             
-            <a href="Login_alumnos.aspx"><button class="btn btn-info ">Guardar</button></a>
+            <asp:Button ID="Button1" runat="server" Text="Guardar" class="btn btn-info" OnClick="Button1_Click" />
         </div>
 
     </div> 
