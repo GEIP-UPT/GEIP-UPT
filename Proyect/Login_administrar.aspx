@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_administrar.aspx.cs" Inherits="GEIP_UPT.Login_administrar" %>
+﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_administrar.aspx.cs" Inherits="GEIP_UPT.Login_administrar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <!DOCTYPE html>
@@ -33,17 +33,17 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="active"><a href="index.html" target="_self">Inicio</a></li>
+                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Alumnos
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_alumnos.html">Alumnos proyectos</a>
-                            <a class="dropdown-item" href="Login_Alumnos_de_lectura.html">Solo lectura</a>
+                            <a class="dropdown-item" href="Login_alumnos.aspx">Alumnos proyectos</a>
+                            <a class="dropdown-item" href="Login_Alumnos_de_lectura.aspx">Solo lectura</a>
                         </div>
                     </li>
-                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.html" target="_self">Registrarse</a></li>
+                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.aspx" target="_self">Registrarse</a></li>
 
 
                 </ul>
@@ -71,7 +71,7 @@
 								<center><input type="password" placeholder="&#128273 Contraseña" class="shadow-lg"></center>
                            	
                             <div class="col-12 mb-36">
-                               <center><a href="Administracion.html"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
+                               <center><a href="Administracion.aspx"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
                             </div>
                         </div>
                     </div>

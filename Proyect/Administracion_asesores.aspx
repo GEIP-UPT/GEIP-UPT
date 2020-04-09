@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_asesores.aspx.cs" Inherits="GEIP_UPT.Administracion_asesores" %>
+﻿<%@ Page Title="Administraciòn" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_asesores.aspx.cs" Inherits="GEIP_UPT.Administracion_asesores" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -35,10 +36,10 @@
 
                     <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Usuario
-                        </a>
+						  Usuario
+						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
                             
                            
                         </div>
@@ -53,7 +54,7 @@
     </header>
     <main>
         <div class="container-fluid">
-            <h3 class="pt-8" align="center">Registro y visualizacion de proyectos</h3>
+            <h3 class="pt-8" align="center">Administrativo</h3>
         <div class="row pt-56 pb-248">
             <div class="col-xs-12 col-sm-12 col-md-6">
                  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #fff; ">
@@ -62,7 +63,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Proyectos_disponibles.html" target="_self">Proyectos Activos</a></li>
+                    <li class="active" ><a href="Proyectos_disponibles.aspx" target="_self">Proyectos Activos</a></li>
                    
 
                 </ul>
@@ -78,7 +79,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active"><a href="Proyectos_inactivos_asesor.html" target="_self">Proyectos Inactivos</a></li>
+                    <li class="active"><a href="Proyectos_inactivos_asesor.aspx" target="_self">Proyectos Inactivos</a></li>
                    
 
                 </ul>
@@ -97,5 +98,5 @@
     <script src="js/jquery.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-
+    
 </asp:Content>

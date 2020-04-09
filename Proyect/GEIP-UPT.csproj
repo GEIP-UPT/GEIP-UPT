@@ -45,6 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -201,6 +202,7 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BD.cs" />
     <Compile Include="Datos de Asesor.aspx.cs">
       <DependentUpon>Datos de Asesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,6 +382,7 @@
     <Compile Include="Registrar_Visualizar_Proyecto.aspx.designer.cs">
       <DependentUpon>Registrar_Visualizar_Proyecto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistroAlumno.cs" />
     <Compile Include="Registro_completo_Integrantes.aspx.cs">
       <DependentUpon>Registro_completo_Integrantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

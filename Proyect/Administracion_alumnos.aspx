@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_alumnos.aspx.cs" Inherits="GEIP_UPT.Administracion_alumnos" %>
+﻿<%@ Page Title="Administracion de Proyectos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administracion_alumnos.aspx.cs" Inherits="GEIP_UPT.Administracion_alumnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!DOCTYPE html>
+
 <!DOCTYPE html>
 <html>
 
@@ -38,8 +38,8 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_alumnos.html">Cerrar sesión</a>
-                            
+                            <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Editar_Cuenta_alumnos.aspx">&#9881Perfil</a>
                            
                         </div>
                     </li>
@@ -62,7 +62,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.html" target="_self">Registrar proyecto</a></li>
+                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto </a></li>
                    
 
                 </ul>
@@ -78,7 +78,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active"><a href="Datos_del_Proyecto_Alum.html" target="_self">Visualizar proyecto</a></li>
+                    <li class="active"><a href="Datos_del_Proyecto_Alum.aspx" target="_self">Visualizar proyecto</a></li>
                    
 
                 </ul>
@@ -94,5 +94,5 @@
     </main>
 
 </body>
-
+    </html>
 </asp:Content>

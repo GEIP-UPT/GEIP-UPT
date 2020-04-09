@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Datos_del_Proyecto_Alum.aspx.cs" Inherits="GEIP_UPT.Datos_del_Proyecto_Alum" %>
+﻿<%@ Page Title="Datos de Proyecto" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Datos_del_Proyecto_Alum.aspx.cs" Inherits="GEIP_UPT.Datos_del_Proyecto_Alum" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -38,7 +38,7 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>
@@ -125,7 +125,7 @@
                             	
 	<div class="row pt-60">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<a href="Administracion_alumnos.html"><button class="btn btn-info pt-8" >Regresar</button>
+			<a href="Administracion_alumnos.aspx"><button class="btn btn-info pt-8" >Regresar</button>
     </a>
 				</div>
 

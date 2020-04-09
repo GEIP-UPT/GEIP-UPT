@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recuersos_Descripcion_Datos_Participante.aspx.cs" Inherits="GEIP_UPT.Recuersos_Descripcion_Datos_Participante" %>
+﻿<%@ Page Title="Lectura de proyectos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recuersos_Descripcion_Datos_Participante.aspx.cs" Inherits="GEIP_UPT.Recuersos_Descripcion_Datos_Participante" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <!DOCTYPE html>

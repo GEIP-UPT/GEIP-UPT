@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_alumnos.aspx.cs" Inherits="GEIP_UPT.Login_alumnos" %>
+﻿<%@ Page Title="Iniciar Sesión" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login_alumnos.aspx.cs" Inherits="GEIP_UPT.Login_alumnos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <!DOCTYPE html>
@@ -7,9 +7,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Iniciar Sesión</title>
+        
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
-
+      <title>Iniciar Sesión</title>
+       <link rel="shortcut icon" type="image/png" href="https://drive.google.com/open?id=1wi9Hh4hAkIDs99dNs84P51FI1zxsSQvr/logo.png"/>
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,6 +19,7 @@
       <script src="https://kit.fontawesome.com/68163644d5.js" crossorigin="anonymous"></script>
     <!-- Optional theme -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+  
 </head>
 
 <body>
@@ -33,10 +35,10 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="active"><a href="index.html" target="_self">Inicio</a></li>
-                     <li class="active"><a href="Login_administrar.html" target="_self">Administración</a></li>
+                    <li class="active"><a href="index.aspx" target="_self">Inicio</a></li>
+                     <li class="active"><a href="Login_administrar.aspx" target="_self">Administración</a></li>
 
-                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.html" target="_self">Registrarse</a></li>
+                    <li class="active"><a href="Registrar_NuevaCuenta_alumnos.aspx" target="_self">Registrarse</a></li>
 
 
                 </ul>
@@ -47,6 +49,11 @@
 
     <main>
     	<h3 class="pt-8" align="center">Iniciar Sesión</h3>
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
+
         <div class="container-fluid p-15">
             <div class="row">
                 <div class="col-12 col-lg-">
@@ -55,16 +62,18 @@
                             <div class="col-12 mb-15">
                                <div class="input-contenedor">
 									
-										<center><input type="text" placeholder="&#128100 Matricula" class="shadow-lg form-control"></center>
+										<center><asp:TextBox ID="tb_matricula" runat="server" type="text" placeholder="🤵‍ Matricula" class="shadow-lg form-control"></asp:TextBox> </center>
 									</div>
                             </div>
                             <div class="col-12 mb-20">
                               <div class="input-contenedor ">
 							
-								<center><input class="shadow-lg form-control" type="password" placeholder="&#128273 Contraseña"></center>
+								<center><asp:TextBox ID="tb_contrasena" runat="server" class="shadow-lg form-control" type="password" placeholder="🔒 Contraseña"></asp:TextBox></center>
+                -
                            			 </div>
                             <div class="col-12 mb-38">
-                               <center><a href="Administracion_alumnos.html"><input  type="submit" value="INGRESAR" class="button shadow-lg "></a></center>
+                               <center> <asp:Button ID="Ingresar" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
+                                
                             </div>
                         </div>
                     </div>
@@ -75,5 +84,5 @@
     </main>
 </body>
 
-
+    </html>
 </asp:Content>
