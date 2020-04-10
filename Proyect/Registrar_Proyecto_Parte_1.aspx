@@ -52,7 +52,7 @@
         <div class="container-fluid p-15">
             <div class="row">
             					<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 8px;">
-            					<center><input type="text" placeholder="NOMBRE DEL PROYECTO" > </center>
+            					<center><asp:TextBox ID="Tb_nombreProyecto" runat="server" type="text" placeholder="Nombre del proyecto" > </asp:TextBox></center>
             				</div>
             			</div>
 
@@ -61,19 +61,19 @@
                                <div class="input-contenedor" style="display: flex; justify-content: center;">
 							
 									<center>
-                                    <select name="Avance"  class="brad-5" >
-                                    <option value="Opcion">Avance</option>
-                                    <option value="10">10%</option>
-                                    <option value="20">20%</option>
-                                    <option value="30">30%</option>
-                                    <option value="40">40%</option>
-                                    <option value="50">50%</option>
-                                    <option value="60">60%</option>
-                                    <option value="70">70%</option>
-                                    <option value="80">80%</option>
-                                    <option value="90">90%</option>
-                                    <option value="100">100%</option>
-                                </select>
+                                    <asp:DropDownList ID="Avance" runat="server"  class="brad-5" >
+                                    <asp:ListItem value="Opcion">Avance</asp:ListItem>
+                                    <asp:ListItem value="10">10%</asp:ListItem>
+                                    <asp:ListItem value="20">20%</asp:ListItem>
+                                    <asp:ListItem value="30">30%</asp:ListItem>
+                                    <asp:ListItem value="40">40%</asp:ListItem>
+                                    <asp:ListItem value="50">50%</asp:ListItem>
+                                    <asp:ListItem value="60">60%</asp:ListItem>
+                                    <asp:ListItem value="70">70%</asp:ListItem>
+                                    <asp:ListItem value="80">80%</asp:ListItem>
+                                    <asp:ListItem value="90">90%</asp:ListItem>
+                                    <asp:ListItem value="100">100%</asp:ListItem>
+                                </asp:DropDownList>
                             </center>
 									</div>
 
@@ -129,10 +129,12 @@
                                     <option value="Tecnologico">Biotecnología-Ciencias Agropecuarias</option>
                                     <option value="Servicio">Humanidades-Ciencias de la Conducta</option>
                                     <option value="Servicio">Ingenierías-Industria</option>
-                                </select> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                <select name="Asesores" style="border-radius: 5px">
-                                    <option value="Opcion">Asesores</option>
-                                </select>
+                                </select> &nbsp;&nbsp; &nbsp;&nbsp; 
+
+                                 <asp:DropDownList ID="Dl_Asesores" runat="server"  class="brad-5" >
+                                  <asp:ListItem value="Asesores">Asesores</asp:ListItem>
+                                  </asp:DropDownList>
+
                                </center>
                             </div>
 
@@ -144,7 +146,7 @@
                        <div class="row pt-60" style="margin-bottom: 21px">
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
             
-             <a href="Administracion_alumnos.aspx"><button class="btn btn-info"  >Regresar</button></a>
+            <asp:Button iD= Btn_Regresar runat="server" class="btn btn-info" Text="Regresar" OnClick="Btn_Regresar_Click"></asp:Button> 
         </div>
          <div class="col-xs-6 col-sm-6 col-md-3 "  align="right">
             
@@ -161,4 +163,4 @@
     </main>
 </body>
 
-</asp:Content>
+                                   </select>&nbsp;&nbsp; &nbsp;&nbsp;</asp:Content>

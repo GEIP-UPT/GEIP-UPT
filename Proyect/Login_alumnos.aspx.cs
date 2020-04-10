@@ -35,11 +35,13 @@ namespace GEIP_UPT
                 if (existe)
                 {
                     Response.Redirect("Administracion_alumnos.aspx");
+                    rA.conect.Close();
                 }
                 else
                 {
                     MsgError.Text = "Alumno no encontrado, revise sus datos";
                     MsgError.Visible = true;
+                    rA.conect.Close();
                 }
 
 

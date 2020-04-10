@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,25 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            llenarAsesores();
+        }
 
+
+        protected void llenarAsesores()
+        {
+            RegistroAlumno rA = new RegistroAlumno();
+            SqlDataReader asesores = rA.getAsesores();
+            while (asesores.Read())
+            {
+                Dl_Asesores.Items.Add(new ListItem(asesores.GetString(0), asesores.GetString(0)));
+            }
+            rA.conect.Close();
+                
+        }
+
+        protected void Btn_Regresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Administracion_alumnos.aspx");
         }
     }
 }

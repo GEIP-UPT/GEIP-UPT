@@ -54,6 +54,12 @@
 
     <main>
     	<h3 class="pt-8" align="center">Iniciar Sesión</h3>
+
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
+
         <div class="container-fluid p-15">
             <div class="row">
                 <div class="col-12 col-lg-">
@@ -62,16 +68,16 @@
                             <div class="col-12 mb-15">
                                <div class="input-contenedor">
 									
-										<center><input type="text" placeholder="&#128100 Correro institucional" class="shadow-lg"></center>
+										<center><asp:TextBox ID="tb_matricula" runat="server" type="text" placeholder="🤵‍ Matricula" class="shadow-lg form-control"></asp:TextBox> </center>
 									</div>
                             </div>
                             <div class="col-12 mb-15">
                               
 								
-								<center><input type="password" placeholder="&#128273 Contraseña" class="shadow-lg"></center>
-                           	
+								<center><asp:TextBox ID="tb_contrasena" runat="server" class="shadow-lg form-control" type="password" placeholder="🔒 Contraseña"></asp:TextBox></center>
+                
                             <div class="col-12 mb-36">
-                               <center><a href="Administracion.aspx"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
+                               <center> <asp:Button ID="Ingresar" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
                             </div>
                         </div>
                     </div>
