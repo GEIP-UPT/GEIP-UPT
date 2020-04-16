@@ -53,6 +53,12 @@
         <div class="container-fluid p-15">
 
         <h3 class="" align="center">Registrar Proyecto</h3>
+
+            
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Mensaje de error" Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
         
             <div class="row">
                 <div class="col-12 col-lg-12">
@@ -61,29 +67,15 @@
                             <div class="col-12 mb-12">
                                <div class="input-contenedor pt-8">
                                     
-                                        <center> 
-                                    <select name="Tiempo de desarrollo" class="brad-5">
-                                    <option value="Opcion">Tiempo de desarrollo</option>
-                                    <option value="10">1 mes</option>
-                                    <option value="20">2 meses</option>
-                                    <option value="30">3 meses</option>
-                                    <option value="40">4 meses</option>
-                                    <option value="50">5 meses</option>
-                                    <option value="60">6 meses</option>
-                                    <option value="70">7 meses</option>
-                                    <option value="80">8 meses</option>
-                                    <option value="90">9 meses</option>
-                                    <option value="100">10 meses</option>
-                                    <option value="100">11 meses</option>
-                                    <option value="100">12 meses</option>
-                                </select>
-                                <!-- Prueba -->
-                           <!--  <div class="container">-->
-                            <asp:button type="button" runat="server" id="botModal" class="btn btn-primary" Text="Calendario"></asp:button>
+                                        <center style="width: 1246px"> Fecha de finalización<asp:Calendar ID="Calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                                                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                                                <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                                                <OtherMonthDayStyle ForeColor="#999999" />
+                                                <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                                <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                                <TodayDayStyle BackColor="#CCCCCC" />
+                                            </asp:Calendar>
                                            
-                            <!-- </div>fin de Prueba -->
-                            <!-- fin de Prueba -->
-<!-- inicio modal-content -->
                             <div class="modal fade" id="caleder-date" tabindex="-1" role="dialog">
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -117,44 +109,39 @@
                               <div class="row">
                                  <div class="col-12 mb-12">
                                <center>
-                                <select name="Cuatrimestre de desarrollo" class="brad-5">
-                                    <option value="Opcion">Cuatrimestre de desarrollo</option>
-                                    <option value="1">1° cuatrimestre</option>
-                                    <option value="2">2° cuatrimestre</option>
-                                    <option value="3">3° cuatrimestre</option>
-                                    <option value="4">4° cuatrimestre</option>
-                                    <option value="5">5° cuatrimestre</option>
-                                    <option value="6">6° cuatrimestre</option>
-                                    <option value="7">7° cuatrimestre</option>
-                                    <option value="8">8° cuatrimestre</option>
-                                    <option value="9">9° cuatrimestre</option>
-                                </select>
-     ¿Has Participado en alguna convocatoria?<input type="radio" name="convocatoria" value="Si">Si<input type="radio" name="convocatoria" value="No">No <br>
-                               </center>
+                                <asp:DropDownList ID="Dl_cuatrimestre" runat="server">
+                                    <asp:ListItem value="Defecto"> Cuatrimestre de desarrollo </asp:ListItem>
+                                    <asp:ListItem value="1">1° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="2">2° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="3">3° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="4">4° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="5">5° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="6">6° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="7">7° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="8">8° cuatrimestre</asp:ListItem>
+                                    <asp:ListItem value="9">9° cuatrimestre</asp:ListItem>
+                                </asp:DropDownList>
+
+                                </center>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-12 ">
-                            <br>
                                <center>
-                                    <select name="Impacto" class="brad-5">
-                                    <option value="Opcion">Materia a las que impacta</option>
-                                    <option value="Robotica">Ingenieria en Robotica</option>
-                                    <option value="Civil">Ingenieria Civil</option>
-                                    <option value="Industrial">Ingenieria Industrial</option>
-                                    <option value="Sistemas_Computacionales">Ingenieria en Sistemas Computacionales</option>
-                                    <option value="Tecnologias de Manufactura">Ingenieria en Tecnologias de Manufactura</option>
-                         <option value="Electronica y Telecomunicaciones">Ingenieria en Electronica y Telecomunicaciones</option>
-                                    <option value="PYMES">Licenciatura en Gestion de PYMES</option>
-                                    <option value="Negocios_Internacionales">Licenciatura en Negocios Internacionales</option>
-                                    <option value="Energias_renovables">Maestria en energias renovables</option>
-                                    <option value="Optica">Maestría en Computación Óptica</option>
-                                    <option value="Organizaciones">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Desarrollo_Software">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Automatizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Optimizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Contribuciones">Maestría en Dirección de Organizaciones </option>
-                                </select><input type="text" placeholder="Cual y lugar obtenido">
+                                    Materias a las que impacta<br>
+
+                                    <asp:CheckBoxList ID="Cb_materias" runat="server">
+
+                                    </asp:CheckBoxList>
+                                   
+                                    ¿Has Participado en alguna convocatoria? 
+                                         <br>
+                               
+                                   <asp:RadioButton ID="Rb_Y" GroupName="Gp1" runat="server" Text="Si" AutoPostBack="True" OnCheckedChanged="Rb_Y_CheckedChanged" Checked="true"></asp:RadioButton> 
+                                   <asp:RadioButton ID="Rb_N" GroupName="Gp1" runat="server" Text="No" AutoPostBack="True" OnCheckedChanged="Rb_N_CheckedChanged"></asp:RadioButton> 
+
+                                <br />
+                                    <asp:TextBox ID="Tb_lugar" runat="server" type="text" placeholder="Cual y lugar obtenido" Visible="true"> </asp:TextBox>
                                </center>
                             </div>
                         </div>
@@ -168,16 +155,106 @@
                        <div class="row pt-90 mb-17" >
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
             
-             <a href="Registrar_Proyecto_Parte2.aspx"><button class="btn btn-info"  >Regresar</button></a>
+            <asp:Button ID="Btn_Regresar" runat="server" class="btn btn-info" Text="Regresar" OnClick="Btn_Regresar_Click" ></asp:Button>
+
         </div>
          <div class="col-xs-6 col-sm-6 col-md-3 "  align="right">
             
-            <a href="Registrar_Proyecto_parte4.aspx"><button class="btn btn-info " >Guardar</button></a>
+            <asp:Button ID="Btn_Sig" runat="server" class="btn btn-info" Text="Siguiente" OnClientClick="guardarProyecto();" OnClick="Sig_Click"></asp:Button>
         </div>
 
     </div>  
         </div>
     </main>
+    
+
+    <script type="text/javascript">
+        obtenerProyecto();
+
+        function guardarProyecto() {
+            //obtener fecha
+            var calendarDate = '<%= Calendario.SelectedDate %>';
+            var date = calendarDate.split(" ");
+        
+            //obtener materias
+            var cbs = document.getElementById('<%= Cb_materias.ClientID %>');
+
+            var cbArray = cbs.getElementsByTagName('input');
+            var checkValues = '';
+
+            for (var i = 0; i < cbArray.length; i++) {
+                var referencia = cbArray[i];
+
+                if (referencia.checked == true) {
+
+                    if (checkValues == '' )
+                        checkValues = referencia.value;
+                    else
+                        checkValues = checkValues + "," + referencia.value;
+                }
+            }
+
+            var convocator = 'No';
+            //convocatoria
+            var radioY = document.getElementById('<%= Rb_Y.ClientID %>').checked;
+            if (radioY == true) {
+                convocator = document.getElementById('<%= Tb_lugar.ClientID %>').value;
+            }
+
+            let Proyecto = {
+               fecha: date[0],
+                cuatrimestre: document.getElementById('<%= Dl_cuatrimestre.ClientID %>').value,
+                materias: checkValues,
+                convocatoria: convocator
+            };
+
+            localStorage.setItem("._Proyecto3", JSON.stringify(Proyecto));
+        }
+
+        function obtenerProyecto(){
+            let proyecto = JSON.parse(localStorage.getItem("._Proyecto3"));
+            if (proyecto != "") {
+                //poner fecha
+                document.getElementById('<%= Calendario.ClientID %>').value = proyecto.fecha;
+                //cuatrimestre
+                document.getElementById('<%= Dl_cuatrimestre.ClientID %>').value = proyecto.cuatrimestre;
+                //materias
+                var cbs = document.getElementById('<%= Cb_materias.ClientID %>');
+
+                var cbArray = cbs.getElementsByTagName('input');
+                var checkValues = proyecto.materias;
+                var checkValSpl = checkValues.split(",");
+            
+                for (var i = 0; i < cbArray.length; i++) {
+                    var referencia = cbArray[i];
+
+                    for (var j = 0; j <= checkValSpl.length; j++) {
+
+                        if ( referencia.value == checkValSpl[j] ) {
+                            referencia.checked = true;
+                        }
+                    }
+
+                }
+                //convocatorias
+                var participa = proyecto.convocatoria;
+                if (participa != 'No') {
+                    var rb = document.getElementById('<%= Rb_Y.ClientID %>');
+                    rb.checked = true;
+
+                    document.getElementById('<%= Tb_lugar.ClientID %>').value = proyecto.convocatoria;
+                }
+
+
+
+            }
+
+        }
+
+    </script>
+
+
+
 </body>
 
 </asp:Content>

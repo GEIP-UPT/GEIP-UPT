@@ -93,6 +93,22 @@
 
     </main>
 
+     <script type="text/javascript">
+         limpiarStorage();
+
+         function limpiarStorage() {
+             localStorage.removeItem("._Proyecto");
+             localStorage.removeItem("._Proyecto2");
+             localStorage.removeItem("._Proyecto3");
+             localStorage.removeItem("._Proyecto4");
+         }
+
+
+         </script>
+        
+
 </body>
     </html>
+
+
 </asp:Content>

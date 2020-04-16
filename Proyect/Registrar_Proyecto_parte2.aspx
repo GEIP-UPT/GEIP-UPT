@@ -49,6 +49,13 @@
     </header>
     <main>
         <h3 class="pt-8" align="center">Registro de integrantes del proyecto</h3>
+
+        
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Mensaje de error" Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
+
         <div class="container-fluid p-15">
             <div class="row">
                 <div class="col-12 col-lg-">
@@ -56,145 +63,47 @@
                         <div class="row">
                             <div class="col-12 mb-15">
                                
-                                   
-                    <center><input type="text" placeholder="Ingrese nombre del integrante" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select>
-                                        </center>
-                                
-                                   
-            <center><input type="text" placeholder="Ingrese nombre del integrante" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select></center>
-                                    
-                                           
-                                   
-                         <center><input type="text" placeholder="Ingrese nombre del integrante" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select></center>
-                                    
-                                    <center><input type="text" placeholder="Ingrese nombre del integrante" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select></center>
-                                <center><input type="text" placeholder="Ingrese nombre del integrante" class="shadow-lg"> <select name="Edad" class="brad-5">
-                                    <option value="Opcion">Edad</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>
-                                </select></center>
-                            </div>
+                    <center>
+                            <asp:TextBox ID="Tb1" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:DropDownList ID="Dl_1" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Edad</asp:ListItem>
+                            </asp:DropDownList>
+                        
+                     </center>
+
+                      <center>
+                            <asp:TextBox ID="Tb2" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:DropDownList ID="Dl_2" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Edad</asp:ListItem>
+                            </asp:DropDownList>
+                        
+                     </center>
+
+                     <center>
+                            <asp:TextBox ID="Tb3" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:DropDownList ID="Dl_3" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Edad</asp:ListItem>
+                            </asp:DropDownList>
+                        
+                     </center>
+
+                      <center>
+                            <asp:TextBox ID="Tb4" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:DropDownList ID="Dl_4" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Edad</asp:ListItem>
+                            </asp:DropDownList>
+                        
+                     </center>
+
+                    <center>
+                            <asp:TextBox ID="Tb5" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:DropDownList ID="Dl_5" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Edad</asp:ListItem>
+                            </asp:DropDownList>
+                        
+                     </center>
+
+                                   </div> 
                         </div>
                     </div>
                 </div>
@@ -203,16 +112,60 @@
                 <div class="row pt-60" style="margin-bottom: 21px">
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
             
-        <a href="Registrar_Proyecto_Parte_1.aspx"> <button class="btn btn-info"  >Regresar</button></a>   
+        <asp:Button ID="Btn_Regresar" runat="server" class="btn btn-info" Text="Regresar" OnClick="Btn_Regresar_Click"></asp:Button>   
+
         </div>
          <div class="col-xs-6 col-sm-6 col-md-3 "  align="right">
             
-           <a href="Registrar_Proyecto_Parte3.aspx"><button class="btn btn-info">Guardar</button></a> 
+           <asp:Button ID="Btn_Sig" runat="server" class="btn btn-info" Text="Siguiente" OnClick="Btn_Sig_Click" OnClientClick="guardarProyecto2();"></asp:Button>
         </div>
 
     </div>   
         </div>
     </main>
+
+    <script type="text/javascript">
+        obtenerProyecto2();
+
+        function guardarProyecto2() {
+
+            let Proyecto = {
+                integrante1: document.getElementById('<%= Tb1.ClientID %>').value,
+                edad1: document.getElementById('<%= Dl_1.ClientID %>').value,
+                integrante2: document.getElementById('<%= Tb2.ClientID %>').value,
+                edad2: document.getElementById('<%= Dl_2.ClientID %>').value,
+                integrante3: document.getElementById('<%= Tb3.ClientID %>').value,
+                edad3: document.getElementById('<%= Dl_3.ClientID %>').value,
+                integrante4: document.getElementById('<%= Tb4.ClientID %>').value,
+                edad4: document.getElementById('<%= Dl_4.ClientID %>').value,
+                integrante5: document.getElementById('<%= Tb5.ClientID %>').value,
+                edad5: document.getElementById('<%= Dl_5.ClientID %>').value
+            };
+
+            localStorage.setItem("._Proyecto2", JSON.stringify(Proyecto));
+        }
+
+        function obtenerProyecto2() {
+            let proyecto = JSON.parse(localStorage.getItem("._Proyecto2"));
+
+            if (proyecto != "") {
+                document.getElementById('<%= Tb1.ClientID %>').value = proyecto.integrante1;
+                document.getElementById('<%= Dl_1.ClientID %>').value = proyecto.edad1;
+                document.getElementById('<%= Tb2.ClientID %>').value = proyecto.integrante2;
+                document.getElementById('<%= Dl_2.ClientID %>').value = proyecto.edad2;
+                document.getElementById('<%= Tb3.ClientID %>').value = proyecto.integrante3;
+                document.getElementById('<%= Dl_3.ClientID %>').value = proyecto.edad3;
+                document.getElementById('<%= Tb4.ClientID %>').value = proyecto.integrante4;
+                document.getElementById('<%= Dl_4.ClientID %>').value = proyecto.edad4;
+                document.getElementById('<%= Tb5.ClientID %>').value = proyecto.integrante5;
+                document.getElementById('<%= Dl_5.ClientID %>').value = proyecto.edad5;
+            }
+
+        }
+
+    </script>
+
+
     </body>
 
 </asp:Content>

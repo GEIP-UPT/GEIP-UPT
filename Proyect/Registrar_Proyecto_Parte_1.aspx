@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-light bg-UPT" style="background-image:  url(imagenes/head.png);  ">
@@ -49,10 +50,20 @@
     </header>
     <main>
     	<h3 class="pt-8" align="center">Registrar Proyecto</h3>
+
+        <div style="margin-left: auto; margin-right: auto; text-align: center;">
+            <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
+                     CssClass="StrongText"></asp:Label>
+        </div>
+
+
         <div class="container-fluid p-15">
             <div class="row">
             					<div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 8px;">
-            					<center><asp:TextBox ID="Tb_nombreProyecto" runat="server" type="text" placeholder="Nombre del proyecto" > </asp:TextBox></center>
+            					<center>
+                                    <asp:TextBox ID="Tb_nombreProyecto" runat="server" type="text" placeholder="Nombre del proyecto" > </asp:TextBox>
+
+            					</center>
             				</div>
             			</div>
 
@@ -61,8 +72,8 @@
                                <div class="input-contenedor" style="display: flex; justify-content: center;">
 							
 									<center>
-                                    <asp:DropDownList ID="Avance" runat="server"  class="brad-5" >
-                                    <asp:ListItem value="Opcion">Avance</asp:ListItem>
+                                    <asp:DropDownList ID="Dl_Avance" runat="server"  class="brad-5" >
+                                    <asp:ListItem value="Defecto">Avance</asp:ListItem>
                                     <asp:ListItem value="10">10%</asp:ListItem>
                                     <asp:ListItem value="20">20%</asp:ListItem>
                                     <asp:ListItem value="30">30%</asp:ListItem>
@@ -79,41 +90,23 @@
 
 									 <div class="col-xs-6 col-sm-6 col-md-12 " >
 									 	<div class="input-contendor " style="display: flex; justify-content: center; margin-bottom: 30px;">
-                               
-                                <select name="Tipos " class="brad-5" >
-                                    <option value="Opcion">Tipo de Proyecto</option>
-                                    <option value="Tecnologico">Tecnologico</option>
-                                    <option value="Servicio">Servicio</option>
-                                </select>
+
+                                <asp:DropDownList ID="dl_Tipo" runat="server" class="brad-5" >
+                                    <asp:ListItem value="Defecto">Tipo de Proyecto</asp:ListItem>
+                                </asp:DropDownList>
                             
                         </div>
                             </div>
                             </div>
 
               </div>
-              
 
               <div class="row">
               	 <div class="col-xs-12 col-sm-12 col-md-12">
                               	<center>
-                                 <select name="Programa_educativo " class="brad-5">
-                                    <option value="Opcion">Programa_educativo</option>
-                                    <option value="Robotica">Ingenieria en Robotica</option>
-                                    <option value="Civil">Ingenieria Civil</option>
-                                    <option value="Industrial">Ingenieria Industrial</option>
-                                    <option value="Sistemas_Computacionales">Ingenieria en Sistemas Computacionales</option>
-                                    <option value="Tecnologias de Manufactura">Ingenieria en Tecnologias de Manufactura</option>
-                         <option value="Electronica y Telecomunicaciones">Ingenieria en Electronica y Telecomunicaciones</option>
-                                    <option value="PYMES">Licenciatura en Gestion de PYMES</option>
-                                    <option value="Negocios_Internacionales">Licenciatura en Negocios Internacionales</option>
-                                    <option value="Energias_renovables">Maestria en energias renovables</option>
-                                    <option value="Optica">Maestría en Computación Óptica</option>
-                                    <option value="Organizaciones">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Desarrollo_Software">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Automatizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Optimizacion">Maestría en Dirección de Organizaciones </option>
-                                    <option value="Contribuciones">Maestría en Dirección de Organizaciones </option>
-                                </select>
+                                 <asp:DropDownList ID="dl_Programas" runat="server" class="brad-5">
+                                    <asp:ListItem value="Defecto">Programa_educativo</asp:ListItem>
+                                </asp:DropDownList>
                                </center>
                             </div>
                         </div>
@@ -124,39 +117,70 @@
                         	   <div class="col-xs-12 col-sm-12 col-md-12">
                             <br>
                                <center>
-                                <select name="Clasificacion"  class="brad-5" >
-                                    <option value="Opcion">Clasificacion</option>
-                                    <option value="Tecnologico">Biotecnología-Ciencias Agropecuarias</option>
-                                    <option value="Servicio">Humanidades-Ciencias de la Conducta</option>
-                                    <option value="Servicio">Ingenierías-Industria</option>
-                                </select> &nbsp;&nbsp; &nbsp;&nbsp; 
+                                <asp:DropDownList ID="Dl_Clasificacion" runat="server"  class="brad-5" >
+                                    <asp:ListItem value="Defecto">Clasificacion</asp:ListItem>
+                                </asp:DropDownList>  
 
                                  <asp:DropDownList ID="Dl_Asesores" runat="server"  class="brad-5" >
-                                  <asp:ListItem value="Asesores">Asesores</asp:ListItem>
+                                  <asp:ListItem value="Defecto">Asesores</asp:ListItem>
                                   </asp:DropDownList>
 
                                </center>
                             </div>
-
-
 
                         </div>
 
 
                        <div class="row pt-60" style="margin-bottom: 21px">
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
-            
             <asp:Button iD= Btn_Regresar runat="server" class="btn btn-info" Text="Regresar" OnClick="Btn_Regresar_Click"></asp:Button> 
         </div>
          <div class="col-xs-6 col-sm-6 col-md-3 "  align="right">
             
-            <a href="Registrar_Proyecto_parte2.aspx"><button class="btn btn-info " >Guardar</button></a>
+            <asp:Button Id="Btn_Sig" runat="server" OnClientClick="guardarProyecto();" OnClick="Btn_Guardar_Click" class="btn btn-info" Text="Siguiente" />
+             
         </div>
 
     </div> 
 
               </div>
          		
+
+        
+    <script type="text/javascript">
+        obtenerProyecto();
+
+        function guardarProyecto() {
+
+            let Proyecto = {
+                nombre: document.getElementById('<%= Tb_nombreProyecto.ClientID %>').value,
+                avance: document.getElementById('<%= Dl_Avance.ClientID %>').value,
+                tipo: document.getElementById('<%= dl_Tipo.ClientID %>').value,
+                programa: document.getElementById('<%= dl_Programas.ClientID %>').value,
+                clasificacion: document.getElementById('<%= Dl_Clasificacion.ClientID %>').value,
+                asesores: document.getElementById('<%= Dl_Asesores.ClientID %>').value
+            };
+
+            localStorage.setItem("._Proyecto", JSON.stringify(Proyecto));
+        }
+
+        function obtenerProyecto() {
+            let proyecto = JSON.parse(localStorage.getItem("._Proyecto"));
+
+            if (proyecto != "") {
+                document.getElementById('<%= Tb_nombreProyecto.ClientID %>').value = proyecto.nombre;
+                document.getElementById('<%= Dl_Avance.ClientID %>').value = proyecto.avance;
+                document.getElementById('<%= dl_Tipo.ClientID %>').value = proyecto.tipo;
+                document.getElementById('<%= dl_Programas.ClientID %>').value = proyecto.programa;
+                document.getElementById('<%= Dl_Clasificacion.ClientID %>').value = proyecto.clasificacion;
+                document.getElementById('<%= Dl_Asesores.ClientID %>').value = proyecto.asesores;
+            }
+
+        }
+
+    </script>
+
+
 
 
           

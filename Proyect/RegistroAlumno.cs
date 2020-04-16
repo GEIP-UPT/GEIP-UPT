@@ -80,16 +80,5 @@ namespace GEIP_UPT
             return false;
         }
 
-        public SqlDataReader getAsesores()
-        {
-            conect.Open();
-            SqlDataReader asesores = null;
-            String instruccion = "Select Asesor from DatosAsesor";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            asesores = comando.ExecuteReader();
-
-
-            return asesores;
-        }
     }
 }

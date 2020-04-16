@@ -115,6 +115,7 @@
     <Content Include="Datos_del_Proyecto_Asesor.aspx" />
     <Content Include="Datos_del_Proyecto_inactivo_completos _asesor.aspx" />
     <Content Include="Datos_del_Proyecto_inactivo_completos.aspx" />
+    <Content Include="guardarProyecto.js" />
     <Content Include="Index.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -125,25 +126,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Lectura_datos_alumnos_soloLectura.aspx" />
-    <Content Include="Lectura_de_proyectos.aspx" />
-    <Content Include="Lectura_Proyecto_Descripcion.aspx" />
-    <Content Include="Lectura_Registrar_Proyecto_Parte_1.aspx" />
-    <Content Include="Lectura_Registrar_Proyecto_Parte_2.aspx" />
     <Content Include="Login_administrar.aspx" />
     <Content Include="Login_alumnos.aspx" />
     <Content Include="Login_Alumnos_de_lectura.aspx" />
     <Content Include="Proyectos_disponibles.aspx" />
     <Content Include="Proyectos_inactivos.aspx" />
     <Content Include="Proyectos_inactivos_asesor.aspx" />
-    <Content Include="Recuersos_Descripcion_Datos_Participante.aspx" />
     <Content Include="Registrar_NuevaCuenta_alumnos.aspx" />
     <Content Include="Registrar_Proyecto_parte2.aspx" />
     <Content Include="Registrar_Proyecto_Parte3.aspx" />
     <Content Include="Registrar_proyecto_parte4.aspx" />
     <Content Include="Registrar_Proyecto_Parte_1.aspx" />
-    <Content Include="Registrar_Visualizar_Proyecto.aspx" />
-    <Content Include="Registro_completo_Integrantes.aspx" />
-    <Content Include="Registro_edad_Integrates.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -203,6 +196,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BD.cs" />
+    <Compile Include="ConsultasBD.cs" />
     <Compile Include="Datos de Asesor.aspx.cs">
       <DependentUpon>Datos de Asesor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,34 +256,6 @@
     <Compile Include="Lectura_datos_alumnos_soloLectura.aspx.designer.cs">
       <DependentUpon>Lectura_datos_alumnos_soloLectura.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Lectura_de_proyectos.aspx.cs">
-      <DependentUpon>Lectura_de_proyectos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lectura_de_proyectos.aspx.designer.cs">
-      <DependentUpon>Lectura_de_proyectos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Lectura_Proyecto_Descripcion.aspx.cs">
-      <DependentUpon>Lectura_Proyecto_Descripcion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lectura_Proyecto_Descripcion.aspx.designer.cs">
-      <DependentUpon>Lectura_Proyecto_Descripcion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Lectura_Registrar_Proyecto_Parte_1.aspx.cs">
-      <DependentUpon>Lectura_Registrar_Proyecto_Parte_1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lectura_Registrar_Proyecto_Parte_1.aspx.designer.cs">
-      <DependentUpon>Lectura_Registrar_Proyecto_Parte_1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Lectura_Registrar_Proyecto_Parte_2.aspx.cs">
-      <DependentUpon>Lectura_Registrar_Proyecto_Parte_2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lectura_Registrar_Proyecto_Parte_2.aspx.designer.cs">
-      <DependentUpon>Lectura_Registrar_Proyecto_Parte_2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login_administrar.aspx.cs">
       <DependentUpon>Login_administrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,6 +277,7 @@
     <Compile Include="Login_Alumnos_de_lectura.aspx.designer.cs">
       <DependentUpon>Login_Alumnos_de_lectura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManejoProyectos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proyectos_disponibles.aspx.cs">
       <DependentUpon>Proyectos_disponibles.aspx</DependentUpon>
@@ -332,13 +299,6 @@
     </Compile>
     <Compile Include="Proyectos_inactivos_asesor.aspx.designer.cs">
       <DependentUpon>Proyectos_inactivos_asesor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Recuersos_Descripcion_Datos_Participante.aspx.cs">
-      <DependentUpon>Recuersos_Descripcion_Datos_Participante.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Recuersos_Descripcion_Datos_Participante.aspx.designer.cs">
-      <DependentUpon>Recuersos_Descripcion_Datos_Participante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registrar_NuevaCuenta_alumnos.aspx.cs">
       <DependentUpon>Registrar_NuevaCuenta_alumnos.aspx</DependentUpon>
@@ -375,28 +335,7 @@
     <Compile Include="Registrar_Proyecto_Parte_1.aspx.designer.cs">
       <DependentUpon>Registrar_Proyecto_Parte_1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registrar_Visualizar_Proyecto.aspx.cs">
-      <DependentUpon>Registrar_Visualizar_Proyecto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registrar_Visualizar_Proyecto.aspx.designer.cs">
-      <DependentUpon>Registrar_Visualizar_Proyecto.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RegistroAlumno.cs" />
-    <Compile Include="Registro_completo_Integrantes.aspx.cs">
-      <DependentUpon>Registro_completo_Integrantes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registro_completo_Integrantes.aspx.designer.cs">
-      <DependentUpon>Registro_completo_Integrantes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registro_edad_Integrates.aspx.cs">
-      <DependentUpon>Registro_edad_Integrates.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registro_edad_Integrates.aspx.designer.cs">
-      <DependentUpon>Registro_edad_Integrates.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

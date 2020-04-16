@@ -5,6 +5,8 @@ h1 {
     margin-top: -5px;
 }
 
+.invisible { display:none; } 
+
 #centrar{
   
   color: rgb(245,196,60);

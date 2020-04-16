@@ -15,6 +15,15 @@ namespace GEIP_UPT
     {
 
         /// <summary>
+        /// Control MsgError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MsgError;
+
+        /// <summary>
         /// Control Tb_nombreProyecto.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,40 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.TextBox Tb_nombreProyecto;
 
         /// <summary>
-        /// Control Avance.
+        /// Control Dl_Avance.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Avance;
+        protected global::System.Web.UI.WebControls.DropDownList Dl_Avance;
+
+        /// <summary>
+        /// Control dl_Tipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dl_Tipo;
+
+        /// <summary>
+        /// Control dl_Programas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dl_Programas;
+
+        /// <summary>
+        /// Control Dl_Clasificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Dl_Clasificacion;
 
         /// <summary>
         /// Control Dl_Asesores.
@@ -49,5 +85,14 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_Regresar;
+
+        /// <summary>
+        /// Control Btn_Sig.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_Sig;
     }
 }

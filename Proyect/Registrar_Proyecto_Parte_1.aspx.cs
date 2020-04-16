@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.Windows;
 
 namespace GEIP_UPT
 {
@@ -12,19 +14,71 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            llenarAsesores();
+            
+
+            if (Request.Params["Nombre"] != null)
+            {
+                Tb_nombreProyecto.Text = Request.Params["Nombre"];
+                Dl_Avance.Text = Request.Params["Avance"];
+                Dl_Asesores.Text = Request.Params["Asesores"];
+            }
+
+                if (dl_Tipo.Items.Count == 1)
+                {
+                    llenarAsesores();
+                    llenarClasif();
+                    llenarProgramas();
+                    llenarTipos();
+                }
+
+
+
+        }
+
+        protected void llenarTipos()
+        {
+            ConsultasBD cB = new ConsultasBD();
+            SqlDataReader tipos = cB.getTipos();
+            while (tipos.Read())
+            {
+                dl_Tipo.Items.Add(new ListItem(tipos.GetString(0), tipos.GetString(0)));
+            }
+            cB.conect.Close();
+        }
+
+        protected void llenarProgramas()
+        {
+            ConsultasBD cB = new ConsultasBD();
+            SqlDataReader programas = cB.getProgramas();
+            while (programas.Read())
+            {
+                dl_Programas.Items.Add(new ListItem(programas.GetString(0), programas.GetString(0)));
+            }
+            cB.conect.Close();
+        }
+
+
+        protected void llenarClasif()
+        {
+            ConsultasBD cB = new ConsultasBD();
+            SqlDataReader clasif = cB.getClasif();
+            while (clasif.Read())
+            {
+                Dl_Clasificacion.Items.Add(new ListItem(clasif.GetString(0), clasif.GetString(0)));
+            }
+            cB.conect.Close();
         }
 
 
         protected void llenarAsesores()
         {
-            RegistroAlumno rA = new RegistroAlumno();
-            SqlDataReader asesores = rA.getAsesores();
+            ConsultasBD cB = new ConsultasBD();
+            SqlDataReader asesores = cB.getAsesores();
             while (asesores.Read())
             {
                 Dl_Asesores.Items.Add(new ListItem(asesores.GetString(0), asesores.GetString(0)));
             }
-            rA.conect.Close();
+            cB.conect.Close();
                 
         }
 
@@ -32,5 +86,47 @@ namespace GEIP_UPT
         {
             Response.Redirect("Administracion_alumnos.aspx");
         }
+
+        protected void Btn_Guardar_Click(object sender, EventArgs e)
+        {
+          //  ScriptManager.RegisterClientScriptBlock(this, GetType(), "mykey", "hola();", true);
+
+            if (validar())
+            {
+                MsgError.Visible = false;
+
+                Response.Redirect("Registrar_Proyecto_Parte2.aspx");
+
+            }
+            else
+            {
+                MsgError.Visible = true;
+            }
+
+        }
+
+        protected bool validar() {
+            bool valido = true;
+            //Nombre del proyecto
+            valido = Tb_nombreProyecto.Text.Equals("") ? false : valido;
+            Tb_nombreProyecto.BackColor = Tb_nombreProyecto.Text.Equals("") ? Color.PaleVioletRed : Color.White;
+            //asesores
+            valido = Dl_Asesores.SelectedValue.Equals("Defecto") ? false : valido;
+            Dl_Asesores.BackColor = Dl_Asesores.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
+            //Clasificacion
+            valido = Dl_Clasificacion.SelectedValue.Equals("Defecto") ? false : valido;
+            Dl_Clasificacion.BackColor = Dl_Clasificacion.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
+            //Programas
+            valido = dl_Programas.SelectedValue.Equals("Defecto") ? false : valido;
+            dl_Programas.BackColor = dl_Programas.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
+            //Tipos
+            valido = dl_Tipo.SelectedValue.Equals("Defecto") ? false : valido;
+            dl_Tipo.BackColor = dl_Tipo.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
+            //Avance
+            valido = Dl_Avance.SelectedValue.Equals("Defecto") ? false : valido;
+            Dl_Avance.BackColor = Dl_Avance.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
+            return valido;
+        }
+
     }
 }
