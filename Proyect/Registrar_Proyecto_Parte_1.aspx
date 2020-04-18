@@ -150,6 +150,7 @@
     <script type="text/javascript">
         obtenerProyecto();
 
+
         function guardarProyecto() {
 
             let Proyecto = {

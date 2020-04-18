@@ -13,5 +13,14 @@ namespace GEIP_UPT
 
     public partial class Lectura_datos_alumnos_soloLectura
     {
+
+        /// <summary>
+        /// Control tblProyectos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblProyectos;
     }
 }

@@ -64,7 +64,8 @@
                             <div class="col-12 mb-15">
                                
                     <center>
-                            <asp:TextBox ID="Tb1" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:TextBox ID="Ma1" runat="server" placeholder="Ingrese matrícula  del integrante" class="shadow-lg" Width="255px"></asp:TextBox>
+                            <asp:TextBox ID="Tb1" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg" Width="464px"></asp:TextBox>
                             <asp:DropDownList ID="Dl_1" runat="server" class="brad-5">
                                     <asp:ListItem value="Defecto">Edad</asp:ListItem>
                             </asp:DropDownList>
@@ -72,7 +73,8 @@
                      </center>
 
                       <center>
-                            <asp:TextBox ID="Tb2" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:TextBox ID="Ma2" runat="server" placeholder="Ingrese matrícula del integrante" class="shadow-lg" Width="255px"></asp:TextBox>
+                            <asp:TextBox ID="Tb2" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg" Width="464px"></asp:TextBox>
                             <asp:DropDownList ID="Dl_2" runat="server" class="brad-5">
                                     <asp:ListItem value="Defecto">Edad</asp:ListItem>
                             </asp:DropDownList>
@@ -80,7 +82,8 @@
                      </center>
 
                      <center>
-                            <asp:TextBox ID="Tb3" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:TextBox ID="Ma3" runat="server" placeholder="Ingrese matrícula del integrante" class="shadow-lg" Width="255px"></asp:TextBox>
+                            <asp:TextBox ID="Tb3" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg" Width="464px"></asp:TextBox>
                             <asp:DropDownList ID="Dl_3" runat="server" class="brad-5">
                                     <asp:ListItem value="Defecto">Edad</asp:ListItem>
                             </asp:DropDownList>
@@ -88,7 +91,8 @@
                      </center>
 
                       <center>
-                            <asp:TextBox ID="Tb4" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:TextBox ID="Ma4" runat="server" placeholder="Ingrese matrícula del integrante" class="shadow-lg" Width="255px"></asp:TextBox>
+                            <asp:TextBox ID="Tb4" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg" Width="464px"></asp:TextBox>
                             <asp:DropDownList ID="Dl_4" runat="server" class="brad-5">
                                     <asp:ListItem value="Defecto">Edad</asp:ListItem>
                             </asp:DropDownList>
@@ -96,7 +100,8 @@
                      </center>
 
                     <center>
-                            <asp:TextBox ID="Tb5" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg"></asp:TextBox>
+                            <asp:TextBox ID="Ma5" runat="server" placeholder="Ingrese matrícula del integrante" class="shadow-lg" Width="255px"></asp:TextBox>
+                            <asp:TextBox ID="Tb5" runat="server" placeholder="Ingrese nombre del integrante" class="shadow-lg" Width="464px"></asp:TextBox>
                             <asp:DropDownList ID="Dl_5" runat="server" class="brad-5">
                                     <asp:ListItem value="Defecto">Edad</asp:ListItem>
                             </asp:DropDownList>
@@ -132,14 +137,23 @@
             let Proyecto = {
                 integrante1: document.getElementById('<%= Tb1.ClientID %>').value,
                 edad1: document.getElementById('<%= Dl_1.ClientID %>').value,
+                matricula1: document.getElementById('<%= Ma1.ClientID %>').value,
+
                 integrante2: document.getElementById('<%= Tb2.ClientID %>').value,
                 edad2: document.getElementById('<%= Dl_2.ClientID %>').value,
+                matricula2: document.getElementById('<%= Ma2.ClientID %>').value,
+
                 integrante3: document.getElementById('<%= Tb3.ClientID %>').value,
                 edad3: document.getElementById('<%= Dl_3.ClientID %>').value,
+                matricula3: document.getElementById('<%= Ma3.ClientID %>').value,
+
                 integrante4: document.getElementById('<%= Tb4.ClientID %>').value,
                 edad4: document.getElementById('<%= Dl_4.ClientID %>').value,
+                matricula4: document.getElementById('<%= Ma4.ClientID %>').value,
+
                 integrante5: document.getElementById('<%= Tb5.ClientID %>').value,
-                edad5: document.getElementById('<%= Dl_5.ClientID %>').value
+                edad5: document.getElementById('<%= Dl_5.ClientID %>').value,
+                matricula5: document.getElementById('<%= Ma5.ClientID %>').value,
             };
 
             localStorage.setItem("._Proyecto2", JSON.stringify(Proyecto));
@@ -151,14 +165,23 @@
             if (proyecto != "") {
                 document.getElementById('<%= Tb1.ClientID %>').value = proyecto.integrante1;
                 document.getElementById('<%= Dl_1.ClientID %>').value = proyecto.edad1;
+                document.getElementById('<%= Ma1.ClientID %>').value = proyecto.matricula1;
+
                 document.getElementById('<%= Tb2.ClientID %>').value = proyecto.integrante2;
                 document.getElementById('<%= Dl_2.ClientID %>').value = proyecto.edad2;
+                document.getElementById('<%= Ma2.ClientID %>').value = proyecto.matricula2;
+
                 document.getElementById('<%= Tb3.ClientID %>').value = proyecto.integrante3;
                 document.getElementById('<%= Dl_3.ClientID %>').value = proyecto.edad3;
+                document.getElementById('<%= Ma3.ClientID %>').value = proyecto.matricula3;
+
                 document.getElementById('<%= Tb4.ClientID %>').value = proyecto.integrante4;
                 document.getElementById('<%= Dl_4.ClientID %>').value = proyecto.edad4;
+                document.getElementById('<%= Ma4.ClientID %>').value = proyecto.matricula4;
+
                 document.getElementById('<%= Tb5.ClientID %>').value = proyecto.integrante5;
                 document.getElementById('<%= Dl_5.ClientID %>').value = proyecto.edad5;
+                document.getElementById('<%= Ma5.ClientID %>').value = proyecto.matricula5;
             }
 
         }

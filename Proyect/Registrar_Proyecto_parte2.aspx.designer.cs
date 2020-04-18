@@ -24,6 +24,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Label MsgError;
 
         /// <summary>
+        /// Control Ma1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Ma1;
+
+        /// <summary>
         /// Control Tb1.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Dl_1;
+
+        /// <summary>
+        /// Control Ma2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Ma2;
 
         /// <summary>
         /// Control Tb2.
@@ -60,6 +78,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.DropDownList Dl_2;
 
         /// <summary>
+        /// Control Ma3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Ma3;
+
+        /// <summary>
         /// Control Tb3.
         /// </summary>
         /// <remarks>
@@ -78,6 +105,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.DropDownList Dl_3;
 
         /// <summary>
+        /// Control Ma4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Ma4;
+
+        /// <summary>
         /// Control Tb4.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Dl_4;
+
+        /// <summary>
+        /// Control Ma5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Ma5;
 
         /// <summary>
         /// Control Tb5.

@@ -39,7 +39,7 @@
 						  Usuario
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
+                            <a class="dropdown-item" href="Index.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>
@@ -56,26 +56,29 @@
     	<h3 class="pt-8" align="center">Proyectos</h3>
         <div class="container-fluid p-50 " style="margin-bottom: 8px;">
            
-                         <div class="table-responsive">
-                         	<table class="table active table-border table-hover table-condensed ">
-                            		<tr>
-                            			
-                            		<th>Nombre del Proyecto</th>
-                            		<th>Descripción</th>
-                            		
-                            		
-                            		</tr>
-                            		
-                            		<tr>
-                            			<td>dat1</td>
-                            			<td>dat2</td>
-      									
-                            				 
-                            				 
+                         <div  class="table-responsive">
+                         
 
-                            		</tr>
-                            		
-                            	</table>
+                             <asp:Table  id="tblProyectos"
+                                        runat="server" 
+                                        CellPadding="10"
+                                        CellSpacing="10"
+                                        BackColor="White"
+                                        BorderColor="#dee2e6"
+                                        GridLines="Both" Height="142px"
+                                       class="table active table-border table-hover table-condensed "
+                                        >
+                                        <asp:TableHeaderRow 
+                                            runat="server" 
+                                            BackColor="WhiteSmoke"
+                                            >
+                                            <asp:TableHeaderCell>Nombre</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell>Descripción</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
+                                           
+                                        </asp:TableHeaderRow>
+            
+                                  </asp:Table>
                          </div>      
                             	
 	<div class="row pt-120">

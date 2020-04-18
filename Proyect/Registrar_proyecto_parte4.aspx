@@ -96,14 +96,19 @@
         <%--Hiddens P2--%>
         <asp:HiddenField ID="hf_alumno1" runat="server" />
         <asp:HiddenField ID="hf_edad1" runat="server" />
+        <asp:HiddenField ID="hf_mat1" runat="server" />
         <asp:HiddenField ID="hf_alumno2" runat="server" />
         <asp:HiddenField ID="hf_edad2" runat="server" />
+        <asp:HiddenField ID="hf_mat2" runat="server" />
         <asp:HiddenField ID="hf_alumno3" runat="server" />
         <asp:HiddenField ID="hf_edad3" runat="server" />
+        <asp:HiddenField ID="hf_mat3" runat="server" />
         <asp:HiddenField ID="hf_alumno4" runat="server" />
         <asp:HiddenField ID="hf_edad4" runat="server" />
+        <asp:HiddenField ID="hf_mat4" runat="server" />
         <asp:HiddenField ID="hf_alumno5" runat="server" />
         <asp:HiddenField ID="hf_edad5" runat="server" />
+        <asp:HiddenField ID="hf_mat5" runat="server" />
 
       <%--  Hiddens P3--%>
         <asp:HiddenField ID="hf_fecha" runat="server" />
@@ -163,55 +168,67 @@
 
             </div>
               <div class="row">
-                <div class="col-md-9"> Alumno: </div>
-                  <div class="col-md-3"> Edad: </div>
+                <div class="col-4"> Matricula: </div>
+                <div class="col-6"> Alumno: </div>
+                  <div class="col-2"> Edad: </div>
             </div>
               <div class="row">
 
-                <div class="col-md-9">
+                  <div class="col-4 ">
+                    <asp:Label ID="Lb_Mat1" runat="server" Text="Mat1"></asp:Label>
+                    </div>
+                <div class="col-6">
                     <asp:Label ID="Lb_Alumno1" runat="server" Text="Alumno1"></asp:Label>
                     </div>
-                  <div class="col-md-3">
+                  <div class="col-2">
                     <asp:Label ID="Lb_Edad1" runat="server" Text="Edad1"></asp:Label>
                   </div>
 
             </div>
               <div class="row">
-
-                <div class="col-md-9">
+                  <div class="col-4 ">
+                    <asp:Label ID="Lb_Mat2" runat="server" Text="Mat2"></asp:Label>
+                    </div>
+                <div class="col-6">
                     <asp:Label ID="Lb_Alumno2" runat="server" Text="Alumno2"></asp:Label>
                 </div>
-                  <div class="col-md-3">
+                  <div class="col-2">
                     <asp:Label ID="Lb_Edad2" runat="server" Text="Edad2"></asp:Label>
                   </div>
 
             </div>
               <div class="row">
-
-                <div class="col-md-9">
+                  <div class="col-4 ">
+                    <asp:Label ID="Lb_Mat3" runat="server" Text="Mat3"></asp:Label>
+                    </div>
+                <div class="col-6">
                     <asp:Label ID="Lb_Alumno3" runat="server" Text="Alumno3"></asp:Label>
                 </div>
-                  <div class="col-md-3">
+                  <div class="col-2">
                     <asp:Label ID="Lb_Edad3" runat="server" Text="Edad3"></asp:Label>
                   </div>
 
             </div>
               <div class="row">
-
-                <div class="col-md-9">
+                  <div class="col-4 ">
+                    <asp:Label ID="Lb_Mat4" runat="server" Text="Mat4"></asp:Label>
+                    </div>
+                <div class="col-6">
                     <asp:Label ID="Lb_Alumno4" runat="server" Text="Alumno4"></asp:Label>
                 </div>
-                  <div class="col-md-3">
+                  <div class="col-2">
                     <asp:Label ID="Lb_Edad4" runat="server" Text="Edad4"></asp:Label>
                   </div>
 
             </div>
             <div class="row">
-
-                <div class="col-md-9">
+                <div class="col-4 ">
+                    <asp:Label ID="Lb_Mat5" runat="server" Text="Mat5"></asp:Label>
+                    </div>
+                <div class="col-6">
                     <asp:Label ID="Lb_Alumno5" runat="server" Text="Alumno5"></asp:Label>
                 </div>
-                  <div class="col-md-3">
+                  <div class="col-2">
                     <asp:Label ID="Lb_Edad5" runat="server" Text="Edad5"></asp:Label>
                   </div>
 
@@ -340,14 +357,24 @@
 
                 document.getElementById('<%= Lb_Alumno1.ClientID %>').innerHTML = proyecto.integrante1;
                 document.getElementById('<%= Lb_Edad1.ClientID %>').innerHTML = proyecto.edad1 == 'Defecto' ? '' : proyecto.edad1;
+                document.getElementById('<%= Lb_Mat1.ClientID %>').innerHTML = proyecto.matricula1 == '' ? '' : proyecto.matricula1;
+
+
                 document.getElementById('<%= Lb_Alumno2.ClientID %>').innerHTML = proyecto.integrante2;
                 document.getElementById('<%= Lb_Edad2.ClientID %>').innerHTML = proyecto.edad2 == 'Defecto' ? '' : proyecto.edad2;
+                document.getElementById('<%= Lb_Mat2.ClientID %>').innerHTML = proyecto.matricula2 == '' ? '' : proyecto.matricula2;
+
                 document.getElementById('<%= Lb_Alumno3.ClientID %>').innerHTML = proyecto.integrante3;
                 document.getElementById('<%= Lb_Edad3.ClientID %>').innerHTML = proyecto.edad3 == 'Defecto' ? '' : proyecto.edad3;
+                document.getElementById('<%= Lb_Mat3.ClientID %>').innerHTML = proyecto.matricula3 == '' ? '' : proyecto.matricula3;
+
                 document.getElementById('<%= Lb_Alumno4.ClientID %>').innerHTML = proyecto.integrante4;
                 document.getElementById('<%= Lb_Edad4.ClientID %>').innerHTML = proyecto.edad4 == 'Defecto' ? '' : proyecto.edad4;
+                document.getElementById('<%= Lb_Mat4.ClientID %>').innerHTML = proyecto.matricula4 == '' ? '' : proyecto.matricula4;
+
                 document.getElementById('<%= Lb_Alumno5.ClientID %>').innerHTML = proyecto.integrante5;
                 document.getElementById('<%= Lb_Edad5.ClientID %>').innerHTML = proyecto.edad5 == 'Defecto' ? '' : proyecto.edad5;
+                document.getElementById('<%= Lb_Mat5.ClientID %>').innerHTML = proyecto.matricula5 == '' ? '' : proyecto.matricula5;
   
                 //llenado de hidden para pasar a aspx.cs
                 document.getElementById('<%= hf_alumno1.ClientID %>').value = proyecto.integrante1;
@@ -360,6 +387,11 @@
                 document.getElementById('<%= hf_edad3.ClientID %>').value = proyecto.edad3;
                 document.getElementById('<%= hf_edad4.ClientID %>').value = proyecto.edad4;
                 document.getElementById('<%= hf_edad5.ClientID %>').value = proyecto.edad5;
+                document.getElementById('<%= hf_mat1.ClientID %>').value = proyecto.matricula1;
+                document.getElementById('<%= hf_mat2.ClientID %>').value = proyecto.matricula2;
+                document.getElementById('<%= hf_mat3.ClientID %>').value = proyecto.matricula3;
+                document.getElementById('<%= hf_mat4.ClientID %>').value = proyecto.matricula4;
+                document.getElementById('<%= hf_mat4.ClientID %>').value = proyecto.matricula5;
             }
 
         }

@@ -64,12 +64,16 @@
                             <div class="col-12 mb-645">
                                <div class="input-contenedor">
 									
-										<center><input type="text" placeholder="Nombre completo" class="shadow-lg"></center>
+										<center>
+                                            <asp:TextBox runat="server" ID="Tb_nombreC" class="shadow-lg" placeholder="Nombre completo"></asp:TextBox>
+										</center>
 									</div>
                             </div>
                             <div class="col-12 col-lg-12">
-                               <center><a href="Lectura_datos_alumnos_soloLectura.aspx"><input type="submit" value="INGRESAR" class="button shadow-lg"></a></center>
-                            </div>
+                                <center>
+                                <asp:Button runat="server" text="Ingresar" ID="btn_Ingresar" class="button shadow-lg " OnClick="btn_Ingresar_Click"> </asp:Button>
+                            </center>
+                              </div>
                         </div>
                     </div>
                 </div>

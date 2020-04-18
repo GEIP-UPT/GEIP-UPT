@@ -335,7 +335,7 @@
     <Compile Include="Registrar_Proyecto_Parte_1.aspx.designer.cs">
       <DependentUpon>Registrar_Proyecto_Parte_1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistroAlumno.cs" />
+    <Compile Include="Registros.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

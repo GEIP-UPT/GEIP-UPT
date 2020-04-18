@@ -29,7 +29,7 @@ namespace GEIP_UPT
                 catch (Exception exe) { }
                 String contrasena = tb_contrasena.Text;
 
-                RegistroAlumno rA = new RegistroAlumno();
+                Registros rA = new Registros();
                 bool existe = rA.existeAlumno(matricula, contrasena);
 
                 if (existe)

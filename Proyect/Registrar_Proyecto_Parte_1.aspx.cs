@@ -15,14 +15,6 @@ namespace GEIP_UPT
         protected void Page_Load(object sender, EventArgs e)
         {
             
-
-            if (Request.Params["Nombre"] != null)
-            {
-                Tb_nombreProyecto.Text = Request.Params["Nombre"];
-                Dl_Avance.Text = Request.Params["Avance"];
-                Dl_Asesores.Text = Request.Params["Asesores"];
-            }
-
                 if (dl_Tipo.Items.Count == 1)
                 {
                     llenarAsesores();
@@ -30,7 +22,6 @@ namespace GEIP_UPT
                     llenarProgramas();
                     llenarTipos();
                 }
-
 
 
         }
@@ -41,7 +32,7 @@ namespace GEIP_UPT
             SqlDataReader tipos = cB.getTipos();
             while (tipos.Read())
             {
-                dl_Tipo.Items.Add(new ListItem(tipos.GetString(0), tipos.GetString(0)));
+                dl_Tipo.Items.Add(new ListItem(tipos["Nombre"].ToString(), tipos["id"].ToString()));
             }
             cB.conect.Close();
         }
@@ -52,7 +43,7 @@ namespace GEIP_UPT
             SqlDataReader programas = cB.getProgramas();
             while (programas.Read())
             {
-                dl_Programas.Items.Add(new ListItem(programas.GetString(0), programas.GetString(0)));
+                dl_Programas.Items.Add(new ListItem(programas["Nombre"].ToString(), programas["id"].ToString()));
             }
             cB.conect.Close();
         }
@@ -64,7 +55,7 @@ namespace GEIP_UPT
             SqlDataReader clasif = cB.getClasif();
             while (clasif.Read())
             {
-                Dl_Clasificacion.Items.Add(new ListItem(clasif.GetString(0), clasif.GetString(0)));
+                Dl_Clasificacion.Items.Add(new ListItem(clasif["Nombre"].ToString(), clasif["id"].ToString()));
             }
             cB.conect.Close();
         }
@@ -76,7 +67,7 @@ namespace GEIP_UPT
             SqlDataReader asesores = cB.getAsesores();
             while (asesores.Read())
             {
-                Dl_Asesores.Items.Add(new ListItem(asesores.GetString(0), asesores.GetString(0)));
+                Dl_Asesores.Items.Add(new ListItem(asesores["Nombre"].ToString(), asesores["id"].ToString()));
             }
             cB.conect.Close();
                 

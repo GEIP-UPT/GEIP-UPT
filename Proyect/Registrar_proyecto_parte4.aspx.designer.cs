@@ -132,6 +132,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.HiddenField hf_edad1;
 
         /// <summary>
+        /// Control hf_mat1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_mat1;
+
+        /// <summary>
         /// Control hf_alumno2.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_edad2;
+
+        /// <summary>
+        /// Control hf_mat2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_mat2;
 
         /// <summary>
         /// Control hf_alumno3.
@@ -168,6 +186,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.HiddenField hf_edad3;
 
         /// <summary>
+        /// Control hf_mat3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_mat3;
+
+        /// <summary>
         /// Control hf_alumno4.
         /// </summary>
         /// <remarks>
@@ -186,6 +213,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.HiddenField hf_edad4;
 
         /// <summary>
+        /// Control hf_mat4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_mat4;
+
+        /// <summary>
         /// Control hf_alumno5.
         /// </summary>
         /// <remarks>
@@ -202,6 +238,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_edad5;
+
+        /// <summary>
+        /// Control hf_mat5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_mat5;
 
         /// <summary>
         /// Control hf_fecha.
@@ -321,6 +366,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Label Lb_Asesor;
 
         /// <summary>
+        /// Control Lb_Mat1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lb_Mat1;
+
+        /// <summary>
         /// Control Lb_Alumno1.
         /// </summary>
         /// <remarks>
@@ -337,6 +391,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lb_Edad1;
+
+        /// <summary>
+        /// Control Lb_Mat2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lb_Mat2;
 
         /// <summary>
         /// Control Lb_Alumno2.
@@ -357,6 +420,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Label Lb_Edad2;
 
         /// <summary>
+        /// Control Lb_Mat3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lb_Mat3;
+
+        /// <summary>
         /// Control Lb_Alumno3.
         /// </summary>
         /// <remarks>
@@ -375,6 +447,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Label Lb_Edad3;
 
         /// <summary>
+        /// Control Lb_Mat4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lb_Mat4;
+
+        /// <summary>
         /// Control Lb_Alumno4.
         /// </summary>
         /// <remarks>
@@ -391,6 +472,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lb_Edad4;
+
+        /// <summary>
+        /// Control Lb_Mat5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lb_Mat5;
 
         /// <summary>
         /// Control Lb_Alumno5.

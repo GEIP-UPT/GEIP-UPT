@@ -16,35 +16,85 @@ namespace GEIP_UPT
             conect.ConnectionString = cadena;
         }
 
-        public void Registrar_Proyecto(String nombre, String tipo, String clasificacion, String avance,
-            String programa, String asesor, String cuatrimestre, String impacto, String fechaFin, 
-            String participacion, String recursos, String descripcion,
-            String integrantes, String Edades, String contactolider)
+        public int getUltiP(String nombreP)
         {
-            //@nombre_proyecto varchar(500),
-            //@tipo varchar(100),
-            //@clasificacion varchar(100),
-            //@avance varchar(100),
-            //@programa varchar(100),
-            //@asesor varchar(100),
-            //@cuatrimestre varchar(50),
-            //@impacto varchar(100),
-            //@finalizacion date,
-            //@participado_antes varchar(50),
-            //@recursos_elaborar varchar(100),
-            //@descripcion varchar(500),
-            //@integrantes varchar(400),
-            //@edades int,
-            //@contactolider varchar(40)
+            int ultimo =0;
+            SqlDataReader id_proy = null;
             try
             {
-                String instruccion = "EXEC insertar_proyecto @nombre_proyecto='" + nombre + "', @tipo='" + tipo + "'," +
-                    "@clasificacion='" + clasificacion + "', @avance='" + avance + "', @programa='" + programa + "', @asesor='"+ asesor +
-                    "', @cuatrimestre='" + cuatrimestre + "', @impacto='" + impacto + "', @finalizacion='" + fechaFin + "', " +
-                    "@participado_antes='" + participacion + "', @recursos_elaborar='" + recursos + "', " +
-                    "@descripcion='" + descripcion + "', @integrantes='" + integrantes + "', @edades='" + Edades + "'," +
-                    "@contactolider='" + contactolider + "';";
-                    ;
+                String instruccion = "Select id_proyecto from Proyectos where Nombre = '"+nombreP+"' ORDER BY id_proyecto DESC";
+
+                conect.Open();
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                id_proy = comando.ExecuteReader();
+
+                if (id_proy.Read())
+                {
+                    ultimo = id_proy.GetInt32(0);
+                }
+
+                conect.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error UltiP: " + e);
+            }
+
+            return ultimo;
+
+        }
+
+        public void guardarImpactos(int id_proyecto, int id_materia)
+        {
+            try
+            {
+                String instruccion = "insert into relProyectoCat_Impacto values(" + id_proyecto + ", " +
+                    id_materia + ")";
+                conect.Open();
+
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                comando.ExecuteNonQuery();
+
+                conect.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error guardarREF: " + e);
+            }
+
+        }
+
+        public void guardarRef(int id_proyecto, String nombreAl)
+        {
+            try
+            {
+                String instruccion = "insert into rel_AlumnoProyecto values(" + id_proyecto+", '"+
+                    nombreAl+"')";
+                conect.Open();
+
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                comando.ExecuteNonQuery();
+
+                conect.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error guardarREF: " + e);
+            }
+
+        }
+
+        public void Registrar_Proyecto(String nombre, String descripcion, String tipo, String clasificacion, int avance,
+            int programa, String cuatrimestre, String fechaFin, String convocatoria, String recursos, int asesor)
+        {
+            try
+            {
+                String instruccion = "Insert into Proyectos values ('" + nombre+"', '"+descripcion+"', '"+tipo+"', '"+clasificacion+"'," +
+                   avance+", "+programa+", "+cuatrimestre+", '"+fechaFin+"', '"+convocatoria+"', '"+recursos
+                   +"', 'REVISION ASESOR', 0 , 'En espera de aceptacion' ,"+asesor+");";
 
                 conect.Open();
                 SqlCommand comando = new SqlCommand(instruccion, conect);
@@ -54,7 +104,7 @@ namespace GEIP_UPT
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error insert: " + e);
+                MessageBox.Show("Error: RegistrarProyecto " + e);
             }
         }
     }

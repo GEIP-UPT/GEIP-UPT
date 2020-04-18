@@ -56,83 +56,71 @@
         <div class="container-fluid p-50 mb-20">
            
                          <div class="table-responsive">
-                         	<table class="table active table-border table-hover table-condensed ">
-                            		<tr>
-                            			<th>N°</th>
-                            		<th>Nombre</th>
-                            		<th>Tipo</th>
-                            		<th>Clasificación</th>
-                            		<th>% Avance</th>
-                            		<th>Programa Educativo</th>
-                            		<th>Asesor</th>
-                            		<th>Nombre de los integrantes</th>
-                            		<th>Edades</th>
-                            		<th>Cuatrimestre de desarrollo</th>
-                            		<th>Materias a las que impacta</th>
-                            		<th>Tiempo de desarrollo</th>
-                            		<th>Tiempo de finalizacion</th>
-                            		<th>Participacion en convocatorias</th>
-                            		<th>Recursos para elaborarlo</th>
-                            		<th>Descripción</th>
-                            		<th>Datos de contacto con el asesor</th>
-                            		<th>Datos de contacto de participante</th>
-                            		</tr>
-                            		<tr>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            			<th></th>
-                            		</tr>
-                            		<tr>
-                            			<td>dat1</td>
-                            			<td>dat2</td>
-      									<td>dat3</td>
-                            			<td>dat4</td>
-                            			<td>dat5</td>
-                            			<td>dat6</td>
-                            			<td>dat7</td>
-                            			<td>dat8</td>
-                            			<td>dat9</td>
-                            			<td>dat10</td>
-                            			<td>dat11</td>
-                            			<td>dat12</td>
-                            			<td>dat13</td>
-                            			<td>dat14</td>
-                            			<td>dat15</td>
-                            			<td>dat16</td>
-                            			<td>dat17</td>
-                            			<td>dat18</td>	 
-                            				 
-
-                            		</tr>
-                            		
-                            	</table>
-                         </div>      
-                            	
+<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
+     <asp:Table ID="Table1" 
+            runat="server" 
+            CellPadding="10"
+            CellSpacing="10"
+            BackColor="White"
+            BorderColor="Black"
+            GridLines="Both" Height="142px"
+            >
+            <asp:TableHeaderRow 
+                runat="server" 
+                BackColor="WhiteSmoke"
+                >
+                <asp:TableHeaderCell>ID</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Nombre</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Tipo</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Clasificacion</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Avance</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Programa Educativo</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Asesor</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Cuatrimestre</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Materias a las que impacta</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Fecha de finalización</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Convocatorias anteriores</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Recursos para el desarrollo del proyecto </asp:TableHeaderCell>
+                <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Integrantes</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Edades</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Contacto lider</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Contacto asesor</asp:TableHeaderCell>
+            </asp:TableHeaderRow>
+            
+        </asp:Table>
+<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
+                         	
 	<div class="row pt-60">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<a href="Administracion_alumnos.aspx"><button class="btn btn-info pt-8" >Regresar</button>
-    </a>
-				</div>
-
+			<a href="Administracion_alumnos.aspx" class="btn btn-info">Regresar</a>
+		</div>
 	</div>                         
+                         
         </div>
     </main>
 
+    <asp:HiddenField ID="hf_matricula"  runat="server" />
+    <asp:Button ID="btnCargarTabla"  class="d-none" runat="server" onClick="btnCargarTabla_Click"  ></asp:Button>
+    
+
 </body>
+        
+    <script type="text/javascript">
+
+        obtenerMatricula();
+
+        function obtenerMatricula() {
+            let matricula = localStorage.getItem("Matricula");
+            if (document.getElementById('<%= hf_matricula.ClientID %>').value=="") {
+                document.getElementById('<%= hf_matricula.ClientID %>').value = matricula;
+                document.getElementById('<%= btnCargarTabla.ClientID %>').click();
+            }
+          
+        }
+
+        
+
+        </script>
 
 </asp:Content>

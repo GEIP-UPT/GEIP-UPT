@@ -22,13 +22,14 @@ namespace GEIP_UPT
         {
             ConsultasBD cB = new ConsultasBD();
             SqlDataReader materias = cB.getMateriasImp();
-            int i = 0;
+
             while (materias.Read())
             {
-                ListItem materia = new ListItem(materias.GetString(0), materias.GetString(0));
+                ListItem materia = new ListItem(materias["Nombre"].ToString(), materias["id"].ToString());
                 Cb_materias.Items.Add(materia);
-                i++;
             }
+
+
             cB.conect.Close();
         }
         protected void Sig_Click(object sender, EventArgs e)

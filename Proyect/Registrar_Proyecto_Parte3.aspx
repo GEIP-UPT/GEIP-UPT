@@ -109,6 +109,8 @@
                               <div class="row">
                                  <div class="col-12 mb-12">
                                <center>
+                                    Materias a las que impacta<br>
+
                                 <asp:DropDownList ID="Dl_cuatrimestre" runat="server">
                                     <asp:ListItem value="Defecto"> Cuatrimestre de desarrollo </asp:ListItem>
                                     <asp:ListItem value="1">1° cuatrimestre</asp:ListItem>
@@ -122,13 +124,14 @@
                                     <asp:ListItem value="9">9° cuatrimestre</asp:ListItem>
                                 </asp:DropDownList>
 
+                                   <br />
+
                                 </center>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-12 ">
                                <center>
-                                    Materias a las que impacta<br>
 
                                     <asp:CheckBoxList ID="Cb_materias" runat="server">
 

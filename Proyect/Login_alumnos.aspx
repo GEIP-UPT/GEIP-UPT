@@ -72,7 +72,7 @@
                 
                            			 </div>
                             <div class="col-12 mb-38">
-                               <center> <asp:Button ID="Ingresar" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
+                               <center> <asp:Button ID="Ingresar" OnClientClick="iniciarS();" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
                                 
                             </div>
                         </div>
@@ -85,6 +85,12 @@
 
     <script type="text/javascript">
          limpiarStorage();
+
+        function iniciarS() {
+            Matricula= document.getElementById('<%= tb_matricula.ClientID %>').value;
+            localStorage.setItem("Matricula", Matricula);
+
+        }
 
          function limpiarStorage() {
              localStorage.removeItem("._Proyecto");
