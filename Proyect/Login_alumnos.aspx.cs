@@ -29,17 +29,21 @@ namespace GEIP_UPT
                 catch (Exception exe) { }
                 String contrasena = tb_contrasena.Text;
 
-                RegistroAlumno rA = new RegistroAlumno();
+                Registros rA = new Registros();
                 bool existe = rA.existeAlumno(matricula, contrasena);
 
                 if (existe)
                 {
+                    rA.conect.Close();
+                    Session["Matricula"] = matricula.ToString();
+
                     Response.Redirect("Administracion_alumnos.aspx");
                 }
                 else
                 {
                     MsgError.Text = "Alumno no encontrado, revise sus datos";
                     MsgError.Visible = true;
+                    rA.conect.Close();
                 }
 
 

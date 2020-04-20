@@ -48,7 +48,7 @@
     </header>
 
     <main>
-    	<h3 class="pt-8" align="center">Iniciar Sesión</h3>
+    	<h3 class="pt-8" align="center">Iniciar Sesión Alumnos</h3>
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
             <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Debe ingresar todos los datos." Visible="False" ForeColor="PaleVioletRed"
                      CssClass="StrongText"></asp:Label>
@@ -69,10 +69,10 @@
                               <div class="input-contenedor ">
 							
 								<center><asp:TextBox ID="tb_contrasena" runat="server" class="shadow-lg form-control" type="password" placeholder="🔒 Contraseña"></asp:TextBox></center>
-                -
+                
                            			 </div>
                             <div class="col-12 mb-38">
-                               <center> <asp:Button ID="Ingresar" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
+                               <center> <asp:Button ID="Ingresar" OnClientClick="iniciarS();" runat="server" type="submit" text="Ingresar" class="button shadow-lg " OnClick="Ingresar_Click"> </asp:Button> </center>
                                 
                             </div>
                         </div>
@@ -82,6 +82,25 @@
             </div>
         </div>
     </main>
+
+    <script type="text/javascript">
+         limpiarStorage();
+
+        function iniciarS() {
+            Matricula= document.getElementById('<%= tb_matricula.ClientID %>').value;
+            localStorage.setItem("Matricula", Matricula);
+        }
+
+         function limpiarStorage() {
+             localStorage.removeItem("._Proyecto");
+             localStorage.removeItem("._Proyecto2");
+             localStorage.removeItem("._Proyecto3");
+             localStorage.removeItem("._Proyecto4");
+         }
+
+
+         </script>
+
 </body>
 
     </html>

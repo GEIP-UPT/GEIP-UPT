@@ -39,7 +39,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="Login_alumnos.aspx">Cerrar sesión</a>
-                            <a class="dropdown-item" href="Editar_Cuenta_alumnos.aspx">&#9881Perfil</a>
+                            <a class="dropdown-item" href="EditarAlumnos.aspx">&#9881Perfil</a>
                            
                         </div>
                     </li>
@@ -62,7 +62,7 @@
 
                 <ul class="nav navbar-nav  navbar-collapse  ">
 
-                    <li class="active" ><a href="Registrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto </a></li>
+                    <li class="active" ><a href="Administrar_Proyecto_Parte_1.aspx" target="_self">Registrar proyecto </a></li>
                    
 
                 </ul>
@@ -93,6 +93,22 @@
 
     </main>
 
+     <script type="text/javascript">
+         limpiarStorage();
+
+         function limpiarStorage() {
+             localStorage.removeItem("._Proyecto");
+             localStorage.removeItem("._Proyecto2");
+             localStorage.removeItem("._Proyecto3");
+             localStorage.removeItem("._Proyecto4");
+         }
+
+
+         </script>
+        
+
 </body>
     </html>
+
+
 </asp:Content>

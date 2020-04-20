@@ -24,6 +24,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Label MsgError;
 
         /// <summary>
+        /// Control Tb_matricula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tb_matricula;
+
+        /// <summary>
         /// Control Tb_Nombre.
         /// </summary>
         /// <remarks>
@@ -31,33 +40,6 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Tb_Nombre;
-
-        /// <summary>
-        /// Control Dl_Edad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Dl_Edad;
-
-        /// <summary>
-        /// Control Tb_apellidoM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tb_apellidoM;
-
-        /// <summary>
-        /// Control Tb_correo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tb_correo;
 
         /// <summary>
         /// Control Tb_apellidoP.
@@ -69,6 +51,24 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.TextBox Tb_apellidoP;
 
         /// <summary>
+        /// Control Tb_correo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tb_correo;
+
+        /// <summary>
+        /// Control Tb_apellidoM.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Tb_apellidoM;
+
+        /// <summary>
         /// Control Tb_contraseña.
         /// </summary>
         /// <remarks>
@@ -78,13 +78,13 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.TextBox Tb_contraseña;
 
         /// <summary>
-        /// Control Tb_matricula.
+        /// Control Tb_contacto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Tb_matricula;
+        protected global::System.Web.UI.WebControls.TextBox Tb_contacto;
 
         /// <summary>
         /// Control Dl_Carrera.
@@ -96,6 +96,15 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.DropDownList Dl_Carrera;
 
         /// <summary>
+        /// Control Dl_Edad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Dl_Edad;
+
+        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>
@@ -103,5 +112,14 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Control hf_TipoGuardado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_TipoGuardado;
     }
 }

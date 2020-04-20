@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows;
 
 namespace GEIP_UPT
 {
@@ -11,6 +12,25 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btn_Ingresar_Click(object sender, EventArgs e)
+        {
+            Registros rA = new Registros();
+            String nombre = Tb_nombreC.Text;
+
+            if (nombre != "")
+            {
+                rA.RegistroAlumnoL(nombre);
+                Session["alumnLectura"] = nombre;
+                Response.Redirect("Lectura_datos_alumnos_soloLectura.aspx");
+            }
+            else
+            {
+
+            }
+
 
         }
     }

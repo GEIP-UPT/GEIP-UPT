@@ -11,6 +11,10 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idAsesor"] == null)
+            {
+                Response.Redirect("Login_administrar.aspx");
+            }
 
         }
     }

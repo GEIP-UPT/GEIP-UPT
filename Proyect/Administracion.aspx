@@ -38,7 +38,7 @@
 						  Usuario
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
+                            <a class="dropdown-item" href="index.aspx">Cerrar sesión</a>
                             
                            
                         </div>
@@ -64,8 +64,30 @@
                 <ul class="nav navbar-nav  navbar-collapse  navbar-brand">
 
                     <li class="active" ><a href="Proyectos_disponibles.aspx" target="_self">Proyectos Activos</a></li>
-                    <li class="active" ><a href="Datos de Asesor.aspx" target="_self">Asesores</a></li>
+                    <li class="active" ><a href="Administracion_Pendientes.aspx" target="_self"> Pendientes </a></li>
                     <li class="active" ><a href="Proyectos_inactivos.aspx" target="_self">Proyectos Inactivos</a></li>
+
+                     <div class="collapse navbar-collapse" id="navbarNav2">
+
+                        <ul class="nav navbar-nav navbar-right">        
+
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Administración de catalogos </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Lectura_Administrativos.aspx">Administrativos</a>
+                            <a class="dropdown-item" href="Lectura_Carreras.aspx">Carreras</a>
+                            <a class="dropdown-item" href="Lectura_Clasificaciones.aspx">Clasificaciones</a>
+                            <a class="dropdown-item" href="Lectura_datos_alumnos_soloLectura.aspx">Alumnos de lectura</a>
+                            <a class="dropdown-item" href="Lectura_Impacto.aspx">Materias de impacto</a>
+                            <a class="dropdown-item" href="Lectura_Programas.aspx">Programas Educativos</a>
+                            <a class="dropdown-item" href="Lectura_TiposProyecto.aspx">Tipos de Proyectos</a>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
 
                 </ul>
             </div>

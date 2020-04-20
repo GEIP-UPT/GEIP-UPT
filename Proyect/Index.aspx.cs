@@ -11,7 +11,11 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Remove("idProy");
+            Session.Remove("alumnLectura");
+            Session.Remove("id_Admin");
+            Session.Remove("idAsesor");
+            Session.Remove("Matricula");
         }
     }
 }

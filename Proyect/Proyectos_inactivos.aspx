@@ -39,12 +39,11 @@
 						  Usuario
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.html">Cerrar sesión</a>
+                            <a class="dropdown-item" href="index.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>
                     
-
 
                 </ul>
             </div>
@@ -53,54 +52,260 @@
     </header>
 
     <main>
-    	<h3 class="pt-8" align="center">Proyectos Inactivos</h3>
+    	<h3 class="pt-8" align="center">Datos de Proyectos Inactivos</h3>
         <div class="container-fluid p-50 mb-38">
            
-                         <div class="table-responsive">
-                         	<table class="table active table-border table-hover table-condensed ">
-                            		<tr>
-                            		<th>N°</th>
-                            		<th>Nombre</th>
-                            		<th>Lider</th>
-                            		<th>Asesor</th>
-                            		<th>% Avance</th>
-                            		<th>Tipo</th>
-                            		<th>Clasificacion</th>
-                            		<th>Edades</th>
-                            		<th>Contacto de Asesor</th>
-                            		<th>Breve Descripcion</th>
-                            		<th>Razon de inactividad</th>
-                            		</tr>
-                            		
-                            		<tr>
-                            			<td><a href="Datos_del_Proyecto_inactivo_completos.aspx">dat1</a></td>
-                            			<td>dat2</td>
-      									<td>dat3</td>
-                            			<td>dat4</td>
-                            			<td>dat5</td>
-                            			<td>dat6</td>
-                            			<td>dat7</td>
-                            			<td>dat8</td>
-                            			<td>dat9</td>
-                            			<td>dat10</td>
-                            			<td>dat11</td>
-                            				 
-                            				 
+                        <%--////////////////////////////////////////////////////////////////////////////////////////////--%>
+     <asp:Table ID="TablaProyectos" 
+            runat="server" 
+            CellPadding="10"
+            CellSpacing="10"
+            BackColor="White"
+            BorderColor="Black"
+            GridLines="Both" Height="142px"
+            >
+            <asp:TableHeaderRow 
+                runat="server" 
+                BackColor="WhiteSmoke"
+                >
+                <asp:TableHeaderCell>ID</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Nombre</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Avance</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Asesor</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Fecha de finalización</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Estado administrativo</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Razón de inactividads</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Ver más</asp:TableHeaderCell>
 
-                            		</tr>
-                            		
-                            	</table>
-                         </div>      
-                            	
-	<div class="row pt-90">
+            </asp:TableHeaderRow>
+            
+        </asp:Table>
+                             
+                    <asp:TextBox ID="Label1" CssClass="d-none" runat="server"></asp:TextBox>
+                   <asp:Button ID="btnView" class="btn-info d-none" runat="server" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
+
+<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
+                         	
+	<div class="row pt-60">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			
-			<a href="Administracion.aspx"><button class="btn btn-info" >Regresar</button></a>
-		</div>
+			<a href="Administracion.aspx" class="btn btn-info">Regresar</a>
 
-	</div>                         
+			     </div>
+	        </div>                         
         </div>
     </main>
-</body>
 
+
+<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
+
+         <!-- Bootstrap Modal Dialog -->
+    <div class="modal fade show " id="modalProyectoDetalle" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+
+               <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                   <ContentTemplate>
+                      
+                       <div class="modal-content">
+                                    
+                                  <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Datos del Proyecto</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                  <div class="modal-body">
+
+                                            <div class="container-fluid"> 
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_NombrePro" runat="server" Text="Nombre del proyecto: "></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <asp:Label ID="Lb_TipoPro" runat="server" Text="Tipo de proyecto: "></asp:Label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <asp:Label ID="Lb_Clasificacion" runat="server" Text="Clasificacion: "></asp:Label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <asp:Label ID="Lb_Avance" runat="server" Text="Avance: "></asp:Label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <asp:Label ID="Lb_ProgramaE" runat="server" Text="Programa educativo:"></asp:Label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_Asesor" runat="server" Text="Asesor: "></asp:Label>
+                                                    </div>
+
+                                                </div>
+                                                  <div class="row">
+                                                    <div class="col-4"> Matricula: </div>
+                                                    <div class="col-6"> Alumno: </div>
+                                                      <div class="col-2"> Edad: </div>
+                                                </div>
+                                                  <div class="row">
+
+                                                      <div class="col-4 ">
+                                                        <asp:Label ID="Lb_Mat1" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                    <div class="col-6">
+                                                        <asp:Label ID="Lb_Alumno1" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                      <div class="col-2">
+                                                        <asp:Label ID="Lb_Edad1" runat="server" Text=""></asp:Label>
+                                                      </div>
+
+                                                </div>
+                                                  <div class="row">
+                                                      <div class="col-4 ">
+                                                        <asp:Label ID="Lb_Mat2" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                    <div class="col-6">
+                                                        <asp:Label ID="Lb_Alumno2" runat="server" Text=""></asp:Label>
+                                                    </div>
+                                                      <div class="col-2">
+                                                        <asp:Label ID="Lb_Edad2" runat="server" Text=""></asp:Label>
+                                                      </div>
+
+                                                </div>
+                                                  <div class="row">
+                                                      <div class="col-4 ">
+                                                        <asp:Label ID="Lb_Mat3" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                    <div class="col-6">
+                                                        <asp:Label ID="Lb_Alumno3" runat="server" Text=""></asp:Label>
+                                                    </div>
+                                                      <div class="col-2">
+                                                        <asp:Label ID="Lb_Edad3" runat="server" Text=""></asp:Label>
+                                                      </div>
+
+                                                </div>
+                                                  <div class="row">
+                                                      <div class="col-4 ">
+                                                        <asp:Label ID="Lb_Mat4" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                    <div class="col-6">
+                                                        <asp:Label ID="Lb_Alumno4" runat="server" Text=""></asp:Label>
+                                                    </div>
+                                                      <div class="col-2">
+                                                        <asp:Label ID="Lb_Edad4" runat="server" Text=""></asp:Label>
+                                                      </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-4 ">
+                                                        <asp:Label ID="Lb_Mat5" runat="server" Text=""></asp:Label>
+                                                        </div>
+                                                    <div class="col-6">
+                                                        <asp:Label ID="Lb_Alumno5" runat="server" Text=""></asp:Label>
+                                                    </div>
+                                                      <div class="col-2">
+                                                        <asp:Label ID="Lb_Edad5" runat="server" Text=""></asp:Label>
+                                                      </div>
+
+                                                </div>
+
+
+                                                  <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <asp:Label ID="Lb_Cuatrimestre" runat="server" Text="Cuatrimestre: "></asp:Label>
+                                                    </div>
+                                                      <div>
+                                                        <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: "></asp:Label>
+                                                      </div>
+
+                                                </div>
+                                                 <div class="row">
+                                                      <div class="col-md-6">
+                                                        <asp:Label ID="Lb_Fecha" runat="server" Text="Fecha de finalizacion: "></asp:Label>
+                                                      </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_Convocatorias" runat="server" Text="Convocatorias: "></asp:Label>
+                                                    </div>
+                 
+                                                </div>
+                                                  <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_recursos" runat="server" Text="Recursos: "></asp:Label>
+                                                    </div>
+                 
+                                                </div>
+                                                 <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_descripcion" runat="server" Text="Descripcion:"></asp:Label>
+                                                    </div>
+                                                </div>
+                                                   <div class="row">
+                                                      <div class="col-md-12">
+                                                        <asp:Label ID="Lb_Justificacion" runat="server" Text="Justificacion: "></asp:Label>
+                                                      </div>
+                                                   </div>
+
+                                   <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                           </div>
+                                                </div>
+                                      </div>
+                           </div>
+                   </ContentTemplate>
+               </asp:UpdatePanel>
+           </div>
+     </div>
+    <script type="text/javascript">
+         <%--postBack();
+
+
+         function postBack() {
+             document.getElementById('<%= btnCargarTabla.ClientID %>').click();
+         }--%>
+
+        function onClickView(nombre, descripcion, tipoProyecto, clasificacion, asesorNombre, programa, integrantes) {
+
+
+            document.getElementById('<%= Lb_NombrePro.ClientID %>').innerHTML = "Nombre del proyecto: " + nombre;
+<%--            document.getElementById('<%= Lb_Avance.ClientID %>').innerHTML = "Avance: " + proyecto.avance + "%";--%>
+            document.getElementById('<%= Lb_TipoPro.ClientID %>').innerHTML = "Tipo de proyecto: " + tipoProyecto;
+            document.getElementById('<%= Lb_ProgramaE.ClientID %>').innerHTML = "Programa educativo: " + programa;
+            document.getElementById('<%= Lb_Clasificacion.ClientID %>').innerHTML = "Clasificacion: " + clasificacion;
+            document.getElementById('<%= Lb_Asesor.ClientID %>').innerHTML = "Asesor: " + asesorNombre;
+
+
+<%--            document.getElementById('<%= Lb_Alumno1.ClientID %>').innerHTML = proyecto.integrante1;
+            document.getElementById('<%= Lb_Edad1.ClientID %>').innerHTML = proyecto.edad1 == 'Defecto' ? '' : proyecto.edad1;
+            document.getElementById('<%= Lb_Mat1.ClientID %>').innerHTML = proyecto.matricula1 == '' ? '' : proyecto.matricula1;
+
+            document.getElementById('<%= Lb_Fecha.ClientID %>').innerHTML = "Fecha de finalizacion: " + proyecto.fecha;
+            document.getElementById('<%= Lb_Cuatrimestre.ClientID %>').innerHTML = "Cuatrimestre: " + proyecto.cuatrimestre;
+            document.getElementById('<%= Lb_Materias.ClientID %>').innerHTML = "Materias: " + proyecto.materias;
+            document.getElementById('<%= Lb_Convocatorias.ClientID %>').innerHTML = "Convocatorias: " + proyecto.convocatoria;
+            document.getElementById('<%= Lb_recursos.ClientID %>').innerHTML = "Recursos: " + proyecto.recursos;--%>
+            document.getElementById('<%= Lb_descripcion.ClientID %>').innerHTML = "Descripcion: " + descripcion;
+<%--            document.getElementById('<%= Lb_contactoLider.ClientID %>').innerHTML = "Contacto lider: " + proyecto.contacto;--%>
+
+
+
+            $("#modalDetalleProyecto").modal();
+
+        }
+
+        function clickView(id) {
+            document.getElementById('<%= Label1.ClientID %>').value = id;
+            document.getElementById('<%= btnView.ClientID %>').click();
+        }
+
+
+        </script>
+    
+</body>
 </asp:Content>

@@ -1,9 +1,16 @@
+
+main {
+	min-height: 64.5vh;
+}
+
 h1 {
     text-align: center;
     color: #1a2537;
     font-size: 60px;
     margin-top: -5px;
 }
+
+.invisible { display:none; } 
 
 #centrar{
   
@@ -25,7 +32,8 @@ main nav #navbarNav{
 
 	 }
 
-header nav ul li a {
+header nav ul li a,
+.itemMenu{
     padding: 10px 10px;
     display: block;
     color: rgb(245, 196, 60);
@@ -34,26 +42,28 @@ header nav ul li a {
     font-weight: bold;
 }
 
-main nav ul li a {
-    padding: 10px 120px;
-    display: block;
-    color: rgb(245, 196, 60);
-    text-decoration: none;
-    transition: all .6s;
-    font-weight: bold;
-  
+main nav ul li a,
+.itemMenu {
+	padding: 10px 120px;
+	display: block;
+	color: rgb(245, 196, 60);
+	text-decoration: none;
+	transition: all .6s;
+	font-weight: bold;
 }
 
 
-header nav ul li a:hover {
-    color: rgb(117, 17, 83);
-   transform: scale(1.1);
+header nav ul li a:hover,
+.itemMenu:hover {
+	color: rgb(117, 17, 83);
+	transform: scale(1.1);
 }
 
 
-main nav ul li a:hover {
-    color: rgb(117, 17, 83);
-    transform: scale(0.5);
+main nav ul li a:hover,
+.itemMenu:hover {
+	color: rgb(117, 17, 83);
+	transform: scale(0.5);
 }
 
 header nav .dropdown-menu .dropdown-item:hover {

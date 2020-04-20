@@ -39,7 +39,7 @@
                           Usuario
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
+                            <a class="dropdown-item" href="index.aspx">Cerrar sesión</a>
                            
                         </div>
                     </li>

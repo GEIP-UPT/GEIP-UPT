@@ -54,43 +54,21 @@
     </header>
     <main>
         <div class="container-fluid">
-            <h3 class="pt-8" align="center">Administrativo</h3>
-        <div class="row pt-56 pb-248">
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                 <nav class="navbar navbar-expand-lg navbar-dark" style="background: #fff; ">
-         
-            <div class="navbar navbar-nav  navbar-collapse navbar-brand ">
-
-                <ul class="nav navbar-nav  navbar-collapse  ">
-
-                    <li class="active" ><a href="Proyectos_disponibles.aspx" target="_self">Proyectos Activos</a></li>
-                   
-
-                </ul>
+            <h3 class="pt-8" align="center">ASESOR</h3>
+            <div class="row pt-56 pb-248">
+                <div class="col-md-4">
+                       <a class="itemMenu" href="Datos_del_Proyecto_Asesor.aspx?estado=1" target="_self">Proyectos Activos</a>
+                </div>
+                 <div class="col-md-4">
+                  <a class="itemMenu" href="Datos_del_Proyecto_Asesor.aspx?estado=0" target="_self">Proyectos Inactivos</a>
+                </div>
+                 <div class="col-md-4">
+                     <a class="itemMenu" href="Datos_del_Proyecto_Asesor.aspx?estado=2" target="_self">Proyectos Pendientes de Revisión</a>
+                </div>
             </div>
-
-        </nav>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                 <nav class="navbar navbar-expand-lg navbar-dark" style="background: #fff; ">
-         
-            <div class="navbar navbar-nav  navbar-collapse navbar-brand ">
-
-                <ul class="nav navbar-nav  navbar-collapse  ">
-
-                    <li class="active"><a href="Proyectos_inactivos_asesor.aspx" target="_self">Proyectos Inactivos</a></li>
-                   
-
-                </ul>
-            </div>
-
-        </nav>
-            </div>
-
         </div>
 
-    </div>
+    
 
     </main>
 

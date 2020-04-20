@@ -55,11 +55,43 @@
                     <div class="container-fluid p-0">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                               
+                               <center>
+                                   <asp:TextBox ID="Tb_matricula" runat="server" OnTextChanged="Tb_matricula_TextChanged" AutoPostBack = "true"  type="text" placeholder="Ingrese Matricula" class="shadow-lg"></asp:TextBox>
+                            </center>
                                    
                     <center>
                              <asp:TextBox ID="Tb_Nombre" runat="server" type="text" placeholder="Ingrese su Nombre" class="shadow-lg" > </asp:TextBox>
-                                 <asp:DropDownList ID="Dl_Edad" runat="server" class="brad-5">
+                        </center>
+                                <center>
+                                 
+                                        </center>
+                        
+                                    
+            <center>
+                             <asp:TextBox ID="Tb_apellidoP" runat="server" type="text" placeholder="Ingrese apellido paterno" class="shadow-lg"></asp:TextBox>
+                <asp:TextBox ID="Tb_correo" runat="server" type="text" placeholder="Ingrese correo electronico" class="shadow-lg"> </asp:TextBox>
+                                    </center>
+
+                            
+                                    
+                         <center>
+                <asp:TextBox ID="Tb_apellidoM" runat="server" type="text" placeholder="Ingrese apellido materno" class="shadow-lg"> </asp:TextBox>
+                             <asp:TextBox ID="Tb_contraseña" runat="server" type="text" placeholder="Ingrese contraseña" class="shadow-lg"></asp:TextBox>
+                         </center>
+                                    
+                                      <div class="input-contenedor">
+                                    
+                         <center>
+                             
+                             <asp:TextBox ID="Tb_contacto" runat="server" type="text" placeholder="Contacto" class="shadow-lg"></asp:TextBox>
+                                 </center> 
+                         <center class="pt-15">
+
+                          <asp:DropDownList ID="Dl_Carrera" runat="server" class="brad-5 " >
+                                    <asp:ListItem value="0">Carrera</asp:ListItem>
+                                </asp:DropDownList>
+
+                             <asp:DropDownList ID="Dl_Edad" runat="server" class="brad-5">
                                     <asp:ListItem value="Edad">Edad</asp:ListItem>
                                     <asp:ListItem value="18">18</asp:ListItem>
                                     <asp:ListItem value="19">19</asp:ListItem>
@@ -85,46 +117,6 @@
                                     <asp:ListItem value="39">39</asp:ListItem>
                                     <asp:ListItem value="40">40</asp:ListItem>
                                 </asp:DropDownList>
-                                        </center>
-                        
-                                    
-            <center>
-                <asp:TextBox ID="Tb_apellidoM" runat="server" type="text" placeholder="Ingrese apellido materno" class="shadow-lg"> </asp:TextBox>
-                <asp:TextBox ID="Tb_correo" runat="server" type="text" placeholder="Ingrese correo electronico" class="shadow-lg"> </asp:TextBox>
-                                    </center>
-
-                            
-                                    
-                         <center>
-                             <asp:TextBox ID="Tb_apellidoP" runat="server" type="text" placeholder="Ingrese apellido paterno" class="shadow-lg"></asp:TextBox>
-                             <asp:TextBox ID="Tb_contraseña" runat="server" type="text" placeholder="Ingrese contraseña" class="shadow-lg"></asp:TextBox>
-                         </center>
-                                    
-                                      <div class="input-contenedor">
-                                    
-                         <center>
-                             <asp:TextBox ID="Tb_matricula" runat="server" type="text" placeholder="Ingrese Matricula" class="shadow-lg"></asp:TextBox>
-                                 </center> 
-                         <center class="pt-15">
-
-                          <asp:DropDownList ID="Dl_Carrera" runat="server" class="brad-5 " >
-                                    <asp:ListItem value="Carrera">Carrera</asp:ListItem>
-                                    <asp:ListItem value="Robotica">Ingenieria en Robotica</asp:ListItem>
-                                    <asp:ListItem value="Civil">Ingenieria Civil</asp:ListItem>
-                                    <asp:ListItem value="Industrial">Ingenieria Industrial</asp:ListItem>
-                                    <asp:ListItem value="Sistemas_Computacionales">Ingenieria en Sistemas Computacionales</asp:ListItem>
-                                    <asp:ListItem value="Tecnologias de Manufactura">Ingenieria en Tecnologias de Manufactura</asp:ListItem>
-                                    <asp:ListItem value="Electronica y Telecomunicaciones">Ingenieria en Electronica y Telecomunicaciones</asp:ListItem>
-                                    <asp:ListItem value="PYMES">Licenciatura en Gestion de PYMES</asp:ListItem>
-                                    <asp:ListItem value="Negocios_Internacionales">Licenciatura en Negocios Internacionales</asp:ListItem>
-                                    <asp:ListItem value="Energias_renovables">Maestria en energias renovables</asp:ListItem>
-                                    <asp:ListItem value="Optica">Maestría en Computación Óptica</asp:ListItem>
-                                    <asp:ListItem value="Organizaciones">Maestría en Dirección de Organizaciones </asp:ListItem>
-                                    <asp:ListItem value="Desarrollo_Software">Maestría en Dirección de Organizaciones </asp:ListItem>
-                                    <asp:ListItem value="Automatizacion">Maestría en Dirección de Organizaciones </asp:ListItem>
-                                    <asp:ListItem value="Optimizacion">Maestría en Dirección de Organizaciones </asp:ListItem>
-                                    <asp:ListItem value="Contribuciones">Maestría en Dirección de Organizaciones </asp:ListItem>
-                                </asp:DropDownList>
                          </center>
                                     </div>
                             </div>
@@ -133,15 +125,19 @@
                 </div>
                 
             </div>
-                             <div class="row pt-60" style="margin-bottom: 21px">
+                         <div class="row pt-60" style="margin-bottom: 21px">
         
-         <div class="col-xs-12 col-sm-12 col-md-12 "  align="right">
-            
-            <asp:Button ID="Button1" runat="server" Text="Guardar" class="btn btn-info" OnClick="Button1_Click" />
-        </div>
+                                 <div class="col-6 "  align="right">
+                                    <a href="index.aspx" class="btn btn-info">Cancelar</a>
+                                </div>
 
-    </div> 
-
+                                 <div class="col-6 "  align="left">
+                                    <asp:Button ID="Button1" runat="server" Text="Guardar" class="btn btn-info" OnClick="Button1_Click" />
+                                </div>
+                                 
+                                 
+                        </div> 
+            <asp:HiddenField ID="hf_TipoGuardado" runat="server" />
     </div>  
         </div>
     </main>
