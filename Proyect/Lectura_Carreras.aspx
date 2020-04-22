@@ -55,20 +55,20 @@
     	<h3 class="pt-8" align="center">Carreras</h3>
         <div class="container-fluid p-50 " style="margin-bottom: 8px;">
            
-           <a href="Registrar_Carreras.aspx" class="btn btn-info" >Registrar</a>
                             	
-	        <div class="row pt-120 ">
-		        <div class="col-10 mb-38">
+	        <div class="row pt-39 d-flex justify-content-center ">
+		        <div class="col-12 mb-38">
 			
                      <div  class="table-responsive">     
-                             <asp:Table  id="tblCarreras"
+                             <asp:Table class="table table-active  table-border table-hover table-condensed"
+                                        id="tblCarreras"
                                         runat="server" 
                                         CellPadding="10"
                                         CellSpacing="10"
                                         BackColor="White"
                                         BorderColor="#dee2e6"
-                                        GridLines="Both" Height="142px"
-                                       class="table active table-border table-hover table-condensed "
+                                        GridLines="Both" Height="142px" 
+                                       
                                         >
                                         <asp:TableHeaderRow 
                                             runat="server" 
@@ -76,7 +76,7 @@
                                             >
                                             <asp:TableHeaderCell >ID</asp:TableHeaderCell>
                                             <asp:TableHeaderCell>Carrera</asp:TableHeaderCell>
-                                            <asp:TableHeaderCell>Editar</asp:TableHeaderCell>
+                                            <asp:TableHeaderCell >Editar</asp:TableHeaderCell>
                                         </asp:TableHeaderRow>
             
                                   </asp:Table>
@@ -84,10 +84,15 @@
 			
 
 			     </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <a href="Registrar_Carreras.aspx" class="btn btn-info" >Registrar</a>
+                </div>
 
-	        </div>                         
+
+	        </div>   
+            </div>
                       
-                      &nbsp;
+                     
     </main>
 </body>
 

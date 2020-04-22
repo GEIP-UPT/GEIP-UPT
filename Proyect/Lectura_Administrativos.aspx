@@ -55,12 +55,11 @@
     	<h3 class="pt-8" align="center">Carreras</h3>
         <div class="container-fluid p-50 " style="margin-bottom: 8px;">
            
-           <a href="Registrar_Administrativos.aspx" class="btn btn-info" >Registrar</a>
-                            	
-	        <div class="row pt-120 ">
+                   	
+	        <div class="row d-flex justify-content-center  ">
 		        <div class="col-10 mb-38">
 			
-                     <div  class="table-responsive">     
+                     <div  class="table-responsive ">     
                              <asp:Table  id="tblCarreras"
                                         runat="server" 
                                         CellPadding="10"
@@ -89,10 +88,20 @@
                     
 			     </div>
 
+                <div class="col-xs-3 col-sm-6 col-md-6 text-center">
+                 <a href="Administracion.aspx" class="btn btn-info " >Regresar</a>   
+            </div>
+                 <div class="col-xs-3 col-sm-6 col-md-6 pt-8 text-center ">
+                  <a href="Registrar_Administrativos.aspx" class="btn btn-info" >Registrar</a>
+            </div>
+
+          
+
+                    
 	        </div>                         
-                      
-           <a href="Administracion.aspx" class="btn btn-info" >Regresar</a>
-                      &nbsp;
+            </div>          
+          
+            
     </main>
 </body>
 

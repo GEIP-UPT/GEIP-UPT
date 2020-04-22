@@ -57,7 +57,9 @@
         <div class="container-fluid p-50 mb-38">
            
                           <%--////////////////////////////////////////////////////////////////////////////////////////////--%>
-     <asp:Table ID="TablaProyectos" 
+             <div class="row d-flex justify-content-center">
+            <div class="col-10 mb-38">
+                <asp:Table ID="TablaProyectos" 
             runat="server" 
             CellPadding="10"
             CellSpacing="10"
@@ -86,8 +88,11 @@
                    <asp:Button ID="btnView" class="btn-info d-none" runat="server" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
     <%--<asp:Button ID="btnCargarTabla"  class="d-none" runat="server" onClick="btnCargarTabla_Click"  ></asp:Button>--%>
 
+                 </div>
+                 </div>
+     
 <%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%><div class="row pt-60">
-		<div class="col-xs-12 col-sm-12 col-md-12">
+		    <div class="col-xs-12 col-sm-12 col-md-12 pt-39">
 			<a href="Administracion.aspx" class="btn btn-info">Regresar</a>
 
 			     </div>
@@ -97,7 +102,7 @@
 
          <!-- Bootstrap Modal Dialog -->
     <div class="modal fade show " id="modalProyectoDetalle" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
+           <div class="modal-dialog modal-lg" role="document">
 
                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                    <ContentTemplate>
@@ -119,22 +124,33 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <asp:Label ID="Lb_TipoPro" runat="server" Text="Tipo de proyecto: "></asp:Label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <asp:Label ID="Lb_Clasificacion" runat="server" Text="Clasificacion: "></asp:Label>
-                                                    </div>
+                                                    
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_Clasificacion" runat="server" Text="Clasificacion: "></asp:Label>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
                                                         <asp:Label ID="Lb_Avance" runat="server" Text="Avance: "></asp:Label>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                   
+
+                                                </div>
+
+                                                <div class="row">
+                                                     <div class="col-md-12">
                                                         <asp:Label ID="Lb_ProgramaE" runat="server" Text="Programa educativo:"></asp:Label>
                                                     </div>
 
                                                 </div>
+
                                                 <div class="row">
 
                                                     <div class="col-md-12">
@@ -212,14 +228,19 @@
 
                                                   <div class="row">
 
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <asp:Label ID="Lb_Cuatrimestre" runat="server" Text="Cuatrimestre: "></asp:Label>
                                                     </div>
-                                                      <div>
-                                                        <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: "></asp:Label>
-                                                      </div>
+                                                      
 
                                                 </div>
+
+                                                <div class="row">
+                                                    
+                                                    <div class="col-md-12">
+                                                        <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: "></asp:Label>
+                                                      </div></div>
+
                                                  <div class="row">
                                                       <div class="col-md-6">
                                                         <asp:Label ID="Lb_Fecha" runat="server" Text="Fecha de finalizacion: "></asp:Label>

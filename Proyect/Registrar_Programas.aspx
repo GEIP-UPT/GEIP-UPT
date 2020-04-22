@@ -57,20 +57,23 @@
            
  
                             	
-	        <div class="row pt-120">
+	        <div class="row pt-39 text-center">
 		        <div class="col-xs-12 col-sm-12 col-md-12 mb-38">
 			
-                     <div  class="table-responsive">     
+                       
                              <asp:TextBox ID="txtProgramas" runat="server"></asp:TextBox>
                          <asp:Button ID="btnRegProgramas" runat="server" Text="Registrar" OnClick="btnRegProgramas_Click" />
-                           <a href="Lectura_Programas.aspx" class="btn btn-info" >Regresar</a>
-                     </div>
-			
+                           
+                    
 
 			     </div>
 	        </div>                         
                       
-                      &nbsp;</div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-38 text-center">
+			<a href="Lectura_Programas.aspx" class="btn btn-info" >Regresar</a>
+                 <//div>
+
+                 </div>
     </main>
 </body>
 

@@ -57,20 +57,23 @@
            
  
                             	
-	        <div class="row pt-120">
-		        <div class="col-xs-12 col-sm-12 col-md-12 mb-38">
+	        <div class="row pt-39 justify-content-center">
+		        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-38 text-center">
 			
-                     <div  class="table-responsive">     
-                             <br />
+                
                              <asp:TextBox ID="txtCarrera" runat="server"></asp:TextBox>
                          <asp:Button ID="btnEditCarrera" runat="server" Text="Modificar" OnClick="btnEditCarrera_Click" />
-                     </div>
+                    
 			
 
 			     </div>
-	        </div>                         
+	        </div>  
+             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-38 text-center">
+			
                       
-                      &nbsp;<asp:Button ID="Button1" runat="server" Text="Regresar" OnClick="Button1_Click"  />
+                      <asp:Button ID="Button1" runat="server" Text="Regresar" OnClick="Button1_Click"  />
+                 <//div>
+            </div>
     </main>
 </body>
 

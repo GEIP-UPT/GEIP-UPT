@@ -33,15 +33,6 @@ namespace GEIP_UPT
         protected global::System.Web.UI.WebControls.Calendar Calendario;
 
         /// <summary>
-        /// Control Dl_cuatrimestre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Dl_cuatrimestre;
-
-        /// <summary>
         /// Control Cb_materias.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace GEIP_UPT
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList Cb_materias;
+
+        /// <summary>
+        /// Control Dl_cuatrimestre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Dl_cuatrimestre;
 
         /// <summary>
         /// Control Rb_Y.

@@ -53,7 +53,10 @@
         <div class="container-fluid p-50 mb-20">
            
 <%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
-     <asp:Table ID="TablaProyectos" 
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 mb-38">
+           <div  class="table-responsive"> 
+            <asp:Table ID="TablaProyectos"
             runat="server" 
             CellPadding="10"
             CellSpacing="10"
@@ -64,7 +67,7 @@
             <asp:TableHeaderRow 
                 runat="server" 
                 BackColor="WhiteSmoke"
-                >
+                > 
                 <asp:TableHeaderCell>ID</asp:TableHeaderCell>
                 <asp:TableHeaderCell>Nombre</asp:TableHeaderCell>
                 <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
@@ -78,18 +81,20 @@
             </asp:TableHeaderRow>
             
         </asp:Table>
-                             
+                 </div>            
                     <asp:TextBox ID="Label1" CssClass="d-none" runat="server"></asp:TextBox>
                    <asp:Button ID="btnView" class="btn-info d-none" runat="server" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
-
-<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
-                         	
-	<div class="row pt-60">
-		<div class="col-xs-12 col-sm-12 col-md-12">
+     </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 pt-39">
 			<a href="Administracion_alumnos.aspx" class="btn btn-info">Regresar</a>
 		</div>
-	</div>                         
-                  
+        </div>
+            
+<%--                             /////////////////////////////////////////////////////////////////////////////////////////////--%>
+            
+                </div>          	
+	
+		
     </main>
 
     <asp:HiddenField ID="hf_matricula"  runat="server" />
@@ -97,7 +102,7 @@
     
     <!-- Bootstrap Modal Dialog -->
     <div class="modal fade show " id="modalProyectoDetalle" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
+           <div class="modal-dialog modal-lg" role="document">
 
                <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                    <ContentTemplate>
@@ -113,46 +118,55 @@
                                   <div class="modal-body">
 
                                             <div class="container-fluid"> 
-                                                <div class="row">
-                                                    <div class="col-md-12">
+                                                <div class="row text-justify">
+                                                    <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_NombrePro" runat="server" Text="Nombre del proyecto: "></asp:Label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                <div class="row text-justify">
+                                                    <div class=" col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_TipoPro" runat="server" Text="Tipo de proyecto: "></asp:Label>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                  
+                                                </div>
+                                                <div class="row text-justify">
+                                                      <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_Clasificacion" runat="server" Text="Clasificacion: "></asp:Label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                <div class="row text-justify">
+                                                    <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_Avance" runat="server" Text="Avance: "></asp:Label>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <asp:Label ID="Lb_ProgramaE" runat="server" Text="Programa educativo:"></asp:Label>
-                                                    </div>
+                                                   
 
                                                 </div>
-                                                <div class="row">
 
-                                                    <div class="col-md-12">
+                                                <div class="row text-justify">
+                                                     <div class="col-xs-12 col-md-12">
+                                                        <asp:Label ID="Lb_ProgramaE" runat="server" Text="Programa educativo:"></asp:Label>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row text-justify">
+
+                                                    <div class="col-xs-12 col-md-12 ">
                                                         <asp:Label ID="Lb_Asesor" runat="server" Text="Asesor: "></asp:Label>
                                                     </div>
 
                                                 </div>
-                                                  <div class="row">
-                                                    <div class="col-4"> Matricula: </div>
-                                                    <div class="col-6"> Alumno: </div>
-                                                      <div class="col-2"> Edad: </div>
+                                                  <div class="row text-justify ">
+                                                    <div class=" col-3"> Matricula: </div>
+                                                    <div class=" col-7"> Alumno: </div>
+                                                      <div class=" col-2"> Edad: </div>
                                                 </div>
-                                                  <div class="row">
+                                                  <div class="row text-justify">
 
-                                                      <div class="col-4 ">
+                                                      <div class="col-3 ">
                                                         <asp:Label ID="Lb_Mat1" runat="server" Text=""></asp:Label>
                                                         </div>
-                                                    <div class="col-6">
+                                                    <div class="col-7">
                                                         <asp:Label ID="Lb_Alumno1" runat="server" Text=""></asp:Label>
                                                         </div>
                                                       <div class="col-2">
@@ -160,35 +174,36 @@
                                                       </div>
 
                                                 </div>
-                                                  <div class="row">
-                                                      <div class="col-4 ">
+
+                                                  <div class="row text-justify">
+                                                      <div class="col-3  ">
                                                         <asp:Label ID="Lb_Mat2" runat="server" Text=""></asp:Label>
                                                         </div>
-                                                    <div class="col-6">
+                                                    <div class="col-7 ">
                                                         <asp:Label ID="Lb_Alumno2" runat="server" Text=""></asp:Label>
                                                     </div>
-                                                      <div class="col-2">
+                                                      <div class=" col-2">
                                                         <asp:Label ID="Lb_Edad2" runat="server" Text=""></asp:Label>
                                                       </div>
 
                                                 </div>
-                                                  <div class="row">
-                                                      <div class="col-4 ">
+                                                  <div class="row text-justify">
+                                                      <div class="col-3 ">
                                                         <asp:Label ID="Lb_Mat3" runat="server" Text=""></asp:Label>
                                                         </div>
-                                                      </div>
-                                                    <div class="col-6">
+                                                      
+                                                    <div class="col-7">
                                                         <asp:Label ID="Lb_Alumno3" runat="server" Text=""></asp:Label>
                                                     </div>
-                                                      <div class="col-2">
+                                                      <div class="col-2 ">
                                                         <asp:Label ID="Lb_Edad3" runat="server" Text=""></asp:Label>
                                                       </div>
-
+                                                </div>
                                                   <div class="row">
-                                                      <div class="col-4 ">
+                                                      <div class="col-3 ">
                                                         <asp:Label ID="Lb_Mat4" runat="server" Text=""></asp:Label>
                                                         </div>
-                                                    <div class="col-6">
+                                                    <div class="col-7">
                                                         <asp:Label ID="Lb_Alumno4" runat="server" Text=""></asp:Label>
                                                     </div>
                                                       <div class="col-2">
@@ -197,10 +212,10 @@
 
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-4 ">
+                                                    <div class="col-3  ">
                                                         <asp:Label ID="Lb_Mat5" runat="server" Text=""></asp:Label>
-                                                        </div>
-                                                    <div class="col-6">
+                                                    </div>
+                                                    <div class="col-7">
                                                         <asp:Label ID="Lb_Alumno5" runat="server" Text=""></asp:Label>
                                                     </div>
                                                       <div class="col-2">
@@ -210,35 +225,38 @@
                                                 </div>
 
 
-                                                  <div class="row">
+                                                  <div class="row text-justify">
 
-                                                    <div class="col-md-6">
-                                                        <asp:Label ID="Lb_Cuatrimestre" runat="server" Text="Cuatrimestre: "></asp:Label>
+                                                    <div class="col-xs-12 col-md-12">
+                                                        <asp:Label ID="Lb_Cuatrimestre" runat="server" Text="Cuatrimestre:  "></asp:Label>
                                                     </div>
-                                                      <div>
-                                                        <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: "></asp:Label>
-                                                      </div>
+                                                     
 
                                                 </div>
-                                                 <div class="row">
-                                                      <div class="col-md-6">
+
+                                                <div class="row text-justify"> <div class="col-xs-12 col-md-12">
+                                                        <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta:  "></asp:Label>
+                                                      </div></div>
+
+                                                 <div class="row text-justify">
+                                                      <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_Fecha" runat="server" Text="Fecha de finalizacion: "></asp:Label>
                                                       </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
+                                                <div class="row text-justify">
+                                                    <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_Convocatorias" runat="server" Text="Convocatorias: "></asp:Label>
                                                     </div>
                  
                                                 </div>
-                                                  <div class="row">
-                                                    <div class="col-md-12">
+                                                  <div class="row text-justify">
+                                                    <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_recursos" runat="server" Text="Recursos: "></asp:Label>
                                                     </div>
                  
                                                 </div>
-                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                 <div class="row text-justify">
+                                                    <div class="col-xs-12 col-md-12">
                                                         <asp:Label ID="Lb_descripcion" runat="server" Text="Descripcion:"></asp:Label>
                                                     </div>
                  

@@ -50,24 +50,23 @@
     </header>
 
     <main>
+        <h3 class="pt-8" align="center">Registrar Proyecto</h3>
         <div class="container-fluid p-15">
 
-        <h3 class="" align="center">Registrar Proyecto</h3>
-
-            
+      
         <div style="margin-left: auto; margin-right: auto; text-align: center;">
             <asp:Label ID="MsgError" runat="server" BorderColor="PaleVioletRed" Text="Mensaje de error" Visible="False" ForeColor="PaleVioletRed"
                      CssClass="StrongText"></asp:Label>
         </div>
-        
-            <div class="row">
-                <div class="col-12 col-lg-12">
-                    <div class="container-fluid p-0">
-                        <div class="row">
-                            <div class="col-12 mb-12">
-                               <div class="input-contenedor pt-8">
-                                    
-                                        <center style="width: 1246px"> Fecha de finalización<asp:Calendar ID="Calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+
+
+
+            <div class="row " >
+                <div class="col-xs-12 col-mb-12 mx-auto">
+                    <center>
+                   
+
+                        <center> Fecha de finalización<asp:Calendar ID="Calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="300px">
                                                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                                 <OtherMonthDayStyle ForeColor="#999999" />
@@ -76,43 +75,26 @@
                                                 <TodayDayStyle BackColor="#CCCCCC" />
                                             </asp:Calendar>
                                            
-                            <div class="modal fade" id="caleder-date" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                             <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id=""></h4>
-                             </div>
-                             <!-- /.modal-content-pickert -->
-                        <div class="modal-body">
-<div class = "input-group date jdma-date" > 
-<input type = "text" class = "form-control" > <span class = "input-group-addon" > <i class = "glyphicon glyphicon-th" > </i> </span>    
-</div>
-                         </div>
-                         <!-- /.modal-content-pickert -->
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Seleccionar</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- Final del modal-->
-
-
 
 
                             </center>
-                                    </div>
+                                    
+                        </center>
                             </div>
                         </div>
-                              <div class="row">
-                                 <div class="col-12 mb-12">
-                               <center>
+
+
+                              <div class="row text-center">
+                                 <div class="col-xs-12 col-lg-12">
+                                <center>
                                     Materias a las que impacta<br>
+                                    <asp:CheckBoxList ID="Cb_materias" runat="server" >
+
+                                    </asp:CheckBoxList>
+                                  
 
                                 <asp:DropDownList ID="Dl_cuatrimestre" runat="server">
-                                    <asp:ListItem value="Defecto"> Cuatrimestre de desarrollo </asp:ListItem>
+                               <asp:ListItem value="Defecto"> Cuatrimestre de desarrollo </asp:ListItem>
                                     <asp:ListItem value="1">1° cuatrimestre</asp:ListItem>
                                     <asp:ListItem value="2">2° cuatrimestre</asp:ListItem>
                                     <asp:ListItem value="3">3° cuatrimestre</asp:ListItem>
@@ -124,18 +106,17 @@
                                     <asp:ListItem value="9">9° cuatrimestre</asp:ListItem>
                                 </asp:DropDownList>
 
-                                   <br />
+                                  
 
-                                </center>
+                              </center>
                             </div>
                         </div>
+
                             <div class="row">
                                 <div class="col-12 ">
                                <center>
 
-                                    <asp:CheckBoxList ID="Cb_materias" runat="server">
-
-                                    </asp:CheckBoxList>
+                                    <br />
                                    
                                     ¿Has Participado en alguna convocatoria? 
                                          <br>
@@ -149,11 +130,8 @@
                             </div>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        
-
+                   
+            
     
                        <div class="row pt-90 mb-17" >
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
@@ -167,12 +145,12 @@
         </div>
 
     </div>  
-        </div>
+      
 
     <asp:HiddenField ID="hf_convocatoria"  runat="server" />
     <asp:HiddenField ID="hf_fecha"  runat="server" />
     <asp:Button ID="btnCargarConv" class="d-none" runat="server" onClick="btnCargarCon_Click"></asp:Button>
-
+          </div>
     </main>
     
 

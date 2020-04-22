@@ -33,8 +33,8 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
-                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
+          <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  Usuario
 						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -56,24 +56,20 @@
 
         <div class="container-fluid">
         	<h3 class="pt-8" align="center">Administrativo</h3>
-    	<div class="row pt-445 pb-243 ">
-    		<div class="col-xs-12 col-sm-12 col-md-12">
+    	<div class="row pt-445 pb-243 text-center ">
+    		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-10 ">
     			 <nav class="navbar navbar-expand-lg navbar-dark" style="background: #fff; ">
             <div class="navbar navbar-nav  navbar-collapse ">
 
-                <ul class="nav navbar-nav  navbar-collapse  navbar-brand">
+                <ul class="nav navbar-nav  navbar-collapse  navbar-expand">
 
                     <li class="active" ><a href="Proyectos_disponibles.aspx" target="_self">Proyectos Activos</a></li>
-                    <li class="active" ><a href="Administracion_Pendientes.aspx" target="_self"> Pendientes </a></li>
+                    <li class="active" " ><a href="Administracion_Pendientes.aspx" target="_self"> Pendientes </a></li>
                     <li class="active" ><a href="Proyectos_inactivos.aspx" target="_self">Proyectos Inactivos</a></li>
 
-                     <div class="collapse navbar-collapse" id="navbarNav2">
-
-                        <ul class="nav navbar-nav navbar-right">        
-
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  Administración de catalogos </a>
+                                <a class="dropdown-toggle " href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  Catalogos </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="Lectura_Administrativos.aspx">Administrativos</a>
                             <a class="dropdown-item" href="Lectura_Carreras.aspx">Carreras</a>
@@ -87,9 +83,9 @@
 
 
                 </ul>
-            </div>
+         
 
-                </ul>
+             
             </div>
 
         </nav>

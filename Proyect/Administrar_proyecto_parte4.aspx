@@ -56,30 +56,28 @@
 
         <div class="container-fluid p-15">
             <div class="row">
-                <div class="col-12 col-lg-">
-                    <div class="container-fluid p-0">
-                        <div class="row">
-                            <div class="col-12 mb-15">
-								    	
-
+                <div class="col-xs-12 col-mb-12 col-lg-12">
+                    
+     
 										<center><asp:TextBox ID="Tb_recusos" runat="server" placeholder="Recursos para la elaboración" class="shadow-lg"></asp:TextBox></center>
                                         <center>
                                             <br />
                                             <asp:TextBox ID="Tb_descripcion" runat="server" placeholder="Descripción del proyecto" TextMode="MultiLine" class="shadow-lg" Width="40%"></asp:TextBox> </center>
                                         <center></center>
                                         
-                                    
-                            </div>
-                        </div>
-                    </div>
+                           
+                   
                 </div>
                 
             </div>
                  <div class="row pt-60" style="margin-bottom: 21px">
+
         <div class="col-xs-6 col-sm-6 col-md-9" align="left">
             
-           <asp:Button runat="server" ID="btn_Regresar" class="btn btn-info" text="Regresar" OnClick="btn_Regresar_Click"> </asp:Button>
-        </div><div class="col-xs-8 col-sm-8 col-md-4 "  align="right">
+           
+            <asp:Button runat="server" ID="btn_Regresar" class="btn btn-info" text="Regresar" OnClick="btn_Regresar_Click"> </asp:Button>
+        </div>
+                     <div class="col-xs-8 col-sm-8 col-md-3 "  align="right">
             
             <button type="button" class="btn btn-secondary" onclick="guardarProyecto();" >Guardar</button>
 
@@ -124,7 +122,7 @@
         <asp:HiddenField ID="hf_contactoL" runat="server" />
              <!-- Modal -->
 <div class="modal fade" id="exampleModalScrollable"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
 
@@ -239,17 +237,21 @@
 
               <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <asp:Label ID="Lb_Cuatrimestre" runat="server" Text="Cuatrimestre: --------------"></asp:Label>
                 </div>
-                  <div>
-                    <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: -----------------"></asp:Label>
-                  </div>
+                 
 
             </div>
+            <div class="row">
+                 <div class="col-md-12">
+                    <asp:Label ID="Lb_Materias" runat="server" Text="Materias a las que impacta: -----------------"></asp:Label>
+                  </div>
+            </div>
+
              <div class="row">
-                  <div class="col-md-6">
-                    <asp:Label ID="Lb_Fecha" runat="server" Text="Fecha de finalizacion: -----------------"></asp:Label>
+                  <div class="col-md-12">
+                    <asp:Label ID="Lb_Fecha" runat="server" Text="Fecha de finalizacion: "></asp:Label>
                   </div>
             </div>
             <div class="row">
@@ -270,12 +272,7 @@
                 </div>
                  
             </div>
-             <div class="row">
-                 <div class="col-md-6">
-                    <asp:Label ID="Lb_contactoLider" runat="server" Text="Contacto Lider: ----------"></asp:Label>
-                 </div>
-                 
-            </div>
+           
         </div>
       </div>
       <div class="modal-footer">
