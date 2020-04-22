@@ -36,8 +36,8 @@
 
                     <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Usuario
-                        </a>
+						  Usuario
+						</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
                            
