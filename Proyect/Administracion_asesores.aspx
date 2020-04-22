@@ -23,7 +23,7 @@
 
 <body>
 
-      <header>
+     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-light bg-UPT" style="background-image:  url(imagenes/head.png);  ">
             <a class="navbar-brand" href="#"> <img src="imagenes/logo.png" width="70" height="70" alt=""></a>
             <h2 id="centrar">GEIP-UPT</h2>
@@ -36,11 +36,10 @@
 
                     <li class="nav-item dropdown" style="font-size: 20px; padding-right: 50px;">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  Usuario
-						</a>
+                          Usuario
+                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="Login_administrar.aspx">Cerrar sesión</a>
-                            
                            
                         </div>
                     </li>

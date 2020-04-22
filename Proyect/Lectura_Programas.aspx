@@ -55,9 +55,9 @@
     	<h3 class="pt-8" align="center">Programas</h3>
         <div class="container-fluid p-50 " style="margin-bottom: 8px;">
            
-           <a href="Registrar_Programas.aspx" class="btn btn-info" >Registrar</a>
+           
                             	
-	        <div class="row pt-120 ">
+	        <div class="row pt-39 d-flex justify-content-center  ">
 		        <div class="col-10 mb-38">
 			
                      <div  class="table-responsive">     
@@ -85,10 +85,14 @@
 
 			     </div>
 
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <a href="Registrar_Programas.aspx" class="btn btn-info" >Registrar</a>
+                </div>
+
 	        </div>                         
-                      
-                      &nbsp;
-    </main>
+            </div>  
+            
+                 </main>
 </body>
 
 </asp:Content>

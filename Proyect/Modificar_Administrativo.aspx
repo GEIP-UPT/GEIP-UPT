@@ -21,7 +21,6 @@
 
 <body>
 
-    
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-light bg-UPT" style="background-image:  url(imagenes/head.png);  ">
             <a class="navbar-brand" href="#"> <img src="imagenes/logo.png" width="70" height="70" alt=""></a>
@@ -52,38 +51,57 @@
     </header>
 
     <main>
-    	<h3 class="pt-8" align="center">Modificación de Administrativo</h3>
-        <div class="container-fluid p-50 " style="margin-bottom: 8px;">
+    	
+        <div class="container-fluid p-15 " style="margin-bottom: 8px;">
            
- 
+    <h3 class="pt-8" align="center">Modificación de Administrativo</h3>
                             	
-	        <div class="row pt-120">
-		        <div class="col-xs-12 col-sm-12 col-md-12 mb-38">
-			
-                     <div  class="table-responsive">     
-                             <asp:TextBox ID="txtBuscAdmin" runat="server"></asp:TextBox>
-                             <br />
+	        <div class="row justify-content-center">
+             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+			       <asp:TextBox ID="txtBuscAdmin" Text="Nombre" runat="server"></asp:TextBox> 
+             </div>
+                     
+		        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+			               
                              <asp:Label ID="Label1" runat="server" Text="Nombre"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-                             <br />
-                             <asp:Label ID="Label2" runat="server" Text="Correo"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
-                             <br />
-                             <asp:Label ID="Label3" runat="server" Text="Contraseña"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
-                             <br />
-                             <asp:Label ID="Label4" runat="server" Text="Contacto"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtContacto" runat="server"></asp:TextBox>
-                             <br />
-                             <asp:Label ID="Label5" runat="server" Text="Area"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtArea" runat="server"></asp:TextBox>
-                             <br />
-                             <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtTipo" runat="server"></asp:TextBox>
-                             <br />
-                         <asp:Button ID="btnEditAdmin" runat="server" Text="Modificar" OnClick="btnEditAdmin_Click" />
-                     </div>
-			
-
+                    
+             </div>
+                 <div class="col-xs-12 col-sm-12 col-md-12 mb-38 text-center">
+                     <asp:Label ID="Label2" runat="server" Text="Correo"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                         
+                 </div>  
+                
+                   <div class="col-xs-12 col-sm-12 col-md-12 mb-38 text-center">
+                          <asp:Label ID="Label3" runat="server" Text="Contraseña"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
+                               
+                 </div>  
+                 <div class="col-xs-12 col-sm-12 col-md-12 mb-38 text-center">
+                          <asp:Label ID="Label4" runat="server" Text="Contacto"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtContacto" runat="server"></asp:TextBox>
+                              
+                 </div>  
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-38 text-center">
+                        <asp:Label ID="Label5" runat="server" Text="Area"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtArea" runat="server"></asp:TextBox>
+                                 
+                 </div>  
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-38 text-center">
+                          <asp:Label ID="Label6" runat="server" Text="Tipo"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtTipo" runat="server"></asp:TextBox>
+                               
+                 </div>  
+                             
+                 <div class="col-xs-12 col-sm-6 col-md-6 mb-38 text-center">
+                     <asp:Button ID="btnEditAdmin" runat="server" Text="Modificar" OnClick="btnEditAdmin_Click" />
+                 </div>            
+                             
+                     <div class="col-xs-12 col-sm-6 col-md-6 mb-38 text-center">
+                      <asp:Button ID="Button1" runat="server" Text="Regresar" OnClick="Button1_Click"  />
+                 </div>            
+                                 
+                        
 			     </div>
 	        </div>                         
                       
-                      &nbsp;<asp:Button ID="Button1" runat="server" Text="Regresar" OnClick="Button1_Click"  />
+                   
     </main>
 </body>
-
+    </html>
 </asp:Content>

@@ -57,20 +57,24 @@
            
  
                             	
-	        <div class="row pt-120">
+	        <div class="row pt-39  text-center">
 		        <div class="col-xs-12 col-sm-12 col-md-12 mb-38">
 			
-                     <div  class="table-responsive">     
+                         
                              <asp:TextBox ID="txtClasif" runat="server"></asp:TextBox>
                          <asp:Button ID="btnRegClasif" runat="server" Text="Registrar" OnClick="btnRegClasif_Click" />
-                        <a href="Lectura_Clasificaciones.aspx" class="btn btn-info" >Regresar</a>
-                     </div>
+                       
+                 
 			
 
 			     </div>
 	        </div>                         
                       
-                      &nbsp;</div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-38 text-center">
+			   <a href="Lectura_Clasificaciones.aspx" class="btn btn-info" >Regresar</a>
+                 <//div>
+        </div>
+       
     </main>
 </body>
 
