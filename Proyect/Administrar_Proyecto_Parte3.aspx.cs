@@ -102,10 +102,18 @@ namespace GEIP_UPT
 
         protected void btnCargarCon_Click(object sender, EventArgs e)
         {
-            //mes dia año
+            DateTime fechaSeleccionada;
+            //Solucion error formato fecha
+            DateTime dt = DateTime.Now;
+            int mes = dt.Month;
+            String[] dtSp = dt.ToString().Split(' ');
+            String[] auxD = dtSp[0].Split('/');
             String[] fecha = (hf_fecha.Value).Split('/');
 
-            DateTime fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[0]), int.Parse(fecha[1]));
+            if (int.Parse(auxD[0]) == mes)
+               fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[0]), int.Parse(fecha[1]));
+            else
+                fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[1]), int.Parse(fecha[0]));
 
             Calendario.SelectedDate = fechaSeleccionada;
             Calendario.VisibleDate = fechaSeleccionada;

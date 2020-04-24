@@ -39,8 +39,6 @@ namespace GEIP_UPT
                         
                     else
                     {
-                       
-
                         Session["idAsesor"] = id.ToString();
                         Response.Redirect("Administracion_asesores.aspx");
 
