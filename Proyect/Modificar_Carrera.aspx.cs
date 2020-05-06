@@ -33,31 +33,54 @@ namespace GEIP_UPT
 
         protected void btnEditCarrera_Click(object sender, EventArgs e)
         {
-            txtCarrera.Attributes.Add("value", txtCarrera.Text);
-            string parametro = Request.QueryString["id"];
-            parametro = HttpUtility.UrlEncode(parametro);
+            try
+            {
+                txtCarrera.Attributes.Add("value", txtCarrera.Text);
+                string parametro = Request.QueryString["id"];
+                parametro = HttpUtility.UrlEncode(parametro);
 
-            string id = parametro;
-            string NewCarrera = txtCarrera.Text;
-            
-            manager.updateCarrera(NewCarrera, Convert.ToInt32(id));
+                string id = parametro;
+                string NewCarrera = txtCarrera.Text;
 
-            Response.Redirect("Lectura_Carreras.aspx");
+                manager.updateCarrera(NewCarrera, Convert.ToInt32(id));
+
+                Response.Redirect("Lectura_Carreras.aspx");
+            }
+            catch (Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void Buscar(int id)
         {
-            DataSet dsCarrera = cC.getCarrera(Convert.ToInt32(id));
-            for (int i = 0; i < dsCarrera.Tables[0].Rows.Count; i++)
+            try
             {
-                txtCarrera.Text = dsCarrera.Tables[0].Rows[i]["carrera"].ToString();
+                DataSet dsCarrera = cC.getCarrera(Convert.ToInt32(id));
+                for (int i = 0; i < dsCarrera.Tables[0].Rows.Count; i++)
+                {
+                    txtCarrera.Text = dsCarrera.Tables[0].Rows[i]["carrera"].ToString();
+                }
+            }catch(Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Lectura_Carreras.aspx");
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

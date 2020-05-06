@@ -20,9 +20,7 @@ namespace GEIP_UPT
         {
             if (Session["id_Admin"] != null)
             {
-            
             ConsultarImpacto();
-
             }
             else
                 Response.Redirect("Login_administrar.aspx");
@@ -33,54 +31,78 @@ namespace GEIP_UPT
 
         public void ConsultarImpacto()
         {
-
-            DataSet dsImpacto = cC.getImpacto();
-            if (dsImpacto.Tables[0].Rows.Count > 0)
+            try
             {
-                LlenarTabla(tblImpacto, dsImpacto);
-            }
-            else
+                DataSet dsImpacto = cC.getImpacto();
+                if (dsImpacto.Tables[0].Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+
+                    tblImpacto.Style.Add("display", "init");
+                    LlenarTabla(tblImpacto, dsImpacto);
+                }
+                else
+                {
+                    tblImpacto.Style.Add("display", "none");
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                }
+
+            }catch(Exception e)
             {
-                //Mensaje("NO SE ENCONTRARON REGISTROS", "alert alert-danger");
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                tblImpacto.Style.Add("display", "none");
+
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
             }
-
-
 
 
         }
 
         public void LlenarTabla(Table tabla, DataSet datos)
         {
-            for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
+            try
             {
-                TableRow tempRow = new TableRow();
-                for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
+                for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
-                    TableCell tempCell = new TableCell();
-                    tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
-                    tempRow.Cells.Add(tempCell);
+                    TableRow tempRow = new TableRow();
+                    for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
+                    {
+                        TableCell tempCell = new TableCell();
+                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
+                        tempRow.Cells.Add(tempCell);
+                    }
+
+
+                    string id = datos.Tables[0].Rows[i]["id"].ToString();
+                    TableCell tempCellView = new TableCell();
+
+
+                    Literal ltbr = new Literal();
+                    ltbr.Text = "<a href='Modificar_Impacto.aspx?id=" + id + "' class='btn btn-info'  >Modificar</a>";
+                    tempCellView.Controls.Add(ltbr);
+                    tempCellView.CssClass = "text-center";
+                    tempCellView.Style.Add("vertical-align", "middle");
+
+
+                    tempRow.Cells.Add(tempCellView);
+                    tabla.Rows.Add(tempRow);
+
                 }
-
-
-                string id = datos.Tables[0].Rows[i]["id"].ToString();
-                TableCell tempCellView = new TableCell();
-
-
-                Literal ltbr = new Literal();
-                ltbr.Text = "<a href='Modificar_Impacto.aspx?id=" + id + "' class='btn btn-info'  >Modificar</a>";
-                tempCellView.Controls.Add(ltbr);
-                tempCellView.CssClass = "text-center";
-                tempCellView.Style.Add("vertical-align", "middle");
-
-
-                tempRow.Cells.Add(tempCellView);
-                tabla.Rows.Add(tempRow);
-
-               
-
+            }catch(Exception e)
+            {
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
             }
         }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
+        }
 
-        
     }
 }

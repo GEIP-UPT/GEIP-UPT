@@ -84,8 +84,6 @@ namespace GEIP_UPT
         public void RegistroAlumoP(String nombre, int edad, String apellidoP, String apellidoM, String correo,
             String contrasena, int matricula, int carrera, String contacto)
         {
-            try
-            {
                 String instruccion = "Insert into Alumnos values ('" + matricula + "', '" + nombre + "', " +
                     "'" + apellidoP + "', '" + apellidoM + "', " + edad + ", '" + correo + "', '" + contacto + "'," +
                     " '" + contrasena + "', " + carrera + ");";
@@ -94,12 +92,6 @@ namespace GEIP_UPT
                 SqlCommand comando = new SqlCommand(instruccion, conect);
                 comando.ExecuteNonQuery();
                 conect.Close();
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Error RegistroAlumoP: " + e);
-            }
 
         }
 
@@ -123,8 +115,10 @@ namespace GEIP_UPT
             }
         }
 
-        public bool existeAlumno(int matricula, String contrasena)
+        public int existeAlumno(int matricula, String contrasena)
         {
+            try
+            {
             conect.Open();
 
             String instruccion = "Select * from Alumnos where Contrasena='" + contrasena + "' and Matricula='" + matricula + "'";
@@ -133,18 +127,25 @@ namespace GEIP_UPT
 
             while (dr.Read())
             {
-                return true;
+                return 1;
             }
 
-            conect.Close();
+                conect.Close();
+                return 0;
 
-            return false;
+            }
+            catch (Exception e)
+            {
+                return 2;
+            }
+
         }
 
-        public bool existeAdministrador(ref int id,String correo, String contrasena, String tipo)
-        {
+        public int existeAdministrador(ref int id,String correo, String contrasena, String tipo)
+        { //0 no existe, 1 existe, 2 error.
             conect.Open();
-
+            try
+            {
             String instruccion = "Select * from Administrativo where Contrasena = '" + contrasena + "' and Correo='" + correo + "' and Tipo='" + tipo + "';";
             SqlCommand comando = new SqlCommand(instruccion, conect);
             SqlDataReader dr = comando.ExecuteReader();
@@ -153,12 +154,16 @@ namespace GEIP_UPT
             {
                 id = Int32.Parse(dr["id"].ToString());
                 conect.Close();
-                return true;
+                return 1;
+            }
+                conect.Close();
+                return 0;
+
+            }
+            catch(Exception e){
+                return 2;
             }
 
-            conect.Close();
-
-            return false;
         }
 
     }

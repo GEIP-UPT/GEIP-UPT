@@ -20,11 +20,7 @@ namespace GEIP_UPT
         {
             if (Session["alumnLectura"] != null)
             {
-                //if (!IsPostBack)
-                //{
                 ConsultarProyectosAceptados();
-                //}
-
             }
             else
                 Response.Redirect("Login_Alumnos_de_lectura.aspx");
@@ -35,68 +31,96 @@ namespace GEIP_UPT
 
         public void ConsultarProyectosAceptados()
         {
-
-            DataSet dsProyectos = cB.getProyectosPorEstadoAdmin("ACEPTADO");
-            if (dsProyectos.Tables[0].Rows.Count > 0)
+            try
             {
+                DataSet dsProyectos = cB.getProyectosPorEstadoAdmin("ACEPTADO");
+                if (dsProyectos.Tables[0].Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
 
-                LlenarTabla(tblProyectos,dsProyectos);
+                    tblProyectos.Style.Add("display", "init");
+                    LlenarTabla(tblProyectos, dsProyectos);
+                }
+                else
+                {
+                    tblProyectos.Style.Add("display", "none");
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                }
             }
-            else
+            catch (Exception e)
             {
-                //Mensaje("NO SE ENCONTRARON REGISTROS", "alert alert-danger");
-            }
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                tblProyectos.Style.Add("display", "none");
 
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void ConsultarDetalleProyecto(int id)
         {
-            DataSet dsProyecto = cB.getProyectosDetallePorId(id);
-            if (dsProyecto.Tables[0].Rows.Count > 0)
+            try
             {
-                LlenarTabla(tblProyectos, dsProyecto);
+                DataSet dsProyecto = cB.getProyectosDetallePorId(id);
+                if (dsProyecto.Tables[0].Rows.Count > 0)
+                {
+                    LlenarTabla(tblProyectos, dsProyecto);
+                }
+            }
+            catch (Exception e)
+            {
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
             }
         }
 
         public void LlenarTabla(Table tabla, DataSet datos)
         {
-            for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
+            try
             {
-                TableRow tempRow = new TableRow();
-                for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
+                for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
-                    TableCell tempCell = new TableCell();
-                    tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
-                    if (datos.Tables[0].Columns[j].ToString() == "Estado")
+                    TableRow tempRow = new TableRow();
+                    for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
                     {
-                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
-                    }
-                    if (datos.Tables[0].Columns[j].ToString() == "id_proyecto")
-                    {
-                        tempCell.CssClass = "d-none";
+                        TableCell tempCell = new TableCell();
+                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
+                        if (datos.Tables[0].Columns[j].ToString() == "Estado")
+                        {
+                            tempCell.Text = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
+                        }
+                        if (datos.Tables[0].Columns[j].ToString() == "id_proyecto")
+                        {
+                            tempCell.CssClass = "d-none";
 
+                        }
+                        tempRow.Cells.Add(tempCell);
                     }
-                    tempRow.Cells.Add(tempCell);
+
+
+                    string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
+
+
+                    //COLUMNA VER MAS
+                    TableCell tempCellView = new TableCell();
+
+
+                    Literal ltbr = new Literal();
+                    ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
+                    tempCellView.Controls.Add(ltbr);
+                    tempCellView.CssClass = "text-center";
+                    tempCellView.Style.Add("vertical-align", "middle");
+
+
+                    tempRow.Cells.Add(tempCellView);
+
+                    tabla.Rows.Add(tempRow);
                 }
-
-
-                string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
-
-     
-                //COLUMNA VER MAS
-                TableCell tempCellView = new TableCell();
-
-
-                Literal ltbr = new Literal();
-                ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
-                tempCellView.Controls.Add(ltbr);
-                tempCellView.CssClass = "text-center";
-                tempCellView.Style.Add( "vertical-align","middle");
-
-
-                tempRow.Cells.Add(tempCellView);
-
-                tabla.Rows.Add(tempRow);
+            }
+            catch (Exception e)
+            {
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
             }
         }
 
@@ -160,10 +184,20 @@ namespace GEIP_UPT
             }
             catch (Exception error)
             {
-                MessageBox.Show("Ha ocurido un error, por favor intente de nuevo");
+                modalText.Text = "Ocurrio un error inesperado, intentelo más tarde.";
+                errorModal();
             }
 
             
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

@@ -33,31 +33,47 @@ namespace GEIP_UPT
         }
         protected void LlenarCarreas()
         {
-            SqlDataReader carreras = cBD.getCarreras();
-            while (carreras.Read())
+            try
             {
-                Dl_Carrera.Items.Add(new ListItem(carreras["carrera"].ToString(), carreras["id"].ToString()));
+                SqlDataReader carreras = cBD.getCarreras();
+                while (carreras.Read())
+                {
+                    Dl_Carrera.Items.Add(new ListItem(carreras["carrera"].ToString(), carreras["id"].ToString()));
+                }
+                cBD.conect.Close();
             }
-            cBD.conect.Close();
-
+            catch (Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
         protected void obtenerDatos()
         {
-            if (Session["Matricula"] != null) {
-                String x = Session["Matricula"].ToString();
+            try
+            {
+                if (Session["Matricula"] != null)
+                {
+                    String x = Session["Matricula"].ToString();
 
-                Tb_matricula.Text = x;
-                DataSet ds = cBD.datosAlumno(int.Parse(x));
+                    Tb_matricula.Text = x;
+                    DataSet ds = cBD.datosAlumno(int.Parse(x));
 
-                Tb_Nombre.Text = ds.Tables[0].Rows[0]["Nombres"].ToString();
-                Tb_apellidoM.Text = ds.Tables[0].Rows[0]["ApellidoMaterno"].ToString();
-                Tb_apellidoP.Text = ds.Tables[0].Rows[0]["ApellidoPaterno"].ToString();
-                Dl_Edad.SelectedValue = ds.Tables[0].Rows[0]["Edad"].ToString();
-                Tb_correo.Text = ds.Tables[0].Rows[0]["Correo"].ToString();
-                Tb_contacto.Text = ds.Tables[0].Rows[0]["Contacto"].ToString();
-                Tb_contraseña.Text = ds.Tables[0].Rows[0]["Contrasena"].ToString();
-                Dl_Carrera.SelectedValue = ds.Tables[0].Rows[0]["Carrera"].ToString();
+                    Tb_Nombre.Text = ds.Tables[0].Rows[0]["Nombres"].ToString();
+                    Tb_apellidoM.Text = ds.Tables[0].Rows[0]["ApellidoMaterno"].ToString();
+                    Tb_apellidoP.Text = ds.Tables[0].Rows[0]["ApellidoPaterno"].ToString();
+                    Dl_Edad.SelectedValue = ds.Tables[0].Rows[0]["Edad"].ToString();
+                    Tb_correo.Text = ds.Tables[0].Rows[0]["Correo"].ToString();
+                    Tb_contacto.Text = ds.Tables[0].Rows[0]["Contacto"].ToString();
+                    Tb_contraseña.Text = ds.Tables[0].Rows[0]["Contrasena"].ToString();
+                    Dl_Carrera.SelectedValue = ds.Tables[0].Rows[0]["Carrera"].ToString();
 
+                }
+            }
+            catch (Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
 
         }
@@ -148,6 +164,15 @@ namespace GEIP_UPT
             }
 
             return registro;
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion_alumnos.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
 
     }

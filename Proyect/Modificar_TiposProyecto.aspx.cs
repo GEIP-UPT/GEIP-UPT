@@ -35,28 +35,49 @@ namespace GEIP_UPT
 
         protected void btnEditTiposProy_Click(object sender, EventArgs e)
         {
-            txtTiposProy.Attributes.Add("value", txtTiposProy.Text);
-            string id = Request.QueryString["id"];
-            string NewTiposProy = txtTiposProy.Text;
-            
-            manager.updateTiposProy(NewTiposProy, Convert.ToInt32(id));
-            MessageBox.Show("Modificado");
-            Response.Redirect("Lectura_TiposProyecto.aspx");
+            try
+            {
+                txtTiposProy.Attributes.Add("value", txtTiposProy.Text);
+                string id = Request.QueryString["id"];
+                string NewTiposProy = txtTiposProy.Text;
+
+                manager.updateTiposProy(NewTiposProy, Convert.ToInt32(id));
+                MessageBox.Show("Modificado");
+                Response.Redirect("Lectura_TiposProyecto.aspx");
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void Buscar(int id)
         {
-            DataSet dsTiposProy = cC.getTiposProy(Convert.ToInt32(id));
-            for (int i = 0; i < dsTiposProy.Tables[0].Rows.Count; i++)
+            try
             {
-                txtTiposProy.Text = dsTiposProy.Tables[0].Rows[i]["Nombre"].ToString();
+                DataSet dsTiposProy = cC.getTiposProy(Convert.ToInt32(id));
+                for (int i = 0; i < dsTiposProy.Tables[0].Rows.Count; i++)
+                {
+                    txtTiposProy.Text = dsTiposProy.Tables[0].Rows[i]["Nombre"].ToString();
+                }
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Lectura_TiposProyecto.aspx");
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

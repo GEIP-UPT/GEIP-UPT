@@ -43,10 +43,9 @@ namespace GEIP_UPT
 
                 }
                 catch (Exception error){
-                    //Response.Redirect("Login_Administrar.aspx");
+                    modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                    errorModal();
                 }
-                    
-           
             }
             else
             {
@@ -57,160 +56,193 @@ namespace GEIP_UPT
 
         protected void proyectosPendientes(int id)
         {
-            DataSet datos = cB.getProyectosPendientesAsesor(id);
-            if (datos.Tables[0].Rows.Count>0)
+            try
             {
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                DataSet datos = cB.getProyectosPendientesAsesor(id);
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
 
-                TablaProyectos.Style.Add("display", "init");
-                LlenarTablaPendientes(TablaProyectos, datos);
+                    TablaProyectos.Style.Add("display", "init");
+                    LlenarTablaPendientes(TablaProyectos, datos);
+                }
+                else
+                {
+                    TablaProyectos.Style.Add("display", "none");
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                }
             }
-            else
+            catch (Exception e)
             {
-                TablaProyectos.Style.Add("display", "none");
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
-
         }
 
-        protected void consultaProyectos(int id,int estado)
+        protected void consultaProyectos(int id, int estado)
         {
-           
-           DataSet datos = cB.getProyectosPorAsesor(id,estado);
-            if (datos.Tables[0].Rows.Count>0)
+            try
             {
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                DataSet datos = cB.getProyectosPorAsesor(id, estado);
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
 
-                TablaProyectos.Style.Add("display", "init");
-                LlenarTabla(TablaProyectos, datos);
+                    TablaProyectos.Style.Add("display", "init");
+                    LlenarTabla(TablaProyectos, datos);
+                }
+                else
+                {
+                    TablaProyectos.Style.Add("display", "none");
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+
+                }
             }
-            else
+            catch (Exception e)
             {
                 TablaProyectos.Style.Add("display", "none");
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
 
             }
-
 
         }
 
         public void LlenarTabla(Table tabla, DataSet datos)
         {
-            for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
+            try
             {
-                TableRow tempRow = new TableRow();
-                for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
+                for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
-                    TableCell tempCell = new TableCell();
-                    tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
-
-                    if (datos.Tables[0].Columns[j].ToString() == "Estado")
+                    TableRow tempRow = new TableRow();
+                    for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
                     {
-                        string estado = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
-                        //EDITAR ESTADO
-                        TableCell tempCellEditStatus = new TableCell();
-                        
-                        Literal lt1 = new Literal();
-                        string option1 = "<option value = '0' selected = 'selected'> Inactivo</option>";
-                        string option2 = "<option value = '1'> Activo </option >";
-                        if (estado.Equals("ACTIVO"))
+                        TableCell tempCell = new TableCell();
+                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
+
+                        if (datos.Tables[0].Columns[j].ToString() == "Estado")
                         {
-                             option1 = "<option value = '0'> Inactivo</option>";
-                             option2 = "<option value = '1'  selected = 'selected'> Activo </option >";
+                            string estado = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
+                            //EDITAR ESTADO
+                            TableCell tempCellEditStatus = new TableCell();
+
+                            Literal lt1 = new Literal();
+                            string option1 = "<option value = '0' selected = 'selected'> Inactivo</option>";
+                            string option2 = "<option value = '1'> Activo </option >";
+                            if (estado.Equals("ACTIVO"))
+                            {
+                                option1 = "<option value = '0'> Inactivo</option>";
+                                option2 = "<option value = '1'  selected = 'selected'> Activo </option >";
+                            }
+
+                            lt1.Text = " <select id='drpEstado" + datos.Tables[0].Rows[i]["id_proyecto"] + "' idProyecto='" + datos.Tables[0].Rows[i]["id_proyecto"] + "' class='brad-5' onchange='drpChange(this)'>" +
+                                option1 +
+                                option2 +
+                                "</select>";
+
+
+                            tempCellEditStatus.Controls.Add(lt1);
+                            tempRow.Cells.Add(tempCellEditStatus);
+
+                        }
+                        else
+                        {
+                            tempRow.Cells.Add(tempCell);
                         }
 
-                        lt1.Text = " <select id='drpEstado"+ datos.Tables[0].Rows[i]["id_proyecto"] + "' idProyecto='"+ datos.Tables[0].Rows[i]["id_proyecto"] + "' class='brad-5' onchange='drpChange(this)'>" +
-                            option1 +
-                            option2 +
-                            "</select>";
- 
-
-                        tempCellEditStatus.Controls.Add(lt1);
-                        tempRow.Cells.Add(tempCellEditStatus);
-
-                    }
-                    else
-                    {
-                        tempRow.Cells.Add(tempCell);
                     }
 
+                    //COLUMNA VER MAS
+
+                    string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
+                    TableCell tempCellView = new TableCell();
+
+
+                    Literal ltbr = new Literal();
+                    ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
+                    tempCellView.Controls.Add(ltbr);
+                    tempCellView.CssClass = "text-center";
+                    tempCellView.Style.Add("vertical-align", "middle");
+                    tempRow.Cells.Add(tempCellView);
+
+
+                    tabla.Rows.Add(tempRow);
                 }
+            }
+            catch (Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
 
-                //COLUMNA VER MAS
-
-                string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
-                TableCell tempCellView = new TableCell();
-
-
-                Literal ltbr = new Literal();
-                ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
-                tempCellView.Controls.Add(ltbr);
-                tempCellView.CssClass = "text-center";
-                tempCellView.Style.Add("vertical-align", "middle");
-                tempRow.Cells.Add(tempCellView);
-
-
-                tabla.Rows.Add(tempRow);
             }
         }
 
         public void LlenarTablaPendientes(Table tabla, DataSet datos)
-        {
-            for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
             {
-                TableRow tempRow = new TableRow();
-                for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
+            try
+            {
+                for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
-                    TableCell tempCell = new TableCell();
-                    tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
-
-                    if (datos.Tables[0].Columns[j].ToString() == "Estado")
+                    TableRow tempRow = new TableRow();
+                    for (int j = 0; j < datos.Tables[0].Columns.Count; j++)
                     {
-                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
+                        TableCell tempCell = new TableCell();
+                        tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
+
+                        if (datos.Tables[0].Columns[j].ToString() == "Estado")
+                        {
+                            tempCell.Text = datos.Tables[0].Rows[i][j].ToString().Equals("0") ? "INACTIVO" : "ACTIVO";
+                        }
+
+                        if (datos.Tables[0].Columns[j].ToString() == "EstadoAdmin")
+                        {
+                            //EDITAR ESTADO
+                            TableCell tempCellEditStatus = new TableCell();
+
+                            Literal lt1 = new Literal();
+                            string option1 = "<option value = '0' selected = 'selected'> Pendiente </option>";
+                            string option2 = "<option value = '1' > Enviar </option>";
+
+
+                            lt1.Text = " <select id='drpEstado" + datos.Tables[0].Rows[i]["id_proyecto"] + "' idProyecto='" + datos.Tables[0].Rows[i]["id_proyecto"] + "' class='brad-5' onchange='drpChangePendientes(this)'>" +
+                                option1 +
+                                option2 +
+                                " </select>";
+
+
+                            tempCellEditStatus.Controls.Add(lt1);
+                            tempRow.Cells.Add(tempCellEditStatus);
+
+                        }
+                        else
+                        {
+                            tempRow.Cells.Add(tempCell);
+                        }
+
                     }
 
-                    if (datos.Tables[0].Columns[j].ToString() == "EstadoAdmin")
-                    {
-                        //EDITAR ESTADO
-                        TableCell tempCellEditStatus = new TableCell();
+                    //COLUMNA VER MAS
 
-                        Literal lt1 = new Literal();
-                        string option1 = "<option value = '0' selected = 'selected'> Pendiente </option>";
-                        string option2 = "<option value = '1' > Enviar </option>";
+                    string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
+                    TableCell tempCellView = new TableCell();
 
 
-                        lt1.Text = " <select id='drpEstado" + datos.Tables[0].Rows[i]["id_proyecto"] + "' idProyecto='" + datos.Tables[0].Rows[i]["id_proyecto"] + "' class='brad-5' onchange='drpChangePendientes(this)'>" +
-                            option1 +
-                            option2 +
-                            " </select>";
+                    Literal ltbr = new Literal();
+                    ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
+                    tempCellView.Controls.Add(ltbr);
+                    tempCellView.CssClass = "text-center";
+                    tempCellView.Style.Add("vertical-align", "middle");
+                    tempRow.Cells.Add(tempCellView);
 
 
-                        tempCellEditStatus.Controls.Add(lt1);
-                        tempRow.Cells.Add(tempCellEditStatus);
-
-                    }
-                    else
-                    {
-                        tempRow.Cells.Add(tempCell);
-                    }
-
+                    tabla.Rows.Add(tempRow);
                 }
-
-                //COLUMNA VER MAS
-
-                string id = datos.Tables[0].Rows[i]["id_proyecto"].ToString();
-                TableCell tempCellView = new TableCell();
-
-
-                Literal ltbr = new Literal();
-                ltbr.Text = "<button type = 'button' class='btn' onclick=clickView(" + id + ")><i class='far fa-eye' ></i></button>";
-                tempCellView.Controls.Add(ltbr);
-                tempCellView.CssClass = "text-center";
-                tempCellView.Style.Add("vertical-align", "middle");
-                tempRow.Cells.Add(tempCellView);
-
-
-                tabla.Rows.Add(tempRow);
+            }
+            catch (Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
         }
 
@@ -275,7 +307,8 @@ namespace GEIP_UPT
             }
             catch (Exception error)
             {
-                MessageBox.Show("Ha ocurido un error, por favor intente de nuevo");
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
 
         }
@@ -314,13 +347,23 @@ namespace GEIP_UPT
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show("Ha ocurrido un error,por favor intentelo más tarde");
+                    modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                    errorModal();
                 }
 
                 Page.Response.Redirect(Page.Request.Url.ToString(), true);
             }
 
 
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion_asesores.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

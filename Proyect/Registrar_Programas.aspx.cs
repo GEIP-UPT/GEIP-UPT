@@ -25,10 +25,25 @@ namespace GEIP_UPT
 
         protected void btnRegProgramas_Click(object sender, EventArgs e)
         {
-            string programas = txtProgramas.Text;
+            try
+            {
+                string programas = txtProgramas.Text;
 
-            manager.guardarProgramas(programas);
-            Response.Redirect("Lectura_Programas.aspx");
+                manager.guardarProgramas(programas);
+                Response.Redirect("Lectura_Programas.aspx");
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

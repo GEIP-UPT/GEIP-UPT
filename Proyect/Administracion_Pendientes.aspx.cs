@@ -29,20 +29,31 @@ namespace GEIP_UPT
         {
 
             DataSet datos = cB.ProyectosPendientesAdmin();
-            if (datos.Tables[0].Rows.Count > 0)
-            {
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
 
-                TablaProyectos.Style.Add("display", "init");
-                LlenarTabla(TablaProyectos, datos);
+            if (datos != null)
+            {
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+
+                    TablaProyectos.Style.Add("display", "init");
+                    LlenarTabla(TablaProyectos, datos);
+                }
+                else
+                {
+                    TablaProyectos.Style.Add("display", "none");
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+
+                }
             }
             else
             {
-                //TablaProyectos.Style.Add("display", "none");
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                TablaProyectos.Style.Add("display", "none");
 
+                modalText.Text = "Ocurrio un error inesperado al buscar los proyectos pendientes, intentelo más tarde.";
+                errorModal();
             }
-
         }
 
         public void LlenarTabla(Table tabla, DataSet datos)
@@ -168,7 +179,8 @@ namespace GEIP_UPT
             }
             catch (Exception error)
             {
-                MessageBox.Show("Ha ocurido un error, por favor intente de nuevo");
+                modalText.Text = "Ha ocurrido un error, por favor intentelo más tarde.";
+                errorModal();
             }
 
         }
@@ -187,19 +199,28 @@ namespace GEIP_UPT
                 
 
                 bool update = mp.updateEstadoAd(idP, estado);
-                if (!update) { 
-                  MessageBox.Show("Ha ocurrido un error,por favor intentelo más tarde");
+                if (!update)
+                {
+                    modalText.Text = "Ha ocurrido un error, por favor intentelo más tarde.";
+                    errorModal();
                 }
             }
            catch (Exception error)
             {
-               MessageBox.Show("Ha ocurrido un error,por favor intentelo más tarde");
+                modalText.Text = "Ha ocurrido un error, por favor intentelo más tarde.";
+                errorModal();
             }
 
             Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
 
-
-
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
+        }
     }
 }

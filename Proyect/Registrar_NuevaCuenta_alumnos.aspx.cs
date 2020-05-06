@@ -12,6 +12,8 @@ namespace GEIP_UPT
 {
     public partial class Registrar_NuevaCuenta_alumnos : System.Web.UI.Page
     {
+        ConsultasBD cB = new ConsultasBD();
+        Registros reg = new Registros();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Dl_Carrera.Items.Count==1) {
@@ -21,44 +23,54 @@ namespace GEIP_UPT
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            String nombre = Tb_Nombre.Text;
-            String apellidoP = Tb_apellidoP.Text;
-            String apellidoM = Tb_apellidoM.Text;
-            String correo = Tb_correo.Text;
-            String contrasena = Tb_contraseña.Text;
-            int carrera = int.Parse(Dl_Carrera.SelectedValue);
-            String contacto = Tb_contacto.Text;
-
-            if (validar())
+            try
             {
-                MsgError.Visible = false;
-                int matricula = int.Parse(Tb_matricula.Text);
-                int edad = int.Parse(Dl_Edad.SelectedValue);
+                String nombre = Tb_Nombre.Text;
+                String apellidoP = Tb_apellidoP.Text;
+                String apellidoM = Tb_apellidoM.Text;
+                String correo = Tb_correo.Text;
+                String contrasena = Tb_contraseña.Text;
+                int carrera = int.Parse(Dl_Carrera.SelectedValue);
+                String contacto = Tb_contacto.Text;
 
-                Registros rA = new Registros();
+                if (validar())
+                {
+                    MsgError.Visible = false;
+                    int matricula = int.Parse(Tb_matricula.Text);
+                    int edad = int.Parse(Dl_Edad.SelectedValue); 
 
-                    rA.RegistroAlumoP(nombre, edad, apellidoP, apellidoM, correo, contrasena, matricula, carrera, contacto);
+                    reg.RegistroAlumoP(nombre, edad, apellidoP, apellidoM, correo, contrasena, matricula, carrera, contacto);
                     Response.Redirect("Login_alumnos.aspx");
-                
-                
-            }
-            else
+
+
+                }
+                else
+                {
+                    MsgError.Visible = true;
+                }
+            }catch(Exception ex)
             {
-                MsgError.Visible = true;
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
            
         }
 
         protected void LlenarCarreas()
         {
-            ConsultasBD cB = new ConsultasBD();
-            SqlDataReader carreras = cB.getCarreras();
-            while (carreras.Read())
+            try
             {
-                Dl_Carrera.Items.Add(new ListItem(carreras["carrera"].ToString(), carreras["id"].ToString()));
+                SqlDataReader carreras = cB.getCarreras();
+                while (carreras.Read())
+                {
+                    Dl_Carrera.Items.Add(new ListItem(carreras["carrera"].ToString(), carreras["id"].ToString()));
+                }
+                cB.conect.Close();
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
-            cB.conect.Close();
-
         }
 
 
@@ -119,13 +131,28 @@ namespace GEIP_UPT
 
         protected void Tb_matricula_TextChanged(object sender, EventArgs e)
         {
-            Registros reg = new Registros();
+            try
+            {
 
-            if (reg.ExistematriculaVacia(int.Parse(Tb_matricula.Text)))
-                hf_TipoGuardado.Value = "Modificar";
-            else
-                hf_TipoGuardado.Value = "Guardar";
+                if (reg.ExistematriculaVacia(int.Parse(Tb_matricula.Text)))
+                    hf_TipoGuardado.Value = "Modificar";
+                else
+                    hf_TipoGuardado.Value = "Guardar";
 
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
+
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'index.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

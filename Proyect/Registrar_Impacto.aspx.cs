@@ -25,10 +25,25 @@ namespace GEIP_UPT
 
         protected void btnRegImpacto_Click(object sender, EventArgs e)
         {
-            string impacto = txtImpacto.Text;
+            try
+            {
+                string impacto = txtImpacto.Text;
 
-            manager.guardarImpacto(impacto);
-            Response.Redirect("Lectura_Impacto.aspx");
+                manager.guardarImpacto(impacto);
+                Response.Redirect("Lectura_Impacto.aspx");
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

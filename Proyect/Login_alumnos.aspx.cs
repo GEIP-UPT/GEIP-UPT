@@ -13,6 +13,8 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Remove("idProy");
+            Session.Remove("Matricula");
 
         }
 
@@ -30,22 +32,26 @@ namespace GEIP_UPT
                 String contrasena = tb_contrasena.Text;
 
                 Registros rA = new Registros();
-                bool existe = rA.existeAlumno(matricula, contrasena);
+                int existe = rA.existeAlumno(matricula, contrasena);
 
-                if (existe)
+                if (existe==1)
                 {
                     rA.conect.Close();
                     Session["Matricula"] = matricula.ToString();
 
                     Response.Redirect("Administracion_alumnos.aspx");
                 }
-                else
+                else if(existe==0)
                 {
                     MsgError.Text = "Alumno no encontrado, revise sus datos";
                     MsgError.Visible = true;
                     rA.conect.Close();
                 }
-
+                else
+                {
+                    modalText.Text = "Ocurrio un error inesperado al iniciar sesión, intentelo más tarde.";
+                    errorModal();
+                }
 
             }
             else
@@ -69,5 +75,12 @@ namespace GEIP_UPT
 
             return registro;
         }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal();", true);
+            upModal.Update();
+        }
+
     }
 }

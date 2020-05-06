@@ -19,24 +19,37 @@ namespace GEIP_UPT
 
         public SqlDataReader getAsesores()
         {
-            conect.Open();
-            SqlDataReader asesores = null;
-            String instruccion = "Select Nombre, id from Administrativo where Tipo='Asesor'";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            asesores = comando.ExecuteReader();
+            try
+            {
+                conect.Open();
+                SqlDataReader asesores = null;
+                String instruccion = "Select Nombre, id from Administrativo where Tipo='Asesor'";
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                asesores = comando.ExecuteReader();
 
-            return asesores;
+                return asesores;
+            }catch(Exception e)
+            {
+                return null;
+            }
         }
 
         public SqlDataReader getClasif()
         {
-            conect.Open();
-            SqlDataReader clasif = null;
-            String instruccion = "Select * from cat_Clasificaciones";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            clasif = comando.ExecuteReader();
+            try
+            {
+                conect.Open();
+                SqlDataReader clasif = null;
+                String instruccion = "Select * from cat_Clasificaciones";
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                clasif = comando.ExecuteReader();
 
-            return clasif;
+                return clasif;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public SqlDataReader getCarreras()
@@ -52,34 +65,53 @@ namespace GEIP_UPT
 
         public SqlDataReader getProgramas()
         {
-            conect.Open();
-            SqlDataReader programas = null;
-            String instruccion = "Select * from cat_Programas";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            programas = comando.ExecuteReader();
+            try
+            {
+                conect.Open();
+                SqlDataReader programas = null;
+                String instruccion = "Select * from cat_Programas";
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                programas = comando.ExecuteReader();
 
-            return programas;
+                return programas;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public SqlDataReader getTipos()
         {
-            conect.Open();
-            SqlDataReader tipos = null;
-            String instruccion = "Select * from cat_TiposProyecto";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            tipos = comando.ExecuteReader();
+            try {
+                conect.Open();
+                SqlDataReader tipos = null;
+                String instruccion = "Select * from cat_TiposProyecto";
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                tipos = comando.ExecuteReader();
 
-            return tipos;
+                return tipos;
+            } catch (Exception e)
+            {
+                return null;
+            }
         }
         public SqlDataReader getMateriasImp()
         {
-            conect.Open();
-            SqlDataReader materias = null;
-            String instruccion = "Select * from cat_Impacto";
-            SqlCommand comando = new SqlCommand(instruccion, conect);
-            materias = comando.ExecuteReader();
+            try
+            {
+                conect.Open();
+                SqlDataReader materias = null;
+                String instruccion = "Select * from cat_Impacto";
+                SqlCommand comando = new SqlCommand(instruccion, conect);
+                materias = comando.ExecuteReader();
 
-            return materias;
+                return materias;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public DataSet getProyectosPorEstadoAdmin(String estadoAdmin)
@@ -107,22 +139,27 @@ namespace GEIP_UPT
         {
             conect.Open();
             DataSet datColeccion = new DataSet();
-
-            String consulta = "SELECT id_proyecto,Nombre,Descripcion, Avance, Fecha, EstadoAdmin, Estado FROM Proyectos WHERE EstadoAdmin='REVISION ADMIN'";
-            SqlCommand sqlComman = new SqlCommand(consulta, conect);
-
-            using (sqlComman)
+            try
             {
-                sqlComman.CommandType = CommandType.Text;
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlComman);
-                sqlDataAdapter.Fill(datColeccion, "Datos");
+                String consulta = "SELECT id_proyecto,Nombre,Descripcion, Avance, Fecha, EstadoAdmin, Estado FROM Proyectos WHERE EstadoAdmin='REVISION ADMIN'";
+                SqlCommand sqlComman = new SqlCommand(consulta, conect);
+
+                using (sqlComman)
+                {
+                    sqlComman.CommandType = CommandType.Text;
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlComman);
+                    sqlDataAdapter.Fill(datColeccion, "Datos");
+                }
+                
+                conect.Close();
+                return datColeccion;
             }
-
-
-            conect.Close();
-
-            return datColeccion;
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public DataSet getProyectosPendientesAsesor(int asesorId)
@@ -169,37 +206,42 @@ namespace GEIP_UPT
         }
         public DataSet getProyectosDetallePorId(int id)
         {
-            conect.Open();
-            DataSet datColeccion = new DataSet();
-
-            String consulta = "SELECT Proyectos.id_proyecto, Proyectos.Nombre,Proyectos.Descripcion as Descripción" +
-                ",cat_TiposProyecto.Nombre as 'Tipo de Proyecto',cat_Clasificaciones.Nombre as 'Clasificación',Avance"+
-                ",cat_Programas.Nombre as 'Programa',Cuatrimestre,Fecha,Convocatoria,Recursos,EstadoAdmin,Estado"+
-                ",JustificionInactividad,Administrativo.Nombre as 'Nombre Asesor',Administrativo.Correo as 'Correo Asesor',Administrativo.Contacto as 'Contacto Asesor' " +
-                ", Proyectos.Tipo as 'idTipo', Proyectos.Clasificacion as 'idClas', Proyectos.Programa as 'idProg', Proyectos.Asesor as 'idAsesor'"+
-                ", Proyectos.Avance as 'Avc'"+
-                "FROM Proyectos "+
-                "INNER JOIN Administrativo ON Proyectos.Asesor = Administrativo.id "+
-                "INNER JOIN cat_TiposProyecto ON Proyectos.Tipo = cat_TiposProyecto.id "+
-                "INNER JOIN cat_Clasificaciones ON Proyectos.Clasificacion = cat_Clasificaciones.id "+
-                "INNER JOIN cat_Programas ON Proyectos.Programa = cat_Programas.id "+
-                "WHERE Proyectos.id_proyecto = "+id;
-            
-            
-            SqlCommand sqlComman = new SqlCommand(consulta, conect);
-
-            using (sqlComman)
+            try
             {
-                sqlComman.CommandType = CommandType.Text;
+                conect.Open();
+                DataSet datColeccion = new DataSet();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlComman);
-                sqlDataAdapter.Fill(datColeccion, "Datos");
+                String consulta = "SELECT Proyectos.id_proyecto, Proyectos.Nombre,Proyectos.Descripcion as Descripción" +
+                    ",cat_TiposProyecto.Nombre as 'Tipo de Proyecto',cat_Clasificaciones.Nombre as 'Clasificación',Avance" +
+                    ",cat_Programas.Nombre as 'Programa',Cuatrimestre,Fecha,Convocatoria,Recursos,EstadoAdmin,Estado" +
+                    ",JustificionInactividad,Administrativo.Nombre as 'Nombre Asesor',Administrativo.Correo as 'Correo Asesor',Administrativo.Contacto as 'Contacto Asesor' " +
+                    ", Proyectos.Tipo as 'idTipo', Proyectos.Clasificacion as 'idClas', Proyectos.Programa as 'idProg', Proyectos.Asesor as 'idAsesor'" +
+                    ", Proyectos.Avance as 'Avc'" +
+                    "FROM Proyectos " +
+                    "INNER JOIN Administrativo ON Proyectos.Asesor = Administrativo.id " +
+                    "INNER JOIN cat_TiposProyecto ON Proyectos.Tipo = cat_TiposProyecto.id " +
+                    "INNER JOIN cat_Clasificaciones ON Proyectos.Clasificacion = cat_Clasificaciones.id " +
+                    "INNER JOIN cat_Programas ON Proyectos.Programa = cat_Programas.id " +
+                    "WHERE Proyectos.id_proyecto = " + id;
+
+
+                SqlCommand sqlComman = new SqlCommand(consulta, conect);
+
+                using (sqlComman)
+                {
+                    sqlComman.CommandType = CommandType.Text;
+
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlComman);
+                    sqlDataAdapter.Fill(datColeccion, "Datos");
+                }
+
+                conect.Close();
+                return datColeccion;
+
+            }catch(Exception e)
+            {
+                return null;
             }
-
-
-            conect.Close();
-
-            return datColeccion;
         }
 
         public DataSet getProyectosDetalle()
@@ -324,6 +366,28 @@ namespace GEIP_UPT
             }
             conect.Close();
             return false;
+        }
+
+        public DataSet AlumnosLectores()
+        {
+            conect.Open();
+            DataSet datColeccion = new DataSet();
+            String consulta = "select * from UsuarioLectura";
+            SqlCommand sqlComman = new SqlCommand(consulta, conect);
+
+            using (sqlComman)
+            {
+                sqlComman.CommandType = CommandType.Text;
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlComman);
+                sqlDataAdapter.Fill(datColeccion, "Datos");
+
+            }
+
+
+            conect.Close();
+
+            return datColeccion;
         }
 
         public DataSet proyectosActivos()

@@ -87,6 +87,10 @@
 
                     <asp:Button ID="btnView" class="btn-info d-none" runat="server" Text="Submit"          
            OnClick="btnSubmit_Click"></asp:Button>
+
+                    <div id="alert" class="alert alert-warning text-center pt-30 " role="alert">
+                     NO HAY REGISTROS
+                    </div>
 			
                 <div class="col-md-12 pt-15">
 
@@ -279,6 +283,36 @@
                </asp:UpdatePanel>
            </div>
     </div>
+
+     <%--        MODAL DE ERROR--%>
+     
+         <div class="modal fade bd-example-modal-lg show " id="modalError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-lg" role="document">
+
+               <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                   <ContentTemplate>
+                      
+                       <div class="modal-content">
+                                    
+                                  <div class="modal-header">
+                                        <h4 class="modal-title">Ha ocurrido un error</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                                      </div>
+                                  <div class="modal-body">
+                                        <asp:Label ID="modalText" runat="server"></asp:Label>
+                                         </div>
+                                    <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                      </div>    
+                       </div>
+
+
+                   </ContentTemplate>
+               </asp:UpdatePanel>
+           </div>
+     </div>
+            <%--TERMINOMODAL--%>
 
 
  

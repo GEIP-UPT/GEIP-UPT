@@ -35,28 +35,51 @@ namespace GEIP_UPT
 
         protected void btnEditImpacto_Click(object sender, EventArgs e)
         {
-            txtImpacto.Attributes.Add("value", txtImpacto.Text);
-            string id = Request.QueryString["id"];
-            string NewImpacto = txtImpacto.Text;
-            
-            manager.updateImpacto(NewImpacto, Convert.ToInt32(id));
-            MessageBox.Show("Modificado");
-            Response.Redirect("Lectura_Impacto.aspx");
+            try
+            {
+                txtImpacto.Attributes.Add("value", txtImpacto.Text);
+                string id = Request.QueryString["id"];
+                string NewImpacto = txtImpacto.Text;
+
+                manager.updateImpacto(NewImpacto, Convert.ToInt32(id));
+                MessageBox.Show("Modificado");
+                Response.Redirect("Lectura_Impacto.aspx");
+            }
+            catch (Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void Buscar(int id)
         {
-            DataSet dsImpacto = cC.getImpacto(Convert.ToInt32(id));
-            for (int i = 0; i < dsImpacto.Tables[0].Rows.Count; i++)
+            try
             {
-                txtImpacto.Text = dsImpacto.Tables[0].Rows[i]["Nombre"].ToString();
+                DataSet dsImpacto = cC.getImpacto(Convert.ToInt32(id));
+                for (int i = 0; i < dsImpacto.Tables[0].Rows.Count; i++)
+                {
+                    txtImpacto.Text = dsImpacto.Tables[0].Rows[i]["Nombre"].ToString();
+                }
+            }catch(Exception e)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Lectura_Impacto.aspx");
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

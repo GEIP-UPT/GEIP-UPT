@@ -35,21 +35,37 @@ namespace GEIP_UPT
 
         protected void btnEditClasif_Click(object sender, EventArgs e)
         {
-            txtClasif.Attributes.Add("value", txtClasif.Text);
-            string id = Request.QueryString["id"];
-            string NewClasif = txtClasif.Text;
-            
-            manager.updateClasif(NewClasif, Convert.ToInt32(id));
-            MessageBox.Show("Modificado");
-            Response.Redirect("Lectura_Clasificaciones.aspx");
+            try
+            {
+                txtClasif.Attributes.Add("value", txtClasif.Text);
+                string id = Request.QueryString["id"];
+                string NewClasif = txtClasif.Text;
+
+                manager.updateClasif(NewClasif, Convert.ToInt32(id));
+                MessageBox.Show("Modificado");
+                Response.Redirect("Lectura_Clasificaciones.aspx");
+            }
+            catch (Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void Buscar(int id)
         {
-            DataSet dsClasif = cC.getClas(Convert.ToInt32(id));
-            for (int i = 0; i < dsClasif.Tables[0].Rows.Count; i++)
+            try
             {
-                txtClasif.Text = dsClasif.Tables[0].Rows[i]["Nombre"].ToString();
+                DataSet dsClasif = cC.getClas(Convert.ToInt32(id));
+                for (int i = 0; i < dsClasif.Tables[0].Rows.Count; i++)
+                {
+                    txtClasif.Text = dsClasif.Tables[0].Rows[i]["Nombre"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
             
         }
@@ -57,6 +73,15 @@ namespace GEIP_UPT
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Lectura_Clasificaciones.aspx");
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

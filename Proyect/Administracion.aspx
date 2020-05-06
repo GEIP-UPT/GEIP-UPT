@@ -25,7 +25,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-light bg-UPT" style="background-image:  url(imagenes/head.png);  ">
             <a class="navbar-brand" href="#"> <img src="imagenes/logo.png" width="70" height="70" alt=""></a>
+
            	<h2 id="centrar">GEIP-UPT</h2>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon">  <i class="fas fa-fish"></i></span>
 			  </button>
@@ -74,7 +76,7 @@
                             <a class="dropdown-item" href="Lectura_Administrativos.aspx">Administrativos</a>
                             <a class="dropdown-item" href="Lectura_Carreras.aspx">Carreras</a>
                             <a class="dropdown-item" href="Lectura_Clasificaciones.aspx">Clasificaciones</a>
-                            <a class="dropdown-item" href="Lectura_datos_alumnos_soloLectura.aspx">Alumnos de lectura</a>
+                            <a class="dropdown-item" href="AlumnosLectores.aspx">Alumnos de lectura</a>
                             <a class="dropdown-item" href="Lectura_Impacto.aspx">Materias de impacto</a>
                             <a class="dropdown-item" href="Lectura_Programas.aspx">Programas Educativos</a>
                             <a class="dropdown-item" href="Lectura_TiposProyecto.aspx">Tipos de Proyectos</a>

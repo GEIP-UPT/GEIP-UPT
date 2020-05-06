@@ -12,6 +12,7 @@ namespace GEIP_UPT
 {
     public partial class Registrar_Proyecto_Parte_1 : System.Web.UI.Page
     {
+        ConsultasBD cB = new ConsultasBD();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Matricula"] == null)
@@ -32,48 +33,80 @@ namespace GEIP_UPT
 
         protected void llenarTipos()
         {
-            ConsultasBD cB = new ConsultasBD();
             SqlDataReader tipos = cB.getTipos();
-            while (tipos.Read())
+            if (tipos != null)
             {
-                dl_Tipo.Items.Add(new ListItem(tipos["Nombre"].ToString(), tipos["id"].ToString()));
+                while (tipos.Read())
+                {
+                    dl_Tipo.Items.Add(new ListItem(tipos["Nombre"].ToString(), tipos["id"].ToString()));
+                }
+                cB.conect.Close();
             }
-            cB.conect.Close();
+            else
+            {
+                cB.conect.Close();
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         protected void llenarProgramas()
         {
-            ConsultasBD cB = new ConsultasBD();
             SqlDataReader programas = cB.getProgramas();
-            while (programas.Read())
+            if (programas != null)
             {
-                dl_Programas.Items.Add(new ListItem(programas["Nombre"].ToString(), programas["id"].ToString()));
+                while (programas.Read())
+                {
+                    dl_Programas.Items.Add(new ListItem(programas["Nombre"].ToString(), programas["id"].ToString()));
+                }
+                cB.conect.Close();
             }
-            cB.conect.Close();
+            else
+            {
+                cB.conect.Close();
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
 
         protected void llenarClasif()
         {
-            ConsultasBD cB = new ConsultasBD();
             SqlDataReader clasif = cB.getClasif();
-            while (clasif.Read())
+            if (clasif != null)
             {
-                Dl_Clasificacion.Items.Add(new ListItem(clasif["Nombre"].ToString(), clasif["id"].ToString()));
+                while (clasif.Read())
+                {
+                    Dl_Clasificacion.Items.Add(new ListItem(clasif["Nombre"].ToString(), clasif["id"].ToString()));
+                }
+                cB.conect.Close();
             }
-            cB.conect.Close();
+            else
+            {
+                cB.conect.Close();
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
 
         protected void llenarAsesores()
         {
-            ConsultasBD cB = new ConsultasBD();
             SqlDataReader asesores = cB.getAsesores();
-            while (asesores.Read())
+            if (asesores != null)
             {
-                Dl_Asesores.Items.Add(new ListItem(asesores["Nombre"].ToString(), asesores["id"].ToString()));
+                while (asesores.Read())
+                {
+                    Dl_Asesores.Items.Add(new ListItem(asesores["Nombre"].ToString(), asesores["id"].ToString()));
+                }
+                cB.conect.Close();
             }
-            cB.conect.Close();
+            else
+            {
+                cB.conect.Close();
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
                 
         }
 
@@ -84,8 +117,6 @@ namespace GEIP_UPT
 
         protected void Btn_Guardar_Click(object sender, EventArgs e)
         {
-          //  ScriptManager.RegisterClientScriptBlock(this, GetType(), "mykey", "hola();", true);
-
             if (validar())
             {
                 MsgError.Visible = false;
@@ -121,6 +152,15 @@ namespace GEIP_UPT
             valido = Dl_Avance.SelectedValue.Equals("Defecto") ? false : valido;
             Dl_Avance.BackColor = Dl_Avance.SelectedValue.Equals("Defecto") ? Color.PaleVioletRed : Color.White;
             return valido;
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion_alumnos.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
 
     }

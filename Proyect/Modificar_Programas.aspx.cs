@@ -35,27 +35,48 @@ namespace GEIP_UPT
 
         protected void btnEditProy_Click(object sender, EventArgs e)
         {
-            txtProy.Attributes.Add("value", txtProy.Text);
-            string id = Request.QueryString["id"];
-            string NewProyecto = txtProy.Text;
-            
-            manager.updateProgramas(NewProyecto, Convert.ToInt32(id));
-            Response.Redirect("Lectura_Programas.aspx");
+            try
+            {
+                txtProy.Attributes.Add("value", txtProy.Text);
+                string id = Request.QueryString["id"];
+                string NewProyecto = txtProy.Text;
+
+                manager.updateProgramas(NewProyecto, Convert.ToInt32(id));
+                Response.Redirect("Lectura_Programas.aspx");
+            }catch(Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
 
         public void Buscar(int id)
         {
-            DataSet dsProyecto = cC.getPrograma(Convert.ToInt32(id));
-            for (int i = 0; i < dsProyecto.Tables[0].Rows.Count; i++)
+            try
             {
-                txtProy.Text = dsProyecto.Tables[0].Rows[i]["Nombre"].ToString();
+                DataSet dsProyecto = cC.getPrograma(Convert.ToInt32(id));
+                for (int i = 0; i < dsProyecto.Tables[0].Rows.Count; i++)
+                {
+                    txtProy.Text = dsProyecto.Tables[0].Rows[i]["Nombre"].ToString();
+                }
+            }catch(Exception ex)
+            {
+
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Lectura_Programas.aspx");
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

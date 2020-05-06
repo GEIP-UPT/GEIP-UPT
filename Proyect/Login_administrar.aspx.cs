@@ -13,7 +13,8 @@ namespace GEIP_UPT
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Remove("id_Admin");
+            Session.Remove("idAsesor");
         }
 
         protected void Ingresar_Click(object sender, EventArgs e)
@@ -27,8 +28,8 @@ namespace GEIP_UPT
 
                 Registros rA = new Registros();
                 int id = 0;
-                bool existe = rA.existeAdministrador(ref id,correo, contrasena, tipo);
-                if (existe)
+                int existe = rA.existeAdministrador(ref id,correo, contrasena, tipo);
+                if (existe==1) //existe
                 {
                    
                     if (Dl_TipoUsuario.SelectedValue.Equals("Administrador"))
@@ -46,11 +47,16 @@ namespace GEIP_UPT
 
                     rA.conect.Close();
                 }
-                else
+                else if(existe==0) //no existe
                 {
                     MsgError.Text = "Administrador no encontrado, revise sus datos";
                     MsgError.Visible = true;
                     rA.conect.Close();
+                }
+                else //error
+                {
+                    modalText.Text = "Ocurrio un error inesperado al iniciar sesión, intentelo más tarde.";
+                    errorModal();
                 }
 
 
@@ -75,6 +81,12 @@ namespace GEIP_UPT
             registro = tb_contrasena.Text.Equals("") ? false : registro;
 
             return registro;
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal();", true);
+            upModal.Update();
         }
     }
 }

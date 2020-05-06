@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,50 +9,35 @@ using System.Windows;
 
 namespace GEIP_UPT
 {
-    public partial class Lectura_Administrativos : System.Web.UI.Page
+    public partial class AlumnosLectores : System.Web.UI.Page
     {
-
-        ConsultasCatalogos cC = new ConsultasCatalogos();
-        ManejoInserts manager = new ManejoInserts();
-
+        ConsultasBD cBD = new ConsultasBD();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id_Admin"] != null)
-            {
-
-                ConsultarAdministrativos();
-
-            }
-            else
+            if (Session["id_Admin"] == null)
             {
                 Response.Redirect("Login_administrar.aspx");
             }
 
-
-        }
-
-
-        public void ConsultarAdministrativos()
-        {
             try
             {
-                DataSet dsAdmin = cC.getAdmin();
-                if (dsAdmin.Tables[0].Rows.Count > 0)
-                {
-                    LlenarTabla(tblCarreras, dsAdmin);
-                }
+                 DataSet datos = cBD.AlumnosLectores();
+                 LlenarTabla(TablaLectores, datos);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
                 errorModal();
             }
-        }
 
+        }
         public void LlenarTabla(Table tabla, DataSet datos)
         {
-            try
+            if (datos.Tables[0].Rows.Count != 0)
             {
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                TablaLectores.Style.Add("display", "init");
+
                 for (int i = 0; i < datos.Tables[0].Rows.Count; i++)
                 {
                     TableRow tempRow = new TableRow();
@@ -61,40 +45,25 @@ namespace GEIP_UPT
                     {
                         TableCell tempCell = new TableCell();
                         tempCell.Text = datos.Tables[0].Rows[i][j].ToString();
+
                         tempRow.Cells.Add(tempCell);
                     }
 
-
-                    string id = datos.Tables[0].Rows[i]["id"].ToString();
-                    TableCell tempCellView = new TableCell();
-
-
-                    Literal ltbr = new Literal();
-                    ltbr.Text = "<a href='Modificar_Administrativo.aspx/?id=" + id + "' class='btn btn-info'  >Modificar</a>";
-                    tempCellView.Controls.Add(ltbr);
-                    tempCellView.CssClass = "text-center";
-                    tempCellView.Style.Add("vertical-align", "middle");
-
-
-                    tempRow.Cells.Add(tempCellView);
                     tabla.Rows.Add(tempRow);
-
-
-
                 }
             }
-            catch (Exception e)
+            else
             {
-                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
-                errorModal();
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                TablaLectores.Style.Add("display", "none");
             }
-        }
 
+        }
         protected void errorModal()
         {
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
                 "$('#modalError').on('hidden.bs.modal', function(){" +
-                "  location.href= 'Administracion_alumnos.aspx' ; " +
+                "  location.href= 'Administracion.aspx' ; " +
                 " }); ", true);
             upModal.Update();
         }

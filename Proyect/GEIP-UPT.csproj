@@ -109,6 +109,7 @@
     <Content Include="Administracion.aspx" />
     <Content Include="Administracion_alumnos.aspx" />
     <Content Include="Administracion_asesores.aspx" />
+    <Content Include="AlumnosLectores.aspx" />
     <Content Include="Lectura_Administrativos.aspx" />
     <Content Include="Lectura_Carreras.aspx" />
     <Content Include="Lectura_Clasificaciones.aspx" />
@@ -136,8 +137,6 @@
     <Content Include="Datos_del_Proyecto_Adm.aspx" />
     <Content Include="Datos_del_Proyecto_Alum.aspx" />
     <Content Include="Datos_del_Proyecto_Asesor.aspx" />
-    <Content Include="Datos_del_Proyecto_inactivo_completos _asesor.aspx" />
-    <Content Include="Datos_del_Proyecto_inactivo_completos.aspx" />
     <Content Include="EditarAlumnos.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="favicon.ico" />
@@ -219,6 +218,13 @@
     </Compile>
     <Compile Include="Administracion_asesores.aspx.designer.cs">
       <DependentUpon>Administracion_asesores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnosLectores.aspx.cs">
+      <DependentUpon>AlumnosLectores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnosLectores.aspx.designer.cs">
+      <DependentUpon>AlumnosLectores.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -379,20 +385,6 @@
     </Compile>
     <Compile Include="Datos_del_Proyecto_Asesor.aspx.designer.cs">
       <DependentUpon>Datos_del_Proyecto_Asesor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Datos_del_Proyecto_inactivo_completos _asesor.aspx.cs">
-      <DependentUpon>Datos_del_Proyecto_inactivo_completos _asesor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Datos_del_Proyecto_inactivo_completos _asesor.aspx.designer.cs">
-      <DependentUpon>Datos_del_Proyecto_inactivo_completos _asesor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Datos_del_Proyecto_inactivo_completos.aspx.cs">
-      <DependentUpon>Datos_del_Proyecto_inactivo_completos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Datos_del_Proyecto_inactivo_completos.aspx.designer.cs">
-      <DependentUpon>Datos_del_Proyecto_inactivo_completos.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarAlumnos.aspx.cs">
       <DependentUpon>EditarAlumnos.aspx</DependentUpon>

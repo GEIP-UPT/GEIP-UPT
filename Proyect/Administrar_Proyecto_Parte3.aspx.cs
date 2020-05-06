@@ -12,30 +12,39 @@ namespace GEIP_UPT
 {
     public partial class Registrar_Proyecto_Parte3 : System.Web.UI.Page
     {
+        ConsultasBD cB = new ConsultasBD();
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             if (Session["Matricula"] == null)
             {
                 Response.Redirect("Login_alumnos.aspx");
             }
-            if (Cb_materias.Items.Count == 0) 
-                llenarCheck();
-
-            
+            else
+            {
+                if (Cb_materias.Items.Count == 0)
+                    llenarCheck();
+            }
         }
 
         protected void llenarCheck()
         {
-            ConsultasBD cB = new ConsultasBD();
             SqlDataReader materias = cB.getMateriasImp();
-
-            while (materias.Read())
+            if (materias != null)
             {
-                ListItem materia = new ListItem(materias["Nombre"].ToString(), materias["id"].ToString());
-                Cb_materias.Items.Add(materia);
-            }
+                while (materias.Read())
+                {
+                    ListItem materia = new ListItem(materias["Nombre"].ToString(), materias["id"].ToString());
+                    Cb_materias.Items.Add(materia);
+                }
 
-            cB.conect.Close();
+                cB.conect.Close();
+            }
+            else
+            {
+                cB.conect.Close();
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
         }
         protected void Sig_Click(object sender, EventArgs e)
         {
@@ -102,33 +111,49 @@ namespace GEIP_UPT
 
         protected void btnCargarCon_Click(object sender, EventArgs e)
         {
-            DateTime fechaSeleccionada;
-            //Solucion error formato fecha
-            DateTime dt = DateTime.Now;
-            int mes = dt.Month;
-            String[] dtSp = dt.ToString().Split(' ');
-            String[] auxD = dtSp[0].Split('/');
-            String[] fecha = (hf_fecha.Value).Split('/');
-
-            if (int.Parse(auxD[0]) == mes)
-               fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[0]), int.Parse(fecha[1]));
-            else
-                fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[1]), int.Parse(fecha[0]));
-
-            Calendario.SelectedDate = fechaSeleccionada;
-            Calendario.VisibleDate = fechaSeleccionada;
-
-            if (hf_convocatoria.Value.Equals("No"))
+            try
             {
-                Tb_lugar.Visible = false;
-                Rb_N.Checked = true;
+                DateTime fechaSeleccionada;
+                //Solucion error formato fecha
+                DateTime dt = DateTime.Now;
+                int mes = dt.Month;
+                String[] dtSp = dt.ToString().Split(' ');
+                String[] auxD = dtSp[0].Split('/');
+                String[] fecha = (hf_fecha.Value).Split('/');
+
+                if (int.Parse(auxD[0]) == mes)
+                    fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[0]), int.Parse(fecha[1]));
+                else
+                    fechaSeleccionada = new DateTime(int.Parse(fecha[2]), int.Parse(fecha[1]), int.Parse(fecha[0]));
+
+                Calendario.SelectedDate = fechaSeleccionada;
+                Calendario.VisibleDate = fechaSeleccionada;
+
+                if (hf_convocatoria.Value.Equals("No"))
+                {
+                    Tb_lugar.Visible = false;
+                    Rb_N.Checked = true;
+                }
+                else
+                {
+                    Tb_lugar.Visible = true;
+                    Tb_lugar.Text = hf_convocatoria.Value;
+                    Rb_Y.Checked = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Tb_lugar.Visible = true;
-                Tb_lugar.Text = hf_convocatoria.Value;
-                Rb_Y.Checked = true;
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
             }
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion_alumnos.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 

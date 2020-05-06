@@ -19,20 +19,22 @@ namespace GEIP_UPT
                 Response.Redirect("Login_administrar.aspx");
             }
 
-            //if (IsPostBack)
-            //{
-            String ids = getIds();
+            try
+            {
+                String ids = getIds();
                 if (!ids.Equals("")) //tiene proyectos
                 {
-                    DataSet datos = cBD.PreDatosProyectos(ids);
-                    LlenarTabla(TablaProyectos, datos);
-                }
-            //}
-        }
+                        DataSet datos = cBD.PreDatosProyectos(ids);
+                        LlenarTabla(TablaProyectos, datos);
 
-        //protected void btnCargarTabla_Click(object sender, EventArgs e)
-        //{
-        //}
+                }
+            }
+            catch (Exception ex)
+            {
+                modalText.Text = "Ha ocurrido un error, intentelo más tarde.";
+                errorModal();
+            }
+        }
 
         public void LlenarTabla(Table tabla, DataSet datos)
         {
@@ -151,6 +153,14 @@ namespace GEIP_UPT
 
             return idsText;
 
+        }
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }

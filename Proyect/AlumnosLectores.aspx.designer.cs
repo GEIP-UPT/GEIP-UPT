@@ -11,17 +11,17 @@ namespace GEIP_UPT
 {
 
 
-    public partial class Lectura_Clasificaciones
+    public partial class AlumnosLectores
     {
 
         /// <summary>
-        /// Control tblClasif.
+        /// Control TablaLectores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblClasif;
+        protected global::System.Web.UI.WebControls.Table TablaLectores;
 
         /// <summary>
         /// Control upModal.

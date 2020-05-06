@@ -23,12 +23,29 @@ namespace GEIP_UPT
 
             if (IsPostBack)
             {
-                String ids = getIds();
-                if (!ids.Equals("")) //tiene proyectos
+                try
                 {
-                    DataSet datos = cB.PreDatosProyectos(ids);
-                    LlenarTabla(TablaProyectos, datos);
+                    String ids = getIds();
+                    if (!ids.Equals("")) //tiene proyectos
+                    {
+                        DataSet datos = cB.PreDatosProyectos(ids);
+                        LlenarTabla(TablaProyectos, datos);
+                    }
+                    else
+                    {
+                        TablaProyectos.Style.Add("display", "none");
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').show();", true);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "alert", "$('#alert').hide();", true);
+                    TablaProyectos.Style.Add("display", "none");
+
+                    modalText.Text = "Ocurrio un error inesperado al buscar los proyectos pendientes, intentelo más tarde.";
+                    errorModal();
+                }
+
             }
 
         }
@@ -170,6 +187,15 @@ namespace GEIP_UPT
         {
             Session["idProy"] = Label1.Text;
             Response.Redirect("Administrar_Proyecto_Parte_1.aspx");
+        }
+
+        protected void errorModal()
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modalError", "$('#modalError').modal(); " +
+                "$('#modalError').on('hidden.bs.modal', function(){" +
+                "  location.href= 'Administracion_alumnos.aspx' ; " +
+                " }); ", true);
+            upModal.Update();
         }
     }
 }
